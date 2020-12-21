@@ -1,8 +1,8 @@
 # react-nanny
 
-> Utils to manage your React Children; find and filter children by type or custom function
+> Utils to manage your React Children; find and filter children by type or custom function, enforce child content, and more!
 
-<p><b>Version:</b> 0.0.2</p>
+<p><b>Version:</b> 0.0.3</p>
 
 <h2>Installation</h2>
 
@@ -494,7 +494,7 @@ README.md -- this file
       └───index.js - 2.78 KB
     └───/noEmptyChildren
       └───index.d.ts - 838 Bytes
-      └───index.js - 2.44 KB
+      └───index.js - 2.48 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
       └───index.js - 3.01 KB
@@ -521,7 +521,7 @@ README.md -- this file
       └───index.js - 544 Bytes
     └───/noEmptyChildren
       └───index.d.ts - 838 Bytes
-      └───index.js - 2.21 KB
+      └───index.js - 2.25 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
       └───index.js - 2.78 KB

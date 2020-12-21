@@ -33,7 +33,7 @@ export const noEmptyChildrenDeep = (component: any, { ignore = [], rejectCustom 
     return false;
   }
 
-  if (rejectEmptyCustom && isCustom(component) && !component?.props?.children) {
+  if ((rejectCustom && isCustom(component)) || (rejectEmptyCustom && isCustom(component) && !component?.props?.children)) {
     return false;
   }
 

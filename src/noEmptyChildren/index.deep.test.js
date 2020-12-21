@@ -178,6 +178,14 @@ describe('noEmptyChildrenDeep', () => {
     expect(noEmptyChildrenDeep(component)).toStrictEqual(false);
   });
 
+  test('Deep => rejectCustom => empty', () => {
+    const component = {
+      props: {
+        __TYPE: 'CustomComponent',
+      },
+    };
+    expect(noEmptyChildrenDeep(component, { rejectCustom: true })).toStrictEqual(false);
+  });
   test('Deep => rejectEmptyCustom => empty', () => {
     const component = {
       props: {
@@ -202,7 +210,7 @@ describe('noEmptyChildrenDeep', () => {
         children: 'content',
       },
     };
-    expect(noEmptyChildrenDeep(component)).toStrictEqual(true);
+    expect(noEmptyChildrenDeep(component, { rejectCustom: false, rejectEmptyCustom: true })).toStrictEqual(true);
   });
   test('Deep => Accept empty custom => empty', () => {
     const component = {
@@ -210,7 +218,7 @@ describe('noEmptyChildrenDeep', () => {
         __TYPE: 'CustomComponent',
       },
     };
-    expect(noEmptyChildrenDeep(component)).toStrictEqual(true);
+    expect(noEmptyChildrenDeep(component, { rejectCustom: false })).toStrictEqual(true);
   });
 
   test('Deep => ignore => not empty', () => {
