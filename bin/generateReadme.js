@@ -7,6 +7,7 @@ const dirTree = require('directory-tree');
 const { jsDocParse } = require('./jsDocParse');
 
 const index = async () => {
+  const root = join(__dirname, '..');
   const src = join(__dirname, '..', 'src');
   const dist = join(__dirname, '..', 'dist');
   const lib = join(__dirname, '..', 'dist', 'lib');
@@ -48,6 +49,7 @@ const index = async () => {
       console.log(err);
     }
     writeFileSync(join(dist, 'README.md'), output);
+    writeFileSync(join(root, 'README.md'), output);
   });
 };
 
@@ -66,7 +68,7 @@ const generateTable = util => (
     </thead>
     <tbody>` +
     util.params.map(x => (
-      `<tr><td><p><b style="font-size:18px">${x.name}${x.optional ? '<span style="margin-top: -2px; margin-left: 8px;">(optional)</span>' : ''}</b></p>${x.description}</td>` +
+      `<tr><td><p><b>${x.name}${x.optional ? ' <span>(optional)</span>' : ''}</b></p>${x.description}</td>` +
       `<td>${x.type}</td></tr>`
     ))
     .join('') +

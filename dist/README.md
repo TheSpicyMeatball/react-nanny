@@ -20,7 +20,7 @@ $ npm install react-nanny --save
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
   </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
@@ -51,7 +51,7 @@ import { getChild } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
   </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
@@ -82,7 +82,7 @@ import { getChildDeep } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
   </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
@@ -113,7 +113,7 @@ import { getChildByType } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
   </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
@@ -144,7 +144,7 @@ import { getChildByTypeDeep } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
   </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
 
 <h4>Import</h4>
@@ -175,7 +175,7 @@ import { getChildren } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
   </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
@@ -206,7 +206,7 @@ import { getChildrenDeep } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
   </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
 
 <h4>Import</h4>
@@ -237,7 +237,7 @@ import { getChildrenByType } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
   </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
 
 <h4>Import</h4>
@@ -268,7 +268,7 @@ import { getChildrenByTypeDeep } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">component</b></p>A component, array of components, or content of a component</td><td>any</td></tr><tr><td><p><b style="font-size:18px">config<span style="margin-top: -2px; margin-left: 8px;">(optional)</span></b></p>Configuration options for custom components</td><td>NoEmptyConfig</td></tr></tbody>
+    <tbody><tr><td><p><b>component</b></p>A component, array of components, or content of a component</td><td>any</td></tr><tr><td><p><b>config <span>(optional)</span></b></p>Configuration options for custom components</td><td>NoEmptyConfig</td></tr></tbody>
   </table><p><b>Returns:</b> {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth</p>
 
 <h4>Import</h4>
@@ -277,6 +277,12 @@ import { getChildrenByTypeDeep } from react-nanny';
 import { noEmptyChildrenDeep } from react-nanny';
 ```
 
+
+<h4>Examples</h4>
+
+```
+noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
+```
 
 
 <hr />
@@ -292,7 +298,7 @@ import { noEmptyChildrenDeep } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
   </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
@@ -323,7 +329,7 @@ import { removeChildren } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
   </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
@@ -354,7 +360,7 @@ import { removeChildrenDeep } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
   </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
@@ -385,7 +391,7 @@ import { removeChildrenByType } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b style="font-size:18px">types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
+    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td></tr></tbody>
   </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
@@ -416,7 +422,7 @@ import { removeChildrenByTypeDeep } from react-nanny';
       <th>Type</th>
     </tr>
     </thead>
-    <tbody><tr><td><p><b style="font-size:18px">component</b></p>The component to type check</td><td>any</td></tr></tbody>
+    <tbody><tr><td><p><b>component</b></p>The component to type check</td><td>any</td></tr></tbody>
   </table><p><b>Returns:</b> {string} - The string representation of the type</p>
 
 <h4>Import</h4>
@@ -456,8 +462,8 @@ README.md -- this file
       └───index.d.ts - 559 Bytes
       └───index.js - 2.78 KB
     └───/noEmptyChildren
-      └───index.d.ts - 711 Bytes
-      └───index.js - 2.31 KB
+      └───index.d.ts - 838 Bytes
+      └───index.js - 2.44 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
       └───index.js - 3.01 KB
@@ -483,8 +489,8 @@ README.md -- this file
       └───index.d.ts - 559 Bytes
       └───index.js - 544 Bytes
     └───/noEmptyChildren
-      └───index.d.ts - 711 Bytes
-      └───index.js - 2.09 KB
+      └───index.d.ts - 838 Bytes
+      └───index.js - 2.21 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
       └───index.js - 2.78 KB

@@ -7,6 +7,8 @@ import { typeOfComponent } from '../typeOfComponent';
  * @param {any} component - A component, array of components, or content of a component
  * @param {NoEmptyConfig} [config] - Configuration options for custom components
  * @returns {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth
+ * @example
+ * noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
  */
 export const noEmptyChildrenDeep = (component: any, { ignore = [], rejectCustom = true, rejectEmptyCustom = false }: NoEmptyConfig = {}) : boolean => {
   if (ignore.indexOf(typeOfComponent(component)) >= 0) return true;
