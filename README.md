@@ -65,6 +65,7 @@ import { getChild } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -97,6 +98,7 @@ import { getChildDeep } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -129,6 +131,7 @@ import { getChildByType } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -161,6 +164,7 @@ import { getChildByTypeDeep } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -193,6 +197,7 @@ import { getChildren } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -225,6 +230,7 @@ import { getChildrenDeep } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -257,6 +263,7 @@ import { getChildrenByType } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -289,6 +296,7 @@ import { getChildrenByTypeDeep } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -321,6 +329,7 @@ import { noEmptyChildrenDeep } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -353,6 +362,7 @@ import { removeChildren } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -385,6 +395,7 @@ import { removeChildrenDeep } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -417,6 +428,7 @@ import { removeChildrenByType } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -449,6 +461,7 @@ import { removeChildrenByTypeDeep } from 'react-nanny';
 ```
 
 
+<hr />
 
   
 
@@ -474,6 +487,7 @@ import { typeOfComponent } from 'react-nanny';
 
 
 
+<hr />
 
 
 <a href="#package-contents"></a>
