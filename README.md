@@ -2,7 +2,7 @@
 
 > Utils to manage your React Children; find and filter children by type or custom function, enforce child content, and more!
 
-<p><b>Version:</b> 0.0.3</p>
+<p><b>Version:</b> 1.0.0</p>
 
 <h2>Installation</h2>
 
