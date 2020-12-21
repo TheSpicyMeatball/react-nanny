@@ -2,8 +2,6 @@ const ejs = require('ejs');
 const { readdirSync, readFileSync, writeFileSync } = require('fs');
 const { join, resolve } = require('path');
 const dirTree = require('directory-tree');
-// const sortBy = require('lodash/sortBy');
-// const sortedUniq = require('lodash/sortedUniq');
 const { jsDocParse } = require('./jsDocParse');
 
 const index = async () => {
@@ -58,6 +56,8 @@ const generateTable = util => (
   `<h3>${util.name}${util.generic ? `&lt;${util.generic}&gt;` : ''}</h3>` +
   '\n' +
   `<p>${util.description}</p>` +
+  '\n' +
+  `<p>Since ${util.since}</p>` +
   '\n' +
   `<table>
     <thead>

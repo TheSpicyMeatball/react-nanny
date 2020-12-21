@@ -108,6 +108,7 @@ const getTag = (jsDoc, tag) => {
 const getTags = (jsDoc, tag) => {
  const regex = new RegExp(`@${tag}( )*(.*)(\\r\\n|\\r|\\n)?( *\\*(?:(?!(@)).)*(\\r\\n|\\r|\\n)*)*`, 'gm');
  const matches = [...jsDoc.matchAll(regex)];
+ 
   if (isNullOrEmpty(matches)) {
    return;
  }

@@ -8,7 +8,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * @template T
  * @param {T} children - JSX children
  * @param {string[]} types - Types of children to match
- * @param {string} [customTypeKey='__TYPE'] The custom component prop key to check the type
+ * @param {string} [customTypeKey='__TYPE'] - The custom component prop key to check the type
  * @returns {T} - The first matching child
  * @example
  * // Finds the first occurrence of either a ToDo (custom component), a div, or a React Fragment
@@ -24,7 +24,7 @@ export const getChildByType = <T=React.ReactNode>(children: T, types: string[], 
  * @template T
  * @param {T} children - JSX children
  * @param {string[]} types - Types of children to match
- * @param {string} [customTypeKey='__TYPE'] The custom component prop key to check the type
+ * @param {string} [customTypeKey='__TYPE'] - The custom component prop key to check the type
  * @returns {T} - The first matching child
  * @example
  * // Finds the first occurrence of either a ToDo (custom component), a div, or a React Fragment

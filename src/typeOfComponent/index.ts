@@ -3,7 +3,7 @@
  *
  * @since v1.0.0
  * @param {any} component - The component to type check
- * @param {string} [customTypeKey='__TYPE'] The custom component prop key to check the type
+ * @param {string} [customTypeKey='__TYPE'] - The custom component prop key to check the type
  * @returns {string} - The string representation of the type
  */
 export const typeOfComponent = (component: any, customTypeKey: string = '__TYPE') : string =>

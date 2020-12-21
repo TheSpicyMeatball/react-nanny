@@ -8,7 +8,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * @template T
  * @param {T} children - JSX children
  * @param {string[]} types - Types of children to match
- * @param {string} [customTypeKey='__TYPE'] The custom component prop key to check the type
+ * @param {string} [customTypeKey='__TYPE'] - The custom component prop key to check the type
  * @returns {T[]} - All non-matching children
  * @example
  * // Removes all occurrences of ToDo (custom component), div, and React Fragment
@@ -24,7 +24,7 @@ export const removeChildrenByType = <T=React.ReactNode>(children: T, types: stri
  * @template T
  * @param {T} children - JSX children
  * @param {string[]} types - Types of children to match
- * @param {string} [customTypeKey='__TYPE'] The custom component prop key to check the type
+ * @param {string} [customTypeKey='__TYPE'] - The custom component prop key to check the type
  * @returns {T[]} - All non-matching children
  * @example
  * // Removes all occurrences of ToDo (custom component), div, and React Fragment
