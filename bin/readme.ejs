@@ -1,0 +1,83 @@
+# react-nanny
+
+> Utils to manage your React Children
+
+<a href="#installation"></a>
+<h2>Installation</h2>
+
+```
+$ npm install react-nanny --save
+```
+  <% for(var f=0; f < utils.length; f++) { %>
+    <%- generateTable(utils[f]) %>
+
+<h4>Import</h4>
+
+```
+import { <%= utils[f].name %> } from react-nanny';
+```
+
+<% if (utils[f].examples) { %>
+<h4>Examples</h4>
+
+```
+<%- utils[f].examples.join('\n') %>
+```
+<% } %>
+
+<hr />
+<% } %>
+
+<a href="#package-contents"></a>
+<h2>Package Contents</h2>
+
+Within the module you'll find the following directories and files:
+
+```html
+package.json
+CHANGELOG.md -- history of changes to the module
+README.md -- this file
+/<%= fileTree.name -%><% fileTree.children.forEach( function(child){ if (child.type == 'directory') { %>
+  └───/<%= child.name -%><% child.children.forEach(function(grandChild){ if (grandChild.type == 'directory') { %>
+    └───/<%= grandChild.name -%><% grandChild.children.forEach(function(greatGrand){ %>
+      └───<%= greatGrand.name -%> - <%= formatBytes(greatGrand.size) -%><% }) } else { %>
+      └───<%= grandChild.name -%> - <%= formatBytes(grandChild.size) -%><% } })} else { %>
+  └───<%= child.name -%> - <%= formatBytes(child.size) -%><% }}) %>
+```
+
+<a href="#license"></a>
+<h2>License</h2>
+
+<%= package.license %>
+
+<% if (package.author) { %>
+<a href="#author"></a>
+<h2>Author</h2>
+<% if (package.author.name) { %><%= package.author.name %> [<%= package.author.email %>](<%= package.author.email %>)<% } else { %><%= package.author %><% } %>
+<% } %>
+
+<% if (package.contributors) { %>
+<a href="#contributors"></a>
+<h2>Contributors</h2>
+
+<% package.contributors.forEach(function(contributor) { %>
+  <%= contributor %>
+<% }) %>
+<% } %>
+
+<a href="#dependencies"></a>
+<h2>Dependencies</h2>
+
+<% const dependencies = package.dependencies ? Object.getOwnPropertyNames(package.dependencies) : []; %>
+<table>
+<% dependencies.forEach(function(dependency) { %>
+  <tr>
+    <td>
+      <%= dependency %>
+    </td>
+    <td>
+      <%= package.dependencies[dependency] %>
+    </td>
+  </tr>
+<% }) %>
+</table>

@@ -1,0 +1,24 @@
+{
+  "name": "react-nanny",
+  "version": "0.0.1",
+  "description": "Utils to manage your React Children",
+  "main": "lib/es5/index.js",
+  "module": "lib/es6/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSpicyMeatball/react-nanny.git"
+  },
+  "keywords": [
+    "react",
+    "children"
+  ],
+  "author": "Michael Paravano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheSpicyMeatball/react-nanny/issues"
+  },
+  "homepage": "https://github.com/TheSpicyMeatball/react-nanny#readme",
+  "peerDependencies": {
+    "react": ">=16.0.0"
+  }
+}
