@@ -40,15 +40,13 @@ $ npm install react-nanny --save
 <p>Gets first child by specified predicate</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td><td></td></tr></tbody>
-  </table><p><b>Returns:</b> {T} - The first matching child</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
 
@@ -73,15 +71,13 @@ import { getChild } from 'react-nanny';
 <p>Gets first child by specified predicate (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td><td></td></tr></tbody>
-  </table><p><b>Returns:</b> {T} - The first matching child</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
 
@@ -106,15 +102,13 @@ import { getChildDeep } from 'react-nanny';
 <p>Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
-  </table><p><b>Returns:</b> {T} - The first matching child</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+    </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
 
@@ -139,15 +133,13 @@ import { getChildByType } from 'react-nanny';
 <p>Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.  (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
-  </table><p><b>Returns:</b> {T} - The first matching child</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+    </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
 
@@ -172,15 +164,13 @@ import { getChildByTypeDeep } from 'react-nanny';
 <p>Gets all children by specified predicate</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td><td></td></tr></tbody>
-  </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
 
 <h4>Import</h4>
 
@@ -205,15 +195,13 @@ import { getChildren } from 'react-nanny';
 <p>Gets first child by specified predicate (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td><td></td></tr></tbody>
-  </table><p><b>Returns:</b> {T} - The first matching child</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
 
@@ -238,15 +226,13 @@ import { getChildrenDeep } from 'react-nanny';
 <p>Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
-  </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
 
 <h4>Import</h4>
 
@@ -271,15 +257,13 @@ import { getChildrenByType } from 'react-nanny';
 <p>Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'. (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
-  </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
 
 <h4>Import</h4>
 
@@ -304,15 +288,13 @@ import { getChildrenByTypeDeep } from 'react-nanny';
 <p>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>component</b></p>A component, array of components, or content of a component</td><td>any</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>Configuration options for custom components</td><td>NoEmptyConfig</td><td>config</td></tr></tbody>
-  </table><p><b>Returns:</b> {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>component</b></p>A component, array of components, or content of a component</td><td>any</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>Configuration options for custom components</td><td>NoEmptyConfig</td><td>config</td></tr></tbody>
+    </table><p><b>Returns:</b> {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth</p>
 
 <h4>Import</h4>
 
@@ -337,15 +319,13 @@ import { noEmptyChildrenDeep } from 'react-nanny';
 <p>Removes all children by specified predicate</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td><td></td></tr></tbody>
-  </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
 
@@ -370,15 +350,13 @@ import { removeChildren } from 'react-nanny';
 <p>Removes all children by specified predicate (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td><td></td></tr></tbody>
-  </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) => boolean</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
 
@@ -403,15 +381,13 @@ import { removeChildrenDeep } from 'react-nanny';
 <p>Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'.</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
-  </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
 
@@ -436,15 +412,13 @@ import { removeChildrenByType } from 'react-nanny';
 <p>Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'. (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
-  </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
 
@@ -469,15 +443,13 @@ import { removeChildrenByTypeDeep } from 'react-nanny';
 <p>Gets the string type of the component or core html (JSX) element. React Fragments will return type 'react.fragment'. Priority will be given to the prop '__TYPE'.</p>
 <p>Since v1.0.0</p>
 <table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody><tr><td><p><b>component</b></p>The component to type check</td><td>any</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
-  </table><p><b>Returns:</b> {string} - The string representation of the type</p>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>component</b></p>The component to type check</td><td>any</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+    </table><p><b>Returns:</b> {string} - The string representation of the type</p>
 
 <h4>Import</h4>
 

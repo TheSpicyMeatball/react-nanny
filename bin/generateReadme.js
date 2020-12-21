@@ -52,32 +52,38 @@ const index = async () => {
   });
 };
 
-const generateTable = util => (
-  '\n\n' +
-  `<h2>${util.name}${util.generic ? `&lt;${util.generic}&gt;` : ''}</h2>` +
-  '\n' +
-  `<p>${util.description}</p>` +
-  '\n' +
-  `<p>Since ${util.since}</p>` +
-  '\n' +
-  `<table>
-    <thead>
-    <tr>
-      <th>Param</th>
-      <th>Type</th>
-      <th>Default</th>
-    </tr>
-    </thead>
-    <tbody>` +
-    util.params.map(x => (
-      `<tr><td><p><b>${x.name}${x.optional ? ' <span>(optional)</span>' : ''}</b></p>${x.description}</td>` +
-      `<td>${x.type}</td><td>${x.optional && x.defaultValue !== undefined ? x.defaultValue : ''}</td></tr>`
-    ))
-    .join('') +
-  `</tbody>
-  </table>` +
-  `<p><b>Returns:</b> ${util.returns}</p>`
-);
+const generateTable = util => {
+  const hasDefault = util.params.some(x => x.defaultValue !== undefined);
+
+  return (
+    '\n\n' +
+    `<h2>${util.name}${util.generic ? `&lt;${util.generic}&gt;` : ''}</h2>` +
+    '\n' +
+    `<p>${util.description}</p>` +
+    '\n' +
+    `<p>Since ${util.since}</p>` +
+    '\n' +
+    `<table>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th>` +
+        (hasDefault ? '<th>Default</th>' : '') +
+      `</tr>
+      </thead>
+      <tbody>` +
+      util.params.map(x => (
+        `<tr><td><p><b>${x.name}${x.optional ? ' <span>(optional)</span>' : ''}</b></p>${x.description}</td>` +
+        `<td>${x.type}</td>` + 
+        (hasDefault ? `<td>${x.optional && x.defaultValue !== undefined ? x.defaultValue : ''}</td>` : '') + 
+        '</tr>'
+      ))
+      .join('') +
+    `</tbody>
+    </table>` +
+    `<p><b>Returns:</b> ${util.returns}</p>`
+  );
+};
 
 const generateSummaryTable = utils => (
   '\n\n' +
