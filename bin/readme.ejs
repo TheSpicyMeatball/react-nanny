@@ -1,20 +1,23 @@
-# react-nanny
+# <%= package.name %>
 
-> Utils to manage your React Children
+> <%= package.description %>
 
-<a href="#installation"></a>
+<p><b>Version:</b> <%= package.version %></p>
+
 <h2>Installation</h2>
 
 ```
-$ npm install react-nanny --save
+$ npm install <%= package.name %> --save
 ```
+
+<h2>Utils</h2>
   <% for(var f=0; f < utils.length; f++) { %>
     <%- generateTable(utils[f]) %>
 
 <h4>Import</h4>
 
 ```
-import { <%= utils[f].name %> } from react-nanny';
+import { <%= utils[f].name %> } from <%= package.name %>';
 ```
 
 <% if (utils[f].examples) { %>

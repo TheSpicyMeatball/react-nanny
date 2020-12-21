@@ -1,13 +1,16 @@
 # react-nanny
 
-> Utils to manage your React Children
+> Utils to manage your React Children; find and filter children by type or custom function
 
-<a href="#installation"></a>
+<p><b>Version:</b> 0.0.2</p>
+
 <h2>Installation</h2>
 
 ```
 $ npm install react-nanny --save
 ```
+
+<h2>Utils</h2>
   
     
 

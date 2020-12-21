@@ -1,7 +1,7 @@
 {
   "name": "react-nanny",
   "version": "0.0.2",
-  "description": "Utils to manage your React Children",
+  "description": "Utils to manage your React Children; find and filter children by type or custom function",
   "main": "lib/es5/index.js",
   "module": "lib/es6/index.js",
   "repository": {
