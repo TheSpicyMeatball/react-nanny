@@ -1,13 +1,14 @@
 import { typeOfComponent } from '../typeOfComponent';
 
 /**
- * Ensure that there is content by no empty children (deep search)
+ * Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)
  *
  * @since v1.0.0
  * @param {any} component - A component, array of components, or content of a component
  * @param {NoEmptyConfig} [config] - Configuration options for custom components
  * @returns {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth
  * @example
+ * // Ensure that one of the following is true: there is markup with content, a 'CustomComponent', or a different custom component that has children
  * noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
  */
 export const noEmptyChildrenDeep = (component: any, { ignore = [], rejectCustom = true, rejectEmptyCustom = false }: NoEmptyConfig = {}) : boolean => {

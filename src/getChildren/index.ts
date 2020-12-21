@@ -25,7 +25,7 @@ export const getChildren = <T=React.ReactNode>(children: T, predicate: (child: T
  * @returns {T} - The first matching child
  * @example
  * // Finds the first occurrence of a child that has a prop of 'active' set to true
- * getChildDeep(children, child => child.props.active);
+ * getChildrenDeep(children, child => child.props.active);
  */
 export const getChildrenDeep = <T=React.ReactNode>(children: T, predicate: (child: T) => boolean) : T[] => {
   const _children = React.Children.toArray(children);

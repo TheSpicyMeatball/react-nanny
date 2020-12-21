@@ -2,7 +2,17 @@
 
 > Utils to manage your React Children; find and filter children by type or custom function, enforce child content, and more!
 
-<p><b>Version:</b> 1.0.0</p>
+<p>Friend, have you ever had the need to:</p>
+
+<ul>
+  <li>...query a set of React Children by type or otherwise?</li>
+  <li>...reject and remove some of your children for whatever [judgement free] reason?</li>
+  <li>...ensure that your children return content at some level?</li>
+</ul>
+
+<p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
+
+<p><b>Version:</b> 1.1.0</p>
 
 <h2>Installation</h2>
 
@@ -10,11 +20,23 @@
 $ npm install react-nanny --save
 ```
 
-<h2>Utils</h2>
-  
-    
 
-<h3>getChild&lt;T=React.ReactNode&gt;</h3>
+<h2>Utils List</h2>
+<table>
+    <thead>
+    <tr>
+      <th>function</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody><tr><td>getChild</td><td>Gets first child by specified predicate</td></tr><tr><td>getChildDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildByType</td><td>Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.</td></tr><tr><td>getChildByTypeDeep</td><td>Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.  (deep search)</td></tr><tr><td>getChildren</td><td>Gets all children by specified predicate</td></tr><tr><td>getChildrenDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildrenByType</td><td>Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.</td></tr><tr><td>getChildrenByTypeDeep</td><td>Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'. (deep search)</td></tr><tr><td>noEmptyChildrenDeep</td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td>removeChildren</td><td>Removes all children by specified predicate</td></tr><tr><td>removeChildrenDeep</td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td>removeChildrenByType</td><td>Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'.</td></tr><tr><td>removeChildrenByTypeDeep</td><td>Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'. (deep search)</td></tr><tr><td>typeOfComponent</td><td>Gets the string type of the component or core html (JSX) element. React Fragments will return type 'react.fragment'. Priority will be given to the prop '__TYPE'.</td></tr></tbody>
+  </table>
+
+
+
+  
+
+<h2>getChild&lt;T=React.ReactNode&gt;</h2>
 <p>Gets first child by specified predicate</p>
 <p>Since v1.0.0</p>
 <table>
@@ -43,11 +65,10 @@ import { getChild } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>getChildDeep&lt;T=React.ReactNode&gt;</h3>
+<h2>getChildDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Gets first child by specified predicate (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
@@ -76,11 +97,10 @@ import { getChildDeep } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>getChildByType&lt;T=React.ReactNode&gt;</h3>
+<h2>getChildByType&lt;T=React.ReactNode&gt;</h2>
 <p>Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.</p>
 <p>Since v1.0.0</p>
 <table>
@@ -109,11 +129,10 @@ import { getChildByType } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>getChildByTypeDeep&lt;T=React.ReactNode&gt;</h3>
+<h2>getChildByTypeDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.  (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
@@ -142,11 +161,10 @@ import { getChildByTypeDeep } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>getChildren&lt;T=React.ReactNode&gt;</h3>
+<h2>getChildren&lt;T=React.ReactNode&gt;</h2>
 <p>Gets all children by specified predicate</p>
 <p>Since v1.0.0</p>
 <table>
@@ -175,11 +193,10 @@ import { getChildren } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>getChildrenDeep&lt;T=React.ReactNode&gt;</h3>
+<h2>getChildrenDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Gets first child by specified predicate (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
@@ -204,15 +221,14 @@ import { getChildrenDeep } from 'react-nanny';
 
 ```
 // Finds the first occurrence of a child that has a prop of 'active' set to true
- getChildDeep(children, child => child.props.active);
+ getChildrenDeep(children, child => child.props.active);
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>getChildrenByType&lt;T=React.ReactNode&gt;</h3>
+<h2>getChildrenByType&lt;T=React.ReactNode&gt;</h2>
 <p>Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.</p>
 <p>Since v1.0.0</p>
 <table>
@@ -241,11 +257,10 @@ import { getChildrenByType } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>getChildrenByTypeDeep&lt;T=React.ReactNode&gt;</h3>
+<h2>getChildrenByTypeDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'. (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
@@ -274,12 +289,11 @@ import { getChildrenByTypeDeep } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>noEmptyChildrenDeep</h3>
-<p>Ensure that there is content by no empty children (deep search)</p>
+<h2>noEmptyChildrenDeep</h2>
+<p>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
     <thead>
@@ -302,15 +316,15 @@ import { noEmptyChildrenDeep } from 'react-nanny';
 <h4>Examples</h4>
 
 ```
-noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
+// Ensure that one of the following is true: there is markup with content, a 'CustomComponent', or a different custom component that has children
+ noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>removeChildren&lt;T=React.ReactNode&gt;</h3>
+<h2>removeChildren&lt;T=React.ReactNode&gt;</h2>
 <p>Removes all children by specified predicate</p>
 <p>Since v1.0.0</p>
 <table>
@@ -339,11 +353,10 @@ import { removeChildren } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>removeChildrenDeep&lt;T=React.ReactNode&gt;</h3>
+<h2>removeChildrenDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Removes all children by specified predicate (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
@@ -372,11 +385,10 @@ import { removeChildrenDeep } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>removeChildrenByType&lt;T=React.ReactNode&gt;</h3>
+<h2>removeChildrenByType&lt;T=React.ReactNode&gt;</h2>
 <p>Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'.</p>
 <p>Since v1.0.0</p>
 <table>
@@ -405,11 +417,10 @@ import { removeChildrenByType } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>removeChildrenByTypeDeep&lt;T=React.ReactNode&gt;</h3>
+<h2>removeChildrenByTypeDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'. (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
@@ -438,11 +449,10 @@ import { removeChildrenByTypeDeep } from 'react-nanny';
 ```
 
 
-<hr />
 
-    
+  
 
-<h3>typeOfComponent</h3>
+<h2>typeOfComponent</h2>
 <p>Gets the string type of the component or core html (JSX) element. React Fragments will return type 'react.fragment'. Priority will be given to the prop '__TYPE'.</p>
 <p>Since v1.0.0</p>
 <table>
@@ -464,7 +474,6 @@ import { typeOfComponent } from 'react-nanny';
 
 
 
-<hr />
 
 
 <a href="#package-contents"></a>
@@ -493,8 +502,8 @@ README.md -- this file
       └───index.d.ts - 559 Bytes
       └───index.js - 2.78 KB
     └───/noEmptyChildren
-      └───index.d.ts - 838 Bytes
-      └───index.js - 2.48 KB
+      └───index.d.ts - 1 KB
+      └───index.js - 2.67 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
       └───index.js - 3.01 KB
@@ -520,8 +529,8 @@ README.md -- this file
       └───index.d.ts - 559 Bytes
       └───index.js - 544 Bytes
     └───/noEmptyChildren
-      └───index.d.ts - 838 Bytes
-      └───index.js - 2.25 KB
+      └───index.d.ts - 1 KB
+      └───index.js - 2.44 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
       └───index.js - 2.78 KB

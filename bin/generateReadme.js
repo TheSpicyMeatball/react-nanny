@@ -38,6 +38,7 @@ const index = async () => {
     package: packageData,
     formatBytes,
     generateTable,
+    generateSummaryTable,
   };
 
   const file = await resolve(__dirname, './readme.ejs');
@@ -53,7 +54,7 @@ const index = async () => {
 
 const generateTable = util => (
   '\n\n' +
-  `<h3>${util.name}${util.generic ? `&lt;${util.generic}&gt;` : ''}</h3>` +
+  `<h2>${util.name}${util.generic ? `&lt;${util.generic}&gt;` : ''}</h2>` +
   '\n' +
   `<p>${util.description}</p>` +
   '\n' +
@@ -76,6 +77,27 @@ const generateTable = util => (
   `</tbody>
   </table>` +
   `<p><b>Returns:</b> ${util.returns}</p>`
+);
+
+const generateSummaryTable = utils => (
+  '\n\n' +
+  `<h2>Utils List</h2>` +
+  '\n' +
+  `<table>
+    <thead>
+    <tr>
+      <th>function</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>` +
+    utils.map(x => (
+      `<tr><td>${x.name}</td>` +
+      `<td>${x.description}</td></tr>`
+    ))
+    .join('') +
+  `</tbody>
+  </table>`
 );
 
 index();

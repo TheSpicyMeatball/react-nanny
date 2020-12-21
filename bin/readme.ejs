@@ -2,6 +2,16 @@
 
 > <%= package.description %>
 
+<p>Friend, have you ever had the need to:</p>
+
+<ul>
+  <li>...query a set of React Children by type or otherwise?</li>
+  <li>...reject and remove some of your children for whatever [judgement free] reason?</li>
+  <li>...ensure that your children return content at some level?</li>
+</ul>
+
+<p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
+
 <p><b>Version:</b> <%= package.version %></p>
 
 <h2>Installation</h2>
@@ -9,10 +19,11 @@
 ```
 $ npm install <%= package.name %> --save
 ```
+<%- generateSummaryTable(utils) %>
 
-<h2>Utils</h2>
-  <% for(var f=0; f < utils.length; f++) { %>
-    <%- generateTable(utils[f]) %>
+
+<% for(var f=0; f < utils.length; f++) { %>
+  <%- generateTable(utils[f]) %>
 
 <h4>Import</h4>
 
@@ -28,7 +39,6 @@ import { <%= utils[f].name %> } from '<%= package.name %>';
 ```
 <% } %>
 
-<hr />
 <% } %>
 
 <a href="#package-contents"></a>
