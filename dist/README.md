@@ -31,7 +31,7 @@ $ npm install react-nanny --save
 <h4>Import</h4>
 
 ```
-import { getChild } from react-nanny';
+import { getChild } from 'react-nanny';
 ```
 
 
@@ -64,7 +64,7 @@ import { getChild } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { getChildDeep } from react-nanny';
+import { getChildDeep } from 'react-nanny';
 ```
 
 
@@ -97,7 +97,7 @@ import { getChildDeep } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { getChildByType } from react-nanny';
+import { getChildByType } from 'react-nanny';
 ```
 
 
@@ -130,7 +130,7 @@ import { getChildByType } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { getChildByTypeDeep } from react-nanny';
+import { getChildByTypeDeep } from 'react-nanny';
 ```
 
 
@@ -163,7 +163,7 @@ import { getChildByTypeDeep } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { getChildren } from react-nanny';
+import { getChildren } from 'react-nanny';
 ```
 
 
@@ -196,7 +196,7 @@ import { getChildren } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { getChildrenDeep } from react-nanny';
+import { getChildrenDeep } from 'react-nanny';
 ```
 
 
@@ -229,7 +229,7 @@ import { getChildrenDeep } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { getChildrenByType } from react-nanny';
+import { getChildrenByType } from 'react-nanny';
 ```
 
 
@@ -262,7 +262,7 @@ import { getChildrenByType } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { getChildrenByTypeDeep } from react-nanny';
+import { getChildrenByTypeDeep } from 'react-nanny';
 ```
 
 
@@ -295,7 +295,7 @@ import { getChildrenByTypeDeep } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { noEmptyChildrenDeep } from react-nanny';
+import { noEmptyChildrenDeep } from 'react-nanny';
 ```
 
 
@@ -327,7 +327,7 @@ noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: fals
 <h4>Import</h4>
 
 ```
-import { removeChildren } from react-nanny';
+import { removeChildren } from 'react-nanny';
 ```
 
 
@@ -360,7 +360,7 @@ import { removeChildren } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { removeChildrenDeep } from react-nanny';
+import { removeChildrenDeep } from 'react-nanny';
 ```
 
 
@@ -393,7 +393,7 @@ import { removeChildrenDeep } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { removeChildrenByType } from react-nanny';
+import { removeChildrenByType } from 'react-nanny';
 ```
 
 
@@ -426,7 +426,7 @@ import { removeChildrenByType } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { removeChildrenByTypeDeep } from react-nanny';
+import { removeChildrenByTypeDeep } from 'react-nanny';
 ```
 
 
@@ -459,7 +459,7 @@ import { removeChildrenByTypeDeep } from react-nanny';
 <h4>Import</h4>
 
 ```
-import { typeOfComponent } from react-nanny';
+import { typeOfComponent } from 'react-nanny';
 ```
 
 
