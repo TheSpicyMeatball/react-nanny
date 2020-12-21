@@ -64,12 +64,13 @@ const generateTable = util => (
     <tr>
       <th>Param</th>
       <th>Type</th>
+      <th>Default</th>
     </tr>
     </thead>
     <tbody>` +
     util.params.map(x => (
       `<tr><td><p><b>${x.name}${x.optional ? ' <span>(optional)</span>' : ''}</b></p>${x.description}</td>` +
-      `<td>${x.type}</td></tr>`
+      `<td>${x.type}</td><td>${x.optional && x.defaultValue !== undefined ? x.defaultValue : ''}</td></tr>`
     ))
     .join('') +
   `</tbody>

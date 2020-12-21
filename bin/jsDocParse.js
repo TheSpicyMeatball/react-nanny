@@ -64,14 +64,17 @@ const getParams = jsDoc => {
     if (isNullOrEmpty(match)) return accumulator;
     
     const optional =  match[2].startsWith('[') && match[2].endsWith(']');
+    const name = optional ? match[2].substring(1, match[2].length - 1) :  match[2];
+    const defaultValue = optional ? last(name.split('=', 2)) : undefined;
 
     return [
       ...accumulator, 
       {
         type: match[1],
-        name: optional ? match[2].substring(1, match[2].length - 1) :  match[2],
-        optional,
+        name: optional ? first(name.split('=')) : name,
         description: match[3],
+        optional,
+        defaultValue,
       }
     ];
   }, []);
