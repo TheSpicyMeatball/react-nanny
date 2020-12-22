@@ -12,7 +12,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 1.1.0</p>
+<p><b>Version:</b> 2.0.0</p>
 
 <h2>Installation</h2>
 
@@ -100,14 +100,14 @@ import { getChildDeep } from 'react-nanny';
 
 <h2>getChildByType&lt;T=React.ReactNode&gt;</h2>
 <p>Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.</p>
-<p>Since v1.0.0</p>
+<p>Since v1.0.0 (modified v2.0.0)</p>
 <table>
       <thead>
       <tr>
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: boolean = '__TYPE', prioritized: boolean = false } <span>(optional)</span></b></p>The configuration params</td><td>GetChildByTypeConfig</td><td>{ customTypeKey: '__TYPE', prioritized: false }</td></tr></tbody>
     </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
@@ -120,8 +120,15 @@ import { getChildByType } from 'react-nanny';
 <h4>Examples</h4>
 
 ```
-// Finds the first occurrence of either a ToDo (custom component), a div, or a React Fragment
+// Finds the first occurrence of either a ToDo (custom component w/defined type as prop), a div, or a React Fragment
  getChildByType(children, ['ToDo', 'div', 'react.fragment']);
+ 
+ // Finds the first occurrence of either a MyComponent (custom component - full component passed in), a div, or a React Fragment
+ import MyComponent from './MyComponent';
+ getChildByType(children, [MyComponent, 'div', 'react.fragment']);
+ 
+ // Finds the first occurrence of either a ToDo, a div, or a React Fragment with a preference for that order. If ToDo exists, it will return that first. If not, then div, etc.
+ getChildByType(children, ['ToDo', 'div', 'react.fragment'], { prioritized: true });
 ```
 
 
@@ -131,14 +138,14 @@ import { getChildByType } from 'react-nanny';
 
 <h2>getChildByTypeDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.  (deep search)</p>
-<p>Since v1.0.0</p>
+<p>Since v1.0.0 (modified v2.0.0)</p>
 <table>
       <thead>
       <tr>
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: boolean = '__TYPE', prioritized: boolean = false } <span>(optional)</span></b></p>The configuration params</td><td>GetChildByTypeConfig</td><td>{ customTypeKey: '__TYPE', prioritized: false }</td></tr></tbody>
     </table><p><b>Returns:</b> {T} - The first matching child</p>
 
 <h4>Import</h4>
@@ -151,8 +158,15 @@ import { getChildByTypeDeep } from 'react-nanny';
 <h4>Examples</h4>
 
 ```
-// Finds the first occurrence of either a ToDo (custom component), a div, or a React Fragment
+// Finds the first occurrence of either a ToDo (custom component w/defined type as prop), a div, or a React Fragment
  getChildByTypeDeep(children, ['ToDo', 'div', 'react.fragment']);
+ 
+ // Finds the first occurrence of either a MyComponent (custom component - full component passed in), a div, or a React Fragment
+ import MyComponent from './MyComponent';
+ getChildByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
+ 
+ // Finds the first occurrence of either a ToDo, a div, or a React Fragment with a preference for that order. If ToDo exists, it will return that first. If not, then div, etc.
+ getChildByTypeDeep(children, ['ToDo', 'div', 'react.fragment'], { prioritized: true });
 ```
 
 
@@ -224,14 +238,14 @@ import { getChildrenDeep } from 'react-nanny';
 
 <h2>getChildrenByType&lt;T=React.ReactNode&gt;</h2>
 <p>Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.</p>
-<p>Since v1.0.0</p>
+<p>Since v1.0.0 (modified v2.0.0)</p>
 <table>
       <thead>
       <tr>
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: boolean = '__TYPE' } <span>(optional)</span></b></p>The configuration params; The custom component prop key to check the type</td><td>object</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
     </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
 
 <h4>Import</h4>
@@ -246,6 +260,10 @@ import { getChildrenByType } from 'react-nanny';
 ```
 // Finds all occurrences of ToDo (custom component), div, and React Fragment
  getChildrenByType(children, ['ToDo', 'div', 'react.fragment']);
+ 
+ // Finds all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
+ import MyComponent from './MyComponent';
+ getChildrenByType(children, [MyComponent, 'div', 'react.fragment']);
 ```
 
 
@@ -255,14 +273,14 @@ import { getChildrenByType } from 'react-nanny';
 
 <h2>getChildrenByTypeDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'. (deep search)</p>
-<p>Since v1.0.0</p>
+<p>Since v1.0.0 (modified v2.0.0)</p>
 <table>
       <thead>
       <tr>
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: boolean = '__TYPE' } <span>(optional)</span></b></p>The configuration params; The custom component prop key to check the type</td><td>object</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
     </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
 
 <h4>Import</h4>
@@ -277,6 +295,10 @@ import { getChildrenByTypeDeep } from 'react-nanny';
 ```
 // Finds all occurrences of ToDo (custom component), div, and React Fragment
  getChildrenByTypeDeep(children, ['ToDo', 'div', 'react.fragment']);
+ 
+ // Finds all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
+ import MyComponent from './MyComponent';
+ getChildrenByType(children, [MyComponent, 'div', 'react.fragment']);
 ```
 
 
@@ -379,14 +401,14 @@ import { removeChildrenDeep } from 'react-nanny';
 
 <h2>removeChildrenByType&lt;T=React.ReactNode&gt;</h2>
 <p>Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'.</p>
-<p>Since v1.0.0</p>
+<p>Since v1.0.0 (modified v2.0.0)</p>
 <table>
       <thead>
       <tr>
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: boolean = '__TYPE' } <span>(optional)</span></b></p>The configuration params; The custom component prop key to check the type</td><td>object</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
     </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
@@ -401,6 +423,10 @@ import { removeChildrenByType } from 'react-nanny';
 ```
 // Removes all occurrences of ToDo (custom component), div, and React Fragment
  removeChildrenByType(children, ['ToDo', 'div', 'react.fragment']);
+ 
+ // Removes all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
+ import MyComponent from './MyComponent';
+ removeChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
 ```
 
 
@@ -410,14 +436,14 @@ import { removeChildrenByType } from 'react-nanny';
 
 <h2>removeChildrenByTypeDeep&lt;T=React.ReactNode&gt;</h2>
 <p>Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'. (deep search)</p>
-<p>Since v1.0.0</p>
+<p>Since v1.0.0 (modified v2.0.0)</p>
 <table>
       <thead>
       <tr>
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>string[]</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: boolean = '__TYPE' } <span>(optional)</span></b></p>The configuration params; The custom component prop key to check the type</td><td>object</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
     </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
 
 <h4>Import</h4>
@@ -432,6 +458,10 @@ import { removeChildrenByTypeDeep } from 'react-nanny';
 ```
 // Removes all occurrences of ToDo (custom component), div, and React Fragment
  removeChildrenByTypeDeep(children, ['ToDo', 'div', 'react.fragment']);
+ 
+ // Removes all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
+ import MyComponent from './MyComponent';
+ removeChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
 ```
 
 
@@ -448,7 +478,7 @@ import { removeChildrenByTypeDeep } from 'react-nanny';
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>component</b></p>The component to type check</td><td>any</td><td></td></tr><tr><td><p><b>customTypeKey <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
+      <tbody><tr><td><p><b>component</b></p>The component to type check</td><td>any</td><td></td></tr><tr><td><p><b>customTypeKey='__TYPE' <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
     </table><p><b>Returns:</b> {string} - The string representation of the type</p>
 
 <h4>Import</h4>
@@ -477,14 +507,14 @@ README.md -- this file
       └───index.d.ts - 1.1 KB
       └───index.js - 1.78 KB
     └───/getChildByType
-      └───index.d.ts - 1.6 KB
-      └───index.js - 2.68 KB
+      └───index.d.ts - 3.15 KB
+      └───index.js - 4.93 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
       └───index.js - 2.16 KB
     └───/getChildrenByType
-      └───index.d.ts - 1.59 KB
-      └───index.js - 3.05 KB
+      └───index.d.ts - 2.29 KB
+      └───index.js - 3.92 KB
       └───index.d.ts - 559 Bytes
       └───index.js - 2.78 KB
     └───/noEmptyChildren
@@ -494,24 +524,27 @@ README.md -- this file
       └───index.d.ts - 1.11 KB
       └───index.js - 3.01 KB
     └───/removeChildrenByType
-      └───index.d.ts - 1.6 KB
-      └───index.js - 3.87 KB
+      └───index.d.ts - 2.32 KB
+      └───index.js - 4.78 KB
     └───/typeOfComponent
       └───index.d.ts - 503 Bytes
-      └───index.js - 1.14 KB
+      └───index.js - 1.43 KB
+    └───/_private
+      └───utils.d.ts - 61 Bytes
+      └───utils.js - 408 Bytes
   └───/es6
     └───/getChild
       └───index.d.ts - 1.1 KB
       └───index.js - 1.6 KB
     └───/getChildByType
-      └───index.d.ts - 1.6 KB
-      └───index.js - 2.42 KB
+      └───index.d.ts - 3.15 KB
+      └───index.js - 4.64 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
       └───index.js - 1.96 KB
     └───/getChildrenByType
-      └───index.d.ts - 1.59 KB
-      └───index.js - 2.77 KB
+      └───index.d.ts - 2.29 KB
+      └───index.js - 3.63 KB
       └───index.d.ts - 559 Bytes
       └───index.js - 544 Bytes
     └───/noEmptyChildren
@@ -521,11 +554,14 @@ README.md -- this file
       └───index.d.ts - 1.11 KB
       └───index.js - 2.78 KB
     └───/removeChildrenByType
-      └───index.d.ts - 1.6 KB
-      └───index.js - 3.57 KB
+      └───index.d.ts - 2.32 KB
+      └───index.js - 4.47 KB
     └───/typeOfComponent
       └───index.d.ts - 503 Bytes
-      └───index.js - 1012 Bytes
+      └───index.js - 1.28 KB
+    └───/_private
+      └───utils.d.ts - 61 Bytes
+      └───utils.js - 249 Bytes
 ```
 
 <a href="#license"></a>

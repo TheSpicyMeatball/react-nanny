@@ -1,7 +1,7 @@
 const React = require('react');
 const { getChildByTypeDeep } = require('../../dist/lib/es5/index');
 
-let children = [
+const children = [
   { 
     props: { 
       __TYPE: 'div',
@@ -34,7 +34,7 @@ describe('getChildByTypeDeep', () => {
   });
 
   test('Change order', () => {
-    children = [
+    const children = [
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
       { type: 'span', props: { children: 'Outer span' }},
       { 
@@ -65,5 +65,11 @@ describe('getChildByTypeDeep', () => {
 
   test('undefined', () => {
     expect(getChildByTypeDeep(children, ['bogus'])).toBe(undefined);
+  });
+
+  test('Prioritized', () => {
+    expect(getChildByTypeDeep(children, ['span', 'CustomComponent'])).toStrictEqual({ props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }});
+    expect(getChildByTypeDeep(children, ['span', 'CustomComponent'], { prioritized: false })).toStrictEqual({ props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }});
+    expect(getChildByTypeDeep(children, ['span', 'CustomComponent'], { prioritized: true })).toStrictEqual({ type: 'span', props: { children: 'Deep span' }});
   });
 });

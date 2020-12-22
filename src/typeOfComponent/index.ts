@@ -8,6 +8,8 @@
  */
 export const typeOfComponent = (component: any, customTypeKey: string = '__TYPE') : string =>
   (component?.props && component?.props[customTypeKey]) ||
-  component?.type?.toString().replace('Symbol(react.fragment)', 'react.fragment') ||
-  (typeof component === 'string' ? 'string' : undefined) ||
+  (typeof component?.type === 'string' && component.type) ||
+  (component?.type && typeof component.type === 'symbol' && component?.type.toString() === 'Symbol(react.fragment)' && 'react.fragment') ||
+  (typeof component?.type === 'function' && component.type) ||
+  (typeof component === 'string' && 'string') ||
   undefined;

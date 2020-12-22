@@ -18,7 +18,7 @@ describe('removeChildrenByType', () => {
     React.Children.toArray = jest.fn().mockReturnValue(children);
 
     expect(removeChildrenByType(children, ['CustomComponent'])).toStrictEqual(children.slice(2));
-    expect(removeChildrenByType(children, ['Some TYPE'], 'TYPE')).toStrictEqual([...children.slice(0, 3), children[4]]);
+    expect(removeChildrenByType(children, ['Some TYPE'], { customTypeKey: 'TYPE' })).toStrictEqual([...children.slice(0, 3), children[4]]);
     expect(removeChildrenByType(children, ['CustomComponent', 'Something Else'])).toStrictEqual(children.slice(3));
   });
 

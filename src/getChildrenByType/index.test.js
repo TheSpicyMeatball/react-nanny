@@ -18,7 +18,7 @@ describe('getChildrenByType', () => {
     React.Children.toArray = jest.fn().mockReturnValue(children);
 
     expect(getChildrenByType(children, ['CustomComponent'])).toStrictEqual(children.slice(0, 2));
-    expect(getChildrenByType(children, ['Some TYPE'], 'TYPE')).toStrictEqual([children[3]]);
+    expect(getChildrenByType(children, ['Some TYPE'], { customTypeKey: 'TYPE' })).toStrictEqual([children[3]]);
     expect(getChildrenByType(children, ['CustomComponent', 'Something Else'])).toStrictEqual(children.slice(0, 3));
   });
 

@@ -5,11 +5,16 @@ const dirTree = require('directory-tree');
 const { jsDocParse } = require('./jsDocParse');
 
 const index = async () => {
+  console.log('Generating README.md...');
+  
   const root = join(__dirname, '..');
   const src = join(__dirname, '..', 'src');
   const dist = join(__dirname, '..', 'dist');
   const lib = join(__dirname, '..', 'dist', 'lib');
-  const dirs = readdirSync(src).filter(x => !x.includes('.'));
+  const es5 = join(__dirname, '..', 'dist', 'lib', 'es5');
+  const es6 = join(__dirname, '..', 'dist', 'lib', 'es6');
+
+  const dirs = readdirSync(src).filter(x => !x.includes('.') && !x.startsWith('_'));
   let utils = [];
 
   for (const dir of dirs) {
@@ -50,6 +55,11 @@ const index = async () => {
     writeFileSync(join(dist, 'README.md'), output);
     writeFileSync(join(root, 'README.md'), output);
   });
+
+  sanitizeDTS(dirs, es5);
+  sanitizeDTS(dirs, es6);
+  
+  console.log('Done');
 };
 
 const generateTable = util => {
@@ -105,5 +115,25 @@ const generateSummaryTable = utils => (
   `</tbody>
   </table>`
 );
+
+/**
+ * Remove anything from jsdoc comments that is used for documentation generation only
+ *
+ * @param {string[]} dirs The directory names
+ * @param {string} path The path to the directories
+ */
+const sanitizeDTS = (dirs, path) => {
+  console.log('Sanitizing *.d.ts: ' + path + '...');
+
+  for (const dir of dirs) {
+    let file = readFileSync(join(path, dir, 'index.d.ts'), 'utf8');
+    const matches = Array.from(file.matchAll(/ \* .*( @default.*)/g));
+
+    for (const match of matches) {
+      file = file.replace(match[1], '');
+    }
+    writeFileSync(join(path, dir, 'index.d.ts'), file);
+  }
+};
 
 index();
