@@ -1,3 +1,6 @@
+## [2.1.0] - 2020-12-23
+- Added defined and exported config types
+
 ## [2.0.0] - 2020-12-22
 - Added ability to search for type as passed in component function/class
 - Moved customTypeKey into configuration object

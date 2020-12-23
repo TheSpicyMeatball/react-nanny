@@ -12,7 +12,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.0.0</p>
+<p><b>Version:</b> 2.1.0</p>
 
 <h2>Installation</h2>
 
