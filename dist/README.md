@@ -109,7 +109,7 @@ getChildDeep(children, child => child.props.active);
         <th>Type</th><th>Default</th></tr>
       </thead>
       <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: string = '__TYPE', prioritized: boolean = false } <span>(optional)</span></b></p>The configuration params</td><td>GetChildByTypeConfig</td><td>{ customTypeKey: '__TYPE', prioritized: false }</td></tr></tbody>
-    </table><p><b>Returns:</b> {T} - The first matching child</p><h4>Supporting Types</h4>
+    </table><p><b>Returns:</b> {T} - The first matching child</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote><h4>Supporting Types</h4>
 
 ```
 // The configuration type for the util:
@@ -154,7 +154,7 @@ getChildByType(children, ['ToDo', 'div', 'react.fragment'], { prioritized: true 
         <th>Type</th><th>Default</th></tr>
       </thead>
       <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: string = '__TYPE', prioritized: boolean = false } <span>(optional)</span></b></p>The configuration params</td><td>GetChildByTypeConfig</td><td>{ customTypeKey: '__TYPE', prioritized: false }</td></tr></tbody>
-    </table><p><b>Returns:</b> {T} - The first matching child</p><h4>Supporting Types</h4>
+    </table><p><b>Returns:</b> {T} - The first matching child</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote><h4>Supporting Types</h4>
 
 ```
 // The configuration type for the util:
@@ -261,7 +261,7 @@ getChildrenDeep(children, child => child.props.active);
         <th>Type</th><th>Default</th></tr>
       </thead>
       <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: string = '__TYPE' } <span>(optional)</span></b></p>The configuration params; The custom component prop key to check the type</td><td>GetChildrenByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
-    </table><p><b>Returns:</b> {T[]} - Array of matching children</p><h4>Supporting Types</h4>
+    </table><p><b>Returns:</b> {T[]} - Array of matching children</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote><h4>Supporting Types</h4>
 
 ```
 // The configuration type for the util:
@@ -305,7 +305,7 @@ getChildrenByType(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
         <th>Type</th><th>Default</th></tr>
       </thead>
       <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: string = '__TYPE' } <span>(optional)</span></b></p>The configuration params; The custom component prop key to check the type</td><td>GetChildrenByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
-    </table><p><b>Returns:</b> {T[]} - Array of matching children</p><h4>Supporting Types</h4>
+    </table><p><b>Returns:</b> {T[]} - Array of matching children</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote><h4>Supporting Types</h4>
 
 ```
 // The configuration type for the util:
@@ -453,7 +453,7 @@ removeChildrenDeep(children, child => !child.props.active);
         <th>Type</th><th>Default</th></tr>
       </thead>
       <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: string = '__TYPE' } <span>(optional)</span></b></p>The configuration params; The custom component prop key to check the type</td><td>RemoveChildrenByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
-    </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
+    </table><p><b>Returns:</b> {T[]} - All non-matching children</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To remove a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote>
 
 <h4>Import</h4>
 
@@ -491,7 +491,7 @@ removeChildrenByType(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
         <th>Type</th><th>Default</th></tr>
       </thead>
       <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>{ customTypeKey: string = '__TYPE' } <span>(optional)</span></b></p>The configuration params; The custom component prop key to check the type</td><td>RemoveChildrenByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
-    </table><p><b>Returns:</b> {T[]} - All non-matching children</p>
+    </table><p><b>Returns:</b> {T[]} - All non-matching children</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To remove a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote>
 
 <h4>Import</h4>
 
@@ -529,7 +529,7 @@ removeChildrenByTypeDeep(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
         <th>Type</th><th>Default</th></tr>
       </thead>
       <tbody><tr><td><p><b>component</b></p>The component to type check</td><td>any</td><td></td></tr><tr><td><p><b>customTypeKey='__TYPE' <span>(optional)</span></b></p>The custom component prop key to check the type</td><td>string</td><td>'__TYPE'</td></tr></tbody>
-    </table><p><b>Returns:</b> {string} - The string representation of the type</p>
+    </table><p><b>Returns:</b> {string} - The string representation of the type</p><blockquote><p>React Fragments will return type 'react.fragment'. Priority will be given to the <em>{customTypeKey}</em> if one exists</p></blockquote>
 
 <h4>Import</h4>
 

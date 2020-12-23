@@ -76,7 +76,7 @@ const generateTable = util => {
   const description = getValue('description');
   const since = util.since.present ? `<p>Since ${util.since.value}</p>\n` : '';
   const hasDefault = util.params.some(x => x.defaultValue !== undefined);
-  const notes = util.notes.present ? util.notes.map(note => `<blockquote><p>${note.value}</p></blockquote>`).join('') : '';
+  const notes = util.notes.length > 0 ? util.notes.map(note => `<blockquote><p>${note.value}</p></blockquote>`).join('') : '';
   const types = util.types.present ? `<h4>Supporting Types</h4>\n\n\`\`\`\n${util.types.value}\n\`\`\`` : '';
   const details = getValue('details');
 
