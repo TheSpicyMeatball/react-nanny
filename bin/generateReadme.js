@@ -2,7 +2,7 @@ const ejs = require('ejs');
 const { readdirSync, readFileSync, writeFileSync } = require('fs');
 const { join, resolve } = require('path');
 const dirTree = require('directory-tree');
-const { jsDocParse } = require('./jsDocParse');
+const { jsDocParse, removeTags } = require('./jsDocParse');
 
 const index = async () => {
   console.log('Generating README.md...');
@@ -63,16 +63,29 @@ const index = async () => {
 };
 
 const generateTable = util => {
+  const getValue = key => {
+    if (util[key]?.value?.length > 0) {
+      const startsWithTag = new RegExp(/^ *<.*?>/g);
+      const endsWithTag = new RegExp(/<\/.*?>$/g);
+      return startsWithTag.test(util[key].value) && endsWithTag.test(util[key].value) ? util[key].value : `<p>${util[key].value}</p>\n`;
+    }
+
+    return '';
+  }
+
+  const description = getValue('description');
+  const since = util.since.present ? `<p>Since ${util.since.value}</p>\n` : '';
   const hasDefault = util.params.some(x => x.defaultValue !== undefined);
+  const notes = util.notes.present ? util.notes.map(note => `<blockquote><p>${note.value}</p></blockquote>`).join('') : '';
+  const types = util.types.present ? `<h4>Supporting Types</h4>\n\n\`\`\`\n${util.types.value}\n\`\`\`` : '';
+  const details = getValue('details');
 
   return (
     '\n\n' +
     `<h2>${util.name}${util.generic ? `&lt;${util.generic}&gt;` : ''}</h2>` +
     '\n' +
-    `<p>${util.description}</p>` +
-    '\n' +
-    `<p>Since ${util.since}</p>` +
-    '\n' +
+    description +
+    since +
     `<table>
       <thead>
       <tr>
@@ -87,17 +100,21 @@ const generateTable = util => {
         `<td>${x.type}</td>` + 
         (hasDefault ? `<td>${x.optional && x.defaultValue !== undefined ? x.defaultValue : ''}</td>` : '') + 
         '</tr>'
-      ))
-      .join('') +
+      )).join('') +
     `</tbody>
     </table>` +
-    `<p><b>Returns:</b> ${util.returns}</p>`
+    `<p><b>Returns:</b> ${util.returns.raw.replace('@returns', '').trim()}</p>` +
+    notes +
+    types +
+    details
   );
 };
 
 const generateSummaryTable = utils => (
   '\n\n' +
-  `<h2>Utils List</h2>` +
+  `<h2>Summary of Utils</h2>` +
+  '\n' +
+  '<p>For detailed information on each util, see below this table.</p>' +
   '\n' +
   `<table>
     <thead>
@@ -109,11 +126,11 @@ const generateSummaryTable = utils => (
     <tbody>` +
     utils.map(x => (
       `<tr><td>${x.name}</td>` +
-      `<td>${x.description}</td></tr>`
+      `<td>${x.description.present ? x.description.value : ''}</td></tr>`
     ))
     .join('') +
   `</tbody>
-  </table>`
+  </table><hr />`
 );
 
 /**
@@ -127,11 +144,13 @@ const sanitizeDTS = (dirs, path) => {
 
   for (const dir of dirs) {
     let file = readFileSync(join(path, dir, 'index.d.ts'), 'utf8');
-    const matches = Array.from(file.matchAll(/ \* .*( @default.*)/g));
+    const matches = Array.from(file.matchAll(/@docgen_default +(.*)/g));
 
     for (const match of matches) {
-      file = file.replace(match[1], '');
+      file = file.replace(match[0], ' ');
     }
+
+    file = removeTags(file, ['@docgen_types', '@docgen_details', '@docgen_note']);
     writeFileSync(join(path, dir, 'index.d.ts'), file);
   }
 };

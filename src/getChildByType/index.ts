@@ -5,14 +5,19 @@ import { getChildrenByTypeDeep } from '../getChildrenByType';
 import { typeOfComponent } from '../typeOfComponent';
 
 /**
- * Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.
+ * Gets first child by specified type
  * 
  * @since v1.0.0 (modified v2.0.0)
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {GetChildByTypeConfig} [{ customTypeKey: boolean = '__TYPE', prioritized: boolean = false }] - The configuration params @default { customTypeKey: '__TYPE', prioritized: false }
+ * @param {GetChildByTypeConfig} [{ customTypeKey: string = '__TYPE', prioritized: boolean = false }] - The configuration params @docgen_default { customTypeKey: '__TYPE', prioritized: false }
  * @returns {T} - The first matching child
+ * @docgen_types
+ * // The configuration type for the util:
+ * //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
+ * //   prioritized?: boolean = false - Whether or not the order of types is prioritized
+ * export type GetChildByTypeConfig = { customTypeKey?: string, prioritized?: boolean };
  * @example
  * // Finds the first occurrence of either a ToDo (custom component w/defined type as prop), a div, or a React Fragment
  * getChildByType(children, ['ToDo', 'div', 'react.fragment']);
@@ -23,6 +28,8 @@ import { typeOfComponent } from '../typeOfComponent';
  * 
  * // Finds the first occurrence of either a ToDo, a div, or a React Fragment with a preference for that order. If ToDo exists, it will return that first. If not, then div, etc.
  * getChildByType(children, ['ToDo', 'div', 'react.fragment'], { prioritized: true });
+ * @docgen_note
+ * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
  */
 export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
   const _types = processTypes(types);
@@ -40,14 +47,19 @@ export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { c
 };
 
 /**
- * Gets first child by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.  (deep search)
+ * Gets first child by specified type (deep search)
  * 
  * @since v1.0.0 (modified v2.0.0)
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {GetChildByTypeConfig} [{ customTypeKey: boolean = '__TYPE', prioritized: boolean = false }] - The configuration params @default { customTypeKey: '__TYPE', prioritized: false }
+ * @param {GetChildByTypeConfig} [{ customTypeKey: string = '__TYPE', prioritized: boolean = false }] - The configuration params @docgen_default { customTypeKey: '__TYPE', prioritized: false }
  * @returns {T} - The first matching child
+ * @docgen_types
+ * // The configuration type for the util:
+ * //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
+ * //   prioritized?: boolean = false - Whether or not the order of types is prioritized
+ * export type GetChildByTypeConfig = { customTypeKey?: string, prioritized?: boolean };
  * @example
  * // Finds the first occurrence of either a ToDo (custom component w/defined type as prop), a div, or a React Fragment
  * getChildByTypeDeep(children, ['ToDo', 'div', 'react.fragment']);
@@ -58,6 +70,8 @@ export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { c
  * 
  * // Finds the first occurrence of either a ToDo, a div, or a React Fragment with a preference for that order. If ToDo exists, it will return that first. If not, then div, etc.
  * getChildByTypeDeep(children, ['ToDo', 'div', 'react.fragment'], { prioritized: true });
+ * @docgen_note
+ * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
  */
 export const getChildByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
   const _types = processTypes(types);
@@ -75,5 +89,4 @@ export const getChildByTypeDeep = <T=React.ReactNode>(children: T, types: any[],
   return matches[0] as T;
 };
 
-/** The custom component prop key to check the type; whether or not the order of types is prioritized */
 export type GetChildByTypeConfig = { customTypeKey?: string, prioritized?: boolean };

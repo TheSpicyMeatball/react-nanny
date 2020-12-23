@@ -2,7 +2,7 @@
 
 > <%= package.description %>
 
-<p>Friend, have you ever had the need to:</p>
+<p>Hello friend. Have you ever had the need to:</p>
 
 <ul>
   <li>...query a set of React Children by type or otherwise?</li>
@@ -35,7 +35,7 @@ import { <%= utils[f].name %> } from '<%= package.name %>';
 <h4>Examples</h4>
 
 ```
-<%- utils[f].examples.join('\n') %>
+<%- utils[f].examples.map(x => x.value).join('\n') %>
 ```
 <% } %>
 

@@ -7,8 +7,17 @@ import { typeOfComponent } from '../typeOfComponent';
  * @param {any} component - A component, array of components, or content of a component
  * @param {NoEmptyConfig} [config] - Configuration options for custom components
  * @returns {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth
+ * @docgen_types
+ * // The configuration type for the util:
+ * //   ignore?: string[] = [] - A list of components to ignore; Components in this list will be considered as valid content
+ * //   rejectCustom?: boolean = true - Whether or not custom components should be rejected as content
+ * //   rejectEmptyCustom?: boolean = false - Whether or not custom components require children to be considered valid content; Note: {rejectCustom} must be set to false in order for this setting to be considered
+ * export type NoEmptyConfig = { ignore?: string[], rejectCustom?: boolean, rejectEmptyCustom?: boolean };
  * @example
- * // Ensure that one of the following is true: there is markup with content, a 'CustomComponent', or a different custom component that has children
+ * // Ensure that one of the following is true at some level of depth for the children: 
+ * //   * There is markup with content
+ * //   * A 'CustomComponent' is provided
+ * //   * A different custom component that has children
  * noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
  */
 export const noEmptyChildrenDeep = (component: any, { ignore = [], rejectCustom = true, rejectEmptyCustom = false }: NoEmptyConfig = {}) : boolean => {

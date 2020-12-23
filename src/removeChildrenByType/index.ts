@@ -4,13 +4,13 @@ import { processTypes } from './../_private/utils';
 import { typeOfComponent } from '../typeOfComponent';
 
 /**
- * Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'.
+ * Removes all children by specified type
  *
  * @since v1.0.0 (modified v2.0.0)
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {object} [{ customTypeKey: boolean = '__TYPE' }] - The configuration params; The custom component prop key to check the type @default { customTypeKey: '__TYPE' }
+ * @param {RemoveChildrenByTypeConfig} [{ customTypeKey: string = '__TYPE' }] - The configuration params; The custom component prop key to check the type @docgen_default { customTypeKey: '__TYPE' }
  * @returns {T[]} - All non-matching children
  * @example
  * // Removes all occurrences of ToDo (custom component), div, and React Fragment
@@ -19,20 +19,25 @@ import { typeOfComponent } from '../typeOfComponent';
  * // Removes all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
  * import MyComponent from './MyComponent';
  * removeChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
+ * 
+ * // Removes all occurrences of ToDo (custom component) with a customized <em>{customTypeKey}</em>
+ * removeChildrenByType(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
+ * @docgen_note
+ * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To remove a React Fragment, search for <em>'react.fragment'</em>.
  */
-export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: { customTypeKey?: string } = {}) : T[] => {
+export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _types = processTypes(types);
   return React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) === -1) as T[];
 }
 
 /**
- * Removes all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To remove a React Fragment, use type 'react.fragment'. (deep search)
+ * Removes all children by specified type (deep search)
  *
  * @since v1.0.0 (modified v2.0.0)
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {object} [{ customTypeKey: boolean = '__TYPE' }] - The configuration params; The custom component prop key to check the type @default { customTypeKey: '__TYPE' }
+ * @param {RemoveChildrenByTypeConfig} [{ customTypeKey: string = '__TYPE' }] - The configuration params; The custom component prop key to check the type @docgen_default { customTypeKey: '__TYPE' }
  * @returns {T[]} - All non-matching children
  * @example
  * // Removes all occurrences of ToDo (custom component), div, and React Fragment
@@ -41,8 +46,13 @@ export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[
  * // Removes all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
  * import MyComponent from './MyComponent';
  * removeChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
+ * 
+ * // Removes all occurrences of ToDo (custom component) with a customized <em>{customTypeKey}</em>
+ * removeChildrenByTypeDeep(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
+ * @docgen_note
+ * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To remove a React Fragment, search for <em>'react.fragment'</em>.
  */
-export const removeChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: { customTypeKey?: string } = {}) : T[] => {
+export const removeChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _children = React.Children.toArray(children);
   const _types = processTypes(types);
   let output = [];
@@ -71,3 +81,5 @@ export const removeChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: 
 
   return output;
 };
+
+export type RemoveChildrenByTypeConfig = { customTypeKey?: string };

@@ -1,12 +1,12 @@
 export { getChild, getChildDeep } from './getChild';
-export { getChildByType, getChildByTypeDeep } from './getChildByType';
+export { getChildByType, getChildByTypeDeep, GetChildByTypeConfig } from './getChildByType';
 
 export { getChildren, getChildrenDeep } from './getChildren';
-export { getChildrenByType, getChildrenByTypeDeep } from './getChildrenByType';
+export { getChildrenByType, getChildrenByTypeDeep, GetChildrenByTypeConfig } from './getChildrenByType';
 
 export { noEmptyChildrenDeep, NoEmptyConfig } from './noEmptyChildren';
 
 export { removeChildren, removeChildrenDeep } from './removeChildren';
-export { removeChildrenByType, removeChildrenByTypeDeep } from './removeChildrenByType';
+export { removeChildrenByType, removeChildrenByTypeDeep, RemoveChildrenByTypeConfig } from './removeChildrenByType';
 
 export { typeOfComponent } from './typeOfComponent';

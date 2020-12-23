@@ -4,14 +4,18 @@ import { processTypes } from '../_private/utils';
 import { typeOfComponent } from '../typeOfComponent';
 
 /**
- * Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'.
+ * Gets all children by specified type
  *
  * @since v1.0.0 (modified v2.0.0)
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {object} [{ customTypeKey: boolean = '__TYPE' }] - The configuration params; The custom component prop key to check the type @default { customTypeKey: '__TYPE' }
+ * @param {GetChildrenByTypeConfig} [{ customTypeKey: string = '__TYPE' }] - The configuration params; The custom component prop key to check the type @docgen_default { customTypeKey: '__TYPE' }
  * @returns {T[]} - Array of matching children
+ * @docgen_types
+ * // The configuration type for the util:
+ * //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
+ * export type GetChildrenByTypeConfig = { customTypeKey?: string };
  * @example
  * // Finds all occurrences of ToDo (custom component), div, and React Fragment
  * getChildrenByType(children, ['ToDo', 'div', 'react.fragment']);
@@ -19,31 +23,45 @@ import { typeOfComponent } from '../typeOfComponent';
  * // Finds all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
  * import MyComponent from './MyComponent';
  * getChildrenByType(children, [MyComponent, 'div', 'react.fragment']);
+ * 
+ * // Finds all occurrences of ToDo (custom component) with a customized <em>{customTypeKey}</em>
+ * getChildrenByType(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
+ * @docgen_note
+ * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
  */
-export const getChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: { customTypeKey?: string } = {}) : T[] => {
+export const getChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
   const _types = processTypes(types);
   return React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1) as T[];
 }
 
 
 /**
- * Gets all children by specified type. This function will check the prop {customTypeKey} first and then the 'type' string to match core html elements. To find a React Fragment, search for type 'react.fragment'. (deep search)
- *
+ * Gets all children by specified type (deep search)
+ * 
  * @since v1.0.0 (modified v2.0.0)
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {object} [{ customTypeKey: boolean = '__TYPE' }] - The configuration params; The custom component prop key to check the type @default { customTypeKey: '__TYPE' }
+ * @param {GetChildrenByTypeConfig} [{ customTypeKey: string = '__TYPE' }] - The configuration params; The custom component prop key to check the type @docgen_default { customTypeKey: '__TYPE' }
  * @returns {T[]} - Array of matching children
+ * @docgen_types
+ * // The configuration type for the util:
+ * //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
+ * export type GetChildrenByTypeConfig = { customTypeKey?: string };
  * @example
  * // Finds all occurrences of ToDo (custom component), div, and React Fragment
  * getChildrenByTypeDeep(children, ['ToDo', 'div', 'react.fragment']);
  * 
  * // Finds all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
  * import MyComponent from './MyComponent';
- * getChildrenByType(children, [MyComponent, 'div', 'react.fragment']);
+ * getChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
+ * 
+ * // Finds all occurrences of ToDo (custom component) with a customized <em>{customTypeKey}</em>
+ * getChildrenByTypeDeep(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
+ * @docgen_note
+ * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
  */
-export const getChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: { customTypeKey?: string } = {}) : T[] => {
+export const getChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
   const _children = React.Children.toArray(children);
   const _types = processTypes(types);
 
@@ -61,3 +79,5 @@ export const getChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any
 
   return output;
 };
+
+export type GetChildrenByTypeConfig = { customTypeKey?: string };
