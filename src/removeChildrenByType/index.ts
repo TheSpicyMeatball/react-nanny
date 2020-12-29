@@ -10,20 +10,25 @@ import { typeOfComponent } from '../typeOfComponent';
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {RemoveChildrenByTypeConfig} [{ customTypeKey: string = '__TYPE' }] - The configuration params; The custom component prop key to check the type @docgen_default { customTypeKey: '__TYPE' }
+ * @param {RemoveChildrenByTypeConfig} [{ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - All non-matching children
  * @example
  * // Removes all occurrences of ToDo (custom component), div, and React Fragment
  * removeChildrenByType(children, ['ToDo', 'div', 'react.fragment']);
  * 
- * // Removes all occurrences of MyComponent (custom component - full component passed in), a div, and React Fragment
+ * // Removes all occurrences of MyComponent (custom component - from import), a div, and React Fragment
  * import MyComponent from './MyComponent';
- * removeChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
+ * removeChildrenByType(children, [MyComponent, 'div', 'react.fragment']);
  * 
- * // Removes all occurrences of ToDo (custom component) with a customized <em>{customTypeKey}</em>
+ * // Removes all occurrences of MyComponent (custom component - as React.ReactNode), a div, and React Fragment
+ * const component = getChildByType(['MyComponent']);
+ * removeChildrenByType(children, [component, 'div', 'react.fragment']);
+ * 
+ * // Removes all occurrences of ToDo (custom component) with a customized {customTypeKey}
  * removeChildrenByType(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To remove a React Fragment, search for <em>'react.fragment'</em>.
+ * @docgen_import { removeChildrenByType, RemoveChildrenByTypeConfig }
  */
 export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _types = processTypes(types);
@@ -37,7 +42,7 @@ export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {RemoveChildrenByTypeConfig} [{ customTypeKey: string = '__TYPE' }] - The configuration params; The custom component prop key to check the type @docgen_default { customTypeKey: '__TYPE' }
+ * @param {RemoveChildrenByTypeConfig} [{ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - All non-matching children
  * @example
  * // Removes all occurrences of ToDo (custom component), div, and React Fragment
@@ -47,10 +52,15 @@ export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[
  * import MyComponent from './MyComponent';
  * removeChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
  * 
- * // Removes all occurrences of ToDo (custom component) with a customized <em>{customTypeKey}</em>
+ * // Removes all occurrences of MyComponent (custom component - as React.ReactNode), a div, and React Fragment
+ * const component = getChildByType(['MyComponent']);
+ * removeChildrenByTypeDeep(children, [component, 'div', 'react.fragment']);
+ * 
+ * // Removes all occurrences of ToDo (custom component) with a customized {customTypeKey}
  * removeChildrenByTypeDeep(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To remove a React Fragment, search for <em>'react.fragment'</em>.
+ * @docgen_import { removeChildrenByTypeDeep, RemoveChildrenByTypeConfig }
  */
 export const removeChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _children = React.Children.toArray(children);

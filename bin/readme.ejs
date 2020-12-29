@@ -21,23 +21,83 @@ $ npm install <%= package.name %> --save
 ```
 <%- generateSummaryTable(utils) %>
 
+<h2>What can I use to derive types for a comparison?</h2>
+<p>You can use an imported type, a <code>React.ReactNode</code>, value from <code>typeOfComponent</code>, a string type for an HTML (JSX Intrinsic) element, or a string representation of the type by using the <code>customTypeKey</code> feature.</p>
+
+<h3>Imported Type</h3>
+
+```
+import { getChildByType } from 'react-nanny';
+import MyComponent from './MyComponent';
+
+getChildByType(children, [MyComponent]);
+```
+
+<h3>React.ReactNode</h3>
+
+```
+import { getChildByType, removeChildrenByType } from 'react-nanny';
+import MyComponent from './MyComponent';
+
+const child = getChildByType(children, [MyComponent]);
+...
+removeChildrenByType(children, [child]);
+```
+
+<h3>typeOfComponent</h3>
+
+```
+import { getChildByType, removeChildrenByType, typeOfComponent } from 'react-nanny';
+import MyComponent from './MyComponent';
+
+const child = getChildByType(children, [MyComponent]);
+...
+removeChildrenByType(children, [typeOfComponent(child)]);
+```
+
+<h3>String type for HTML (JSX Intrinsic) Elements</h3>
+
+```
+import { getChildByType } from 'react-nanny';
+
+getChildByType(children, ['div']);
+```
+
+<h3>customTypeKey</h3>
+<h4>What the heck is a customTypeKey?</h4>
+<p>One simple way to be able to define and identify a type on a component and ensure that it is the same in development builds and production builds is to add a constant prop that contains the string type. Consider the following hypothetical component:</p>
+
+```
+import React from 'react';
+
+const Hello = ({ __TYPE }) => <div>Hello World!</div>;
+
+Hello.defaultProps = {
+  __TYPE: 'Hello',
+};
+```
+
+<p>The <code>Hello</code> has a prop <code>__TYPE</code> that has a value of <code>'Hello'</code>. We can query against this value and know that it's reliable regardless of environment.</p>
+<p>The <code>customTypeKey</code> in <code>react-nanny</code> defines what the name of this prop is. In our example, <code>customTypeKey</code> would be <code>'__TYPE'</code> to query using this technique</p>
+
+```
+import { getChildByType } from 'react-nanny';
+
+getChildByType(children, ['Hello']);
+```
+
+<p>Let's say you don't like <code>__TYPE</code> and what to use your own value such as: <code>CUSTOM</code>. You can accomplish this by providing the name for the <code>customTypeKey</code>:</p>
+
+```
+import { getChildByType } from 'react-nanny';
+
+getChildByType(children, ['Hello'], { customTypeKey: 'CUSTOM' });
+```
+
+<p><em>Now, without further ado, the utils...</em><hr /></p>
 
 <% for(var f=0; f < utils.length; f++) { %>
-  <%- generateTable(utils[f]) %>
-
-<h4>Import</h4>
-
-```
-import { <%= utils[f].name %> } from '<%= package.name %>';
-```
-
-<% if (utils[f].examples) { %>
-<h4>Examples</h4>
-
-```
-<%- utils[f].examples.map(x => x.value).join('\n') %>
-```
-<% } %>
+  <%- generateTable(utils[f], package.name) %>
 
 <hr />
 <% } %>
@@ -83,6 +143,7 @@ README.md -- this file
 <h2>Dependencies</h2>
 
 <% const dependencies = package.dependencies ? Object.getOwnPropertyNames(package.dependencies) : []; %>
+<% if (dependencies && dependencies.length > 0) { %>
 <table>
 <% dependencies.forEach(function(dependency) { %>
   <tr>
@@ -95,3 +156,6 @@ README.md -- this file
   </tr>
 <% }) %>
 </table>
+<% } else { %>
+None
+<% } %>

@@ -1,3 +1,6 @@
+## [2.2.0] - 2020-12-29
+- Added the ability to infer type from React.ReactNode
+
 ## [2.1.0] - 2020-12-23
 - Added defined and exported config types
 

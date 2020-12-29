@@ -12,6 +12,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * //   ignore?: string[] = [] - A list of components to ignore; Components in this list will be considered as valid content
  * //   rejectCustom?: boolean = true - Whether or not custom components should be rejected as content
  * //   rejectEmptyCustom?: boolean = false - Whether or not custom components require children to be considered valid content; Note: {rejectCustom} must be set to false in order for this setting to be considered
+ * 
  * export type NoEmptyConfig = { ignore?: string[], rejectCustom?: boolean, rejectEmptyCustom?: boolean };
  * @example
  * // Ensure that one of the following is true at some level of depth for the children: 

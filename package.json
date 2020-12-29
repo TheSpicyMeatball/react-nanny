@@ -15,7 +15,7 @@
     "children"
   ],
   "author": "Michael Paravano",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/TheSpicyMeatball/react-nanny/issues"
   },
@@ -27,6 +27,8 @@
     "directory-tree": "^2.2.5",
     "ejs": "^3.1.5",
     "jest": "^26.6.3",
+    "js-htmlencode": "^0.3.0",
+    "jsdoc-parse-plus": "0.0.1",
     "lodash": "^4.17.20",
     "typescript": "^4.1.3"
   },

@@ -11,7 +11,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {GetChildByTypeConfig} [{ customTypeKey: string = '__TYPE', prioritized: boolean = false }] - The configuration params @docgen_default { customTypeKey: '__TYPE', prioritized: false }
+ * @param {GetChildByTypeConfig} [{ customTypeKey: '__TYPE', prioritized: false }] - The configuration params
  * @returns {T} - The first matching child
  * @docgen_types
  * // The configuration type for the util:
@@ -30,6 +30,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * getChildByType(children, ['ToDo', 'div', 'react.fragment'], { prioritized: true });
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
+ * @docgen_import { getChildByType, GetChildByTypeConfig }
  */
 export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
   const _types = processTypes(types);
@@ -53,12 +54,13 @@ export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { c
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {GetChildByTypeConfig} [{ customTypeKey: string = '__TYPE', prioritized: boolean = false }] - The configuration params @docgen_default { customTypeKey: '__TYPE', prioritized: false }
+ * @param {GetChildByTypeConfig} [{ customTypeKey: '__TYPE', prioritized: false }] - The configuration params
  * @returns {T} - The first matching child
  * @docgen_types
  * // The configuration type for the util:
  * //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
  * //   prioritized?: boolean = false - Whether or not the order of types is prioritized
+ * 
  * export type GetChildByTypeConfig = { customTypeKey?: string, prioritized?: boolean };
  * @example
  * // Finds the first occurrence of either a ToDo (custom component w/defined type as prop), a div, or a React Fragment
@@ -72,6 +74,7 @@ export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { c
  * getChildByTypeDeep(children, ['ToDo', 'div', 'react.fragment'], { prioritized: true });
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
+ * @docgen_import { getChildByTypeDeep, GetChildByTypeConfig }
  */
 export const getChildByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
   const _types = processTypes(types);
