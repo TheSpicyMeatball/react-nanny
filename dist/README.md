@@ -106,6 +106,8 @@ import { getChildByType } from 'react-nanny';
 getChildByType(children, ['Hello'], { customTypeKey: 'CUSTOM' });
 ```
 
+For more information on how to enforce the integrity of the <code>customTypeKey</code>, check out my Medium article: <a href="https://mparavano.medium.com/find-filter-react-children-by-type-d9799fb78292" target="_blank">Find & Filter React Children By Type</a>
+
 <p><em>Now, without further ado, the utils...</em><hr /></p>
 
 
