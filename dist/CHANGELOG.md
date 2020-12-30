@@ -1,3 +1,6 @@
+## [2.3.1] - 2020-12-30
+- Moved TypeScript T on overrideProps util from param to generic for util
+
 ## [2.3.0] - 2020-12-30
 - Added overrideProps util
 

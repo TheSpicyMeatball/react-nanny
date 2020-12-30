@@ -20,7 +20,7 @@ import * as React from 'react';
  * @docgen_description_note
  * This function is a handy shortcut for when you may need to override the props of your children components and is an alternative for writing your own looped <em>React.cloneElement</em> calls.
  */
-export const overrideProps = (component: React.ReactElement, getChildOverrides: <T=any>(child: T, index?: number) => Record<string, unknown>, overrides: Record<string, unknown> = {}) : React.ReactElement => {
+export const overrideProps = <T = any>(component: React.ReactElement, getChildOverrides: (child: T, index?: number) => Record<string, unknown>, overrides: Record<string, unknown> = {}) : React.ReactElement => {
   if (!component) return component;
 
   const _overrides = overrides ?? {};
