@@ -21,6 +21,7 @@ const isNotNullOrEmpty = value => {
 /**
  * Available docgen tags:
  * @docgen_types - code wrapped display of supported types
+ * @docgen_description_note - note about the util (blockquote) to go under the description
  * @docgen_note - note about the util (blockquote)
  * @docgen_details - Any extra details to say about the function that you don't want in a note blockquote
  * @docgen_import - override for the import
@@ -28,6 +29,7 @@ const isNotNullOrEmpty = value => {
 const customTags = [
   '@docgen_types', 
   '@docgen_note',
+  'docgen_description_note',
   '@docgen_details',
   '@docgen_import',
 ];
@@ -126,6 +128,14 @@ const generateTable = (util, packageName) => {
     notes = `<blockquote><p>${util.docgen_note.value}</p></blockquote>`;
   }
 
+  let descriptionNote = ''; 
+
+  if (util?.docgen_description_note && Array.isArray(util.docgen_description_note)) {
+    descriptionNote = util.docgen_description_note.map(note => `<blockquote><p>${note.value}</p></blockquote>`).join('');
+  } else if (util?.docgen_description_note) {
+    descriptionNote = `<blockquote><p>${util.docgen_description_note.value}</p></blockquote>`;
+  }
+
   let examples = existsSync(join(__dirname, '..', 'src', util.name, 'EXAMPLES.md')) ? '\n\n' + readFileSync(join(__dirname, '..', 'src', util.name, 'EXAMPLES.md'), 'utf8') + '\n\n' : '';
 
   if (isNotNullOrEmpty(util.example)) {
@@ -156,6 +166,7 @@ import ${isNotNullOrEmpty(util.docgen_import) ? util.docgen_import.value : `{ ${
     `<h2>${util.name}${util.generic ? `&lt;${util.generic}&gt;` : ''}</h2>` +
     '\n' +
     description +
+    descriptionNote +
     since +
     `<table>
       <thead>
