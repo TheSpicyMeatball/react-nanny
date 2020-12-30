@@ -25,6 +25,7 @@ const isNotNullOrEmpty = value => {
  * @docgen_note - note about the util (blockquote)
  * @docgen_details - Any extra details to say about the function that you don't want in a note blockquote
  * @docgen_import - override for the import
+ * @docgen_imp_note - note about the import
  */
 const customTags = [
   '@docgen_types', 
@@ -32,6 +33,7 @@ const customTags = [
   'docgen_description_note',
   '@docgen_details',
   '@docgen_import',
+  '@docgen_imp_note',
 ];
 
 const index = async () => {
@@ -114,27 +116,26 @@ const generateTable = (util, packageName) => {
     return '';
   };
 
+  const getNotes = key => {
+    if (util[key] && Array.isArray(util[key])) {
+      return util[key].map(note => `<blockquote><p>${note.value}</p></blockquote>`).join('');
+    } else if (util[key]) {
+      return `<blockquote><p>${util[key].value}</p></blockquote>`;
+    }
+
+    return '';
+  };
+
   const description = getValue('description');
   const since = util.since ? `<p>Since ${util.since.value}</p>\n` : '';
   const hasDefault = util.param.some(x => x.defaultValue !== undefined);
   const types = util.docgen_types ? `<h4>Supporting Types</h4>\n\n\`\`\`\n${util.docgen_types.value}\n\`\`\`` : '';
   const details = getValue('docgen_details');
 
-  let notes = ''; 
+  const notes = getNotes('docgen_note');
+  const descriptionNote = getNotes('docgen_description_note');
+  const importNote = getNotes('docgen_imp_note');
 
-  if (util?.docgen_note && Array.isArray(util.docgen_note)) {
-    notes = util.docgen_note.map(note => `<blockquote><p>${note.value}</p></blockquote>`).join('');
-  } else if (util?.docgen_note) {
-    notes = `<blockquote><p>${util.docgen_note.value}</p></blockquote>`;
-  }
-
-  let descriptionNote = ''; 
-
-  if (util?.docgen_description_note && Array.isArray(util.docgen_description_note)) {
-    descriptionNote = util.docgen_description_note.map(note => `<blockquote><p>${note.value}</p></blockquote>`).join('');
-  } else if (util?.docgen_description_note) {
-    descriptionNote = `<blockquote><p>${util.docgen_description_note.value}</p></blockquote>`;
-  }
 
   let examples = existsSync(join(__dirname, '..', 'src', util.name, 'EXAMPLES.md')) ? '\n\n' + readFileSync(join(__dirname, '..', 'src', util.name, 'EXAMPLES.md'), 'utf8') + '\n\n' : '';
 
@@ -190,6 +191,7 @@ import ${isNotNullOrEmpty(util.docgen_import) ? util.docgen_import.value : `{ ${
     types +
     details +
     _import +
+    importNote +
     examples
   );
 };

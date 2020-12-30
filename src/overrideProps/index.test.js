@@ -1,7 +1,7 @@
 const React = require('react');
-const { modifyChildProps } = require('../../dist/lib/es5/index');
+const { overrideProps } = require('../../dist/lib/es5/index');
 
-describe('modifyChildProps', () => {
+describe('overrideProps', () => {
   React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
   React.cloneElement = (x, props) => ({ ...x, props: { ...x.props, ...props }});
   
@@ -17,8 +17,8 @@ describe('modifyChildProps', () => {
     },
   };
 
-  test('Basic', () => {    
-    expect(modifyChildProps(component, () => ({ active: true }))).toStrictEqual({
+  test('Basic', () => {
+    expect(overrideProps(component, () => ({ active: true }))).toStrictEqual({
       props: {
         children: [
           { props: { active: true, title: 'Supervisor' }},
@@ -32,7 +32,7 @@ describe('modifyChildProps', () => {
   });
 
   test('Basic => updating self prop', () => {    
-    expect(modifyChildProps(component, () => ({ active: true }), { hello: 'Hola mundo' })).toStrictEqual({
+    expect(overrideProps(component, () => ({ active: true }), { hello: 'Hola mundo' })).toStrictEqual({
       props: {
         children: [
           { props: { active: true, title: 'Supervisor' }},
@@ -46,7 +46,7 @@ describe('modifyChildProps', () => {
   });
 
   test('conditional on child prop value', () => {    
-    expect(modifyChildProps(component, child => child.props.title === 'Supervisor' ? ({ active: true }) : {})).toStrictEqual({
+    expect(overrideProps(component, child => child.props.title === 'Supervisor' ? ({ active: true }) : {})).toStrictEqual({
       props: {
         children: [
           { props: { active: true, title: 'Supervisor' }},
@@ -60,7 +60,7 @@ describe('modifyChildProps', () => {
   });
 
   test('nothing', () => {
-    expect(modifyChildProps(null, () => ({ active: true }))).toBe(null);
-    expect(modifyChildProps(null, () => ({ active: true }), { hello: 'Hola mundo' })).toBe(null);
+    expect(overrideProps(null, () => ({ active: true }))).toBe(null);
+    expect(overrideProps(null, () => ({ active: true }), { hello: 'Hola mundo' })).toBe(null);
   });
 });

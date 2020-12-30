@@ -12,7 +12,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.3.0-beta.0</p>
+<p><b>Version:</b> 2.3.0-beta.1</p>
 
 <h2>Installation</h2>
 
@@ -30,7 +30,7 @@ $ npm install react-nanny --save
       <th>Description</th>
     </tr>
     </thead>
-    <tbody><tr><td>getChild</td><td>Gets first child by specified predicate</td></tr><tr><td>getChildDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildByType</td><td>Gets first child by specified type</td></tr><tr><td>getChildByTypeDeep</td><td>Gets first child by specified type (deep search)</td></tr><tr><td>getChildren</td><td>Gets all children by specified predicate</td></tr><tr><td>getChildrenDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildrenByType</td><td>Gets all children by specified type</td></tr><tr><td>getChildrenByTypeDeep</td><td>Gets all children by specified type (deep search)</td></tr><tr><td>modifyChildProps</td><td>Immutably modifies props of the children of the component</td></tr><tr><td>noEmptyChildrenDeep</td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td>removeChildren</td><td>Removes all children by specified predicate</td></tr><tr><td>removeChildrenDeep</td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td>removeChildrenByType</td><td>Removes all children by specified type</td></tr><tr><td>removeChildrenByTypeDeep</td><td>Removes all children by specified type (deep search)</td></tr><tr><td>typeOfComponent</td><td>Gets the string type of the component's {customTypeKey}, string type of the core html (JSX intrinsic) element, or the function type</td></tr></tbody>
+    <tbody><tr><td>getChild</td><td>Gets first child by specified predicate</td></tr><tr><td>getChildDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildByType</td><td>Gets first child by specified type</td></tr><tr><td>getChildByTypeDeep</td><td>Gets first child by specified type (deep search)</td></tr><tr><td>getChildren</td><td>Gets all children by specified predicate</td></tr><tr><td>getChildrenDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildrenByType</td><td>Gets all children by specified type</td></tr><tr><td>getChildrenByTypeDeep</td><td>Gets all children by specified type (deep search)</td></tr><tr><td>noEmptyChildrenDeep</td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td>overrideProps</td><td>Immutably override props of the children of the original component and (optionally) the original component</td></tr><tr><td>removeChildren</td><td>Removes all children by specified predicate</td></tr><tr><td>removeChildrenDeep</td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td>removeChildrenByType</td><td>Removes all children by specified type</td></tr><tr><td>removeChildrenByTypeDeep</td><td>Removes all children by specified type (deep search)</td></tr><tr><td>typeOfComponent</td><td>Gets the string type of the component's {customTypeKey}, string type of the core html (JSX intrinsic) element, or the function type</td></tr></tbody>
   </table><hr />
 
 <h2>What can I use to derive types for a comparison?</h2>
@@ -205,7 +205,7 @@ export type GetChildByTypeConfig = { customTypeKey?: string, prioritized?: boole
 import { getChildByType, GetChildByTypeConfig } from 'react-nanny';
 ```
 
-  <h4>Examples</h4>
+  <blockquote><p><em>GetChildByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects</p></blockquote><h4>Examples</h4>
 
 
 
@@ -254,7 +254,7 @@ export type GetChildByTypeConfig = { customTypeKey?: string, prioritized?: boole
 import { getChildByTypeDeep, GetChildByTypeConfig } from 'react-nanny';
 ```
 
-  <h4>Examples</h4>
+  <blockquote><p><em>GetChildByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects</p></blockquote><h4>Examples</h4>
 
 
 
@@ -370,7 +370,7 @@ export type GetChildrenByTypeConfig = { customTypeKey?: string };
 import { getChildrenByType, GetChildrenByTypeConfig } from 'react-nanny';
 ```
 
-  <h4>Examples</h4>
+  <blockquote><p><em>GetChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects</p></blockquote><h4>Examples</h4>
 
 
 
@@ -418,7 +418,7 @@ export type GetChildrenByTypeConfig = { customTypeKey?: string };
 import { getChildrenByTypeDeep, GetChildrenByTypeConfig } from 'react-nanny';
 ```
 
-  <h4>Examples</h4>
+  <blockquote><p><em>GetChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects</p></blockquote><h4>Examples</h4>
 
 
 
@@ -434,46 +434,6 @@ getChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
 
 // Finds all occurrences of ToDo (custom component) with a customized {customTypeKey}
 getChildrenByTypeDeep(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
-```
-
-    
-
-<hr />
-
-  
-
-<h2>modifyChildProps</h2>
-<p>Immutably modifies props of the children of the component</p>
-<blockquote><p>This function is a handy shortcut for when you may need to override the props of your children components and is an alternative for writing your own looped <em>React.cloneElement</em> calls.</p></blockquote><p>Since v2.3.0</p>
-<table>
-      <thead>
-      <tr>
-        <th>Param</th>
-        <th>Type</th><th>Default</th></tr>
-      </thead>
-      <tbody><tr><td><p><b>component</b></p>The component whose children you want to modify</td><td>React.ReactElement</td><td></td></tr><tr><td><p><b>callback</b></p>Types of children to match</td><td>&lt;T=any&gt;(child: T, index?: number) =&gt; Record&lt;string, unknown&gt;</td><td></td></tr><tr><td><p><b>selfProps <span>(optional)</span></b></p>Any other props to modify on the original component</td><td>object</td><td>selfProps</td></tr></tbody>
-    </table><p><b>Returns:</b> {React.ReactElement} The original component with the children with modified prop values</p>
-  <h4>Import</h4>
-
-```
-import { modifyChildProps } from 'react-nanny';
-```
-
-  <h4>Examples</h4>
-
-
-
-
-
-```    
-// This will set the active prop for each child component to {true}
-modifyChildProps(component, () => ({ active: true }));
-
-// This will set the active prop for each child component to {true} where child has a title prop = 'Supervisor'
-modifyChildProps(component, child => child.props.title === 'Supervisor' ? ({ active: true }) : {});
-
-// This will set the active prop for each child component to {true} and update the hello prop on the root component
-modifyChildProps(component, () => ({ active: true }), { hello: 'Hola mundo' });
 ```
 
     
@@ -520,6 +480,47 @@ import { noEmptyChildrenDeep } from 'react-nanny';
 //   * A 'CustomComponent' is provided
 //   * A different custom component that has children
 noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
+```
+
+    
+
+<hr />
+
+  
+
+<h2>overrideProps</h2>
+<p>Immutably override props of the children of the original component and (optionally) the original component</p>
+<blockquote><p>This function is a handy shortcut for when you may need to override the props of your children components and is an alternative for writing your own looped <em>React.cloneElement</em> calls.</p></blockquote><p>Since v2.3.0</p>
+<table>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th><th>Default</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>component</b></p>The component whose children you want to modify</td><td>React.ReactElement</td><td></td></tr><tr><td><p><b>getChildOverrides</b></p>Callback function that returns an object containing the props you wish to override for each child</td><td>&lt;T=any&gt;(child: T, index?: number) =&gt; object</td><td></td></tr><tr><td><p><b>overrides <span>(optional)</span></b></p>Any other props to override on the original component</td><td>object</td><td>overrides</td></tr></tbody>
+    </table><p><b>Returns:</b> {React.ReactElement} The original component with the children with modified prop values</p>
+  <h4>Import</h4>
+
+```
+import { overrideProps } from 'react-nanny';
+```
+
+  <h4>Examples</h4>
+
+
+
+
+
+```    
+* 
+// This will override the active prop for each child component to {true}
+overrideProps(component, () => ({ active: true }));
+
+// This will override the active prop for each child component to {true} where child has a title prop = 'Supervisor'
+overrideProps(component, child => child.props.title === 'Supervisor' ? ({ active: true }) : {});
+
+// This will override the active prop for each child component to {true} and override the hello prop on the root component
+overrideProps(component, () => ({ active: true }), { hello: 'Hola mundo' });
 ```
 
     
@@ -613,7 +614,7 @@ removeChildrenDeep(children, child => !child.props.active);
 import { removeChildrenByType, RemoveChildrenByTypeConfig } from 'react-nanny';
 ```
 
-  <h4>Examples</h4>
+  <blockquote><p><em>RemoveChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects</p></blockquote><h4>Examples</h4>
 
 
 
@@ -658,7 +659,7 @@ removeChildrenByType(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
 import { removeChildrenByTypeDeep, RemoveChildrenByTypeConfig } from 'react-nanny';
 ```
 
-  <h4>Examples</h4>
+  <blockquote><p><em>RemoveChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects</p></blockquote><h4>Examples</h4>
 
 
 
@@ -723,28 +724,28 @@ README.md -- this file
       └───index.d.ts - 1.1 KB
       └───index.js - 1.78 KB
     └───/getChildByType
-      └───index.d.ts - 3.82 KB
-      └───index.js - 5.71 KB
+      └───index.d.ts - 4.07 KB
+      └───index.js - 5.96 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
       └───index.js - 2.16 KB
     └───/getChildrenByType
-      └───index.d.ts - 3.27 KB
-      └───index.js - 4.83 KB
-      └───index.d.ts - 690 Bytes
-      └───index.js - 3 KB
-    └───/modifyChildProps
-      └───index.d.ts - 1.49 KB
-      └───index.js - 2.66 KB
+      └───index.d.ts - 3.53 KB
+      └───index.js - 5.09 KB
+      └───index.d.ts - 684 Bytes
+      └───index.js - 2.98 KB
     └───/noEmptyChildren
       └───index.d.ts - 1.69 KB
       └───index.js - 3.35 KB
+    └───/overrideProps
+      └───index.d.ts - 1.62 KB
+      └───index.js - 2.9 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
       └───index.js - 3.01 KB
     └───/removeChildrenByType
-      └───index.d.ts - 3.36 KB
-      └───index.js - 5.75 KB
+      └───index.d.ts - 3.63 KB
+      └───index.js - 6.01 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.53 KB
@@ -756,28 +757,28 @@ README.md -- this file
       └───index.d.ts - 1.1 KB
       └───index.js - 1.6 KB
     └───/getChildByType
-      └───index.d.ts - 3.82 KB
-      └───index.js - 5.42 KB
+      └───index.d.ts - 4.07 KB
+      └───index.js - 5.67 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
       └───index.js - 1.96 KB
     └───/getChildrenByType
-      └───index.d.ts - 3.27 KB
-      └───index.js - 4.55 KB
-      └───index.d.ts - 690 Bytes
-      └───index.js - 600 Bytes
-    └───/modifyChildProps
-      └───index.d.ts - 1.49 KB
-      └───index.js - 2.51 KB
+      └───index.d.ts - 3.53 KB
+      └───index.js - 4.8 KB
+      └───index.d.ts - 684 Bytes
+      └───index.js - 594 Bytes
     └───/noEmptyChildren
       └───index.d.ts - 1.69 KB
       └───index.js - 3.12 KB
+    └───/overrideProps
+      └───index.d.ts - 1.62 KB
+      └───index.js - 2.76 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
       └───index.js - 2.78 KB
     └───/removeChildrenByType
-      └───index.d.ts - 3.36 KB
-      └───index.js - 5.44 KB
+      └───index.d.ts - 3.63 KB
+      └───index.js - 5.71 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.39 KB

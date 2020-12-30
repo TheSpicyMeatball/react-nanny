@@ -29,6 +29,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To remove a React Fragment, search for <em>'react.fragment'</em>.
  * @docgen_import { removeChildrenByType, RemoveChildrenByTypeConfig }
+ * @docgen_imp_note <em>RemoveChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _types = processTypes(types);
@@ -61,6 +62,7 @@ export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To remove a React Fragment, search for <em>'react.fragment'</em>.
  * @docgen_import { removeChildrenByTypeDeep, RemoveChildrenByTypeConfig }
+ * @docgen_imp_note <em>RemoveChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const removeChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _children = React.Children.toArray(children);

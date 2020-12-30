@@ -4,7 +4,7 @@ export { getChildByType, getChildByTypeDeep, GetChildByTypeConfig } from './getC
 export { getChildren, getChildrenDeep } from './getChildren';
 export { getChildrenByType, getChildrenByTypeDeep, GetChildrenByTypeConfig } from './getChildrenByType';
 
-export { modifyChildProps } from './modifyChildProps';
+export { overrideProps } from './overrideProps';
 
 export { noEmptyChildrenDeep, NoEmptyConfig } from './noEmptyChildren';
 

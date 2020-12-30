@@ -1,5 +1,5 @@
 ## [2.3.0] - 2020-12-30
-- Added modifyChildProps util
+- Added overrideProps util
 
 ## [2.2.0] - 2020-12-29
 - Added the ability to infer type from React.ReactNode

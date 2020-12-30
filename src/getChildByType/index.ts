@@ -31,6 +31,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
  * @docgen_import { getChildByType, GetChildByTypeConfig }
+ * @docgen_imp_note <em>GetChildByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
   const _types = processTypes(types);
@@ -75,6 +76,7 @@ export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { c
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
  * @docgen_import { getChildByTypeDeep, GetChildByTypeConfig }
+ * @docgen_imp_note <em>GetChildByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const getChildByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
   const _types = processTypes(types);
