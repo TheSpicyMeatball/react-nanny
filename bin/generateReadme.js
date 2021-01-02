@@ -1,5 +1,5 @@
 const ejs = require('ejs');
-const { existsSync, readdirSync, readFileSync, writeFileSync } = require('fs');
+const { copyFileSync, existsSync, readdirSync, readFileSync, writeFileSync } = require('fs');
 const { join, resolve } = require('path');
 const dirTree = require('directory-tree');
 const { parseTags, removeTags } = require('jsdoc-parse-plus');
@@ -102,6 +102,14 @@ const index = async () => {
   sanitizeDTS(dirs, es5);
   sanitizeDTS(dirs, es6);
   
+  if (existsSync(join(__dirname, '..', 'LICENSE'))) {
+    copyFileSync(join(__dirname, '..', 'LICENSE'), join(__dirname, '..', 'dist', 'LICENSE'));
+  }
+
+  if (existsSync(join(__dirname, '..', 'CHANGELOG.md'))) {
+    copyFileSync(join(__dirname, '..', 'CHANGELOG.md'), join(__dirname, '..', 'dist', 'CHANGELOG.md'));
+  }
+
   console.log('Done');
 };
 

@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/TheSpicyMeatball/react-nanny.svg?branch=main)](https://travis-ci.com/TheSpicyMeatball/react-nanny)
+[![Coverage Status](https://coveralls.io/repos/github/TheSpicyMeatball/react-nanny/badge.svg?branch=main)](https://coveralls.io/github/TheSpicyMeatball/react-nanny?branch=main)
+
 # react-nanny
 
 > Utils to manage your React Children; find and filter children by type or custom function, enforce child content, and more!
@@ -12,7 +15,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.3.1</p>
+<p><b>Version:</b> 2.4.0</p>
 
 
 
