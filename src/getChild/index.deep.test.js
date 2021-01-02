@@ -63,6 +63,18 @@ describe('getChildDeep', () => {
     expect(getChildDeep(children, child => child && child.type === 'span')).toStrictEqual({ type: 'span', props: { children: 'Outer span' }});
   });
 
+  test('Deep find => no props', () => {
+    expect(getChildDeep({}, child => child && child.type === 'span')).toBe(undefined);
+  });
+
+  test('Deep find => props => no grandchildren', () => {
+    const children = [
+      { props: { __TYPE: 'CustomComponent', active: false }},
+      { props: { __TYPE: 'CustomComponent', active: true }},
+    ];
+    expect(getChildDeep(children, child => child && child.type === 'span')).toBe(undefined);
+  });
+
   test('undefined', () => {
     expect(getChildDeep(children, child => child && child.props && child.props.bogus)).toBe(undefined);
   });

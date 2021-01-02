@@ -31,6 +31,22 @@ describe('overrideProps', () => {
     });
   });
 
+  test('Basic => single', () => {
+    const component = {
+      props: {
+        children: { props: { active: false, title: 'Supervisor' }},
+        hello: 'Hello world',
+      },
+    };
+
+    expect(overrideProps(component, () => ({ active: true }))).toStrictEqual({
+      props: {
+        children: { props: { active: true, title: 'Supervisor' }},
+        hello: 'Hello world',
+      },
+    });
+  });
+
   test('Basic => updating self prop', () => {    
     expect(overrideProps(component, () => ({ active: true }), { hello: 'Hola mundo' })).toStrictEqual({
       props: {
@@ -62,5 +78,6 @@ describe('overrideProps', () => {
   test('nothing', () => {
     expect(overrideProps(null, () => ({ active: true }))).toBe(null);
     expect(overrideProps(null, () => ({ active: true }), { hello: 'Hola mundo' })).toBe(null);
+    expect(overrideProps({ props: {}}, () => ({ active: true }))).toStrictEqual({ props: {}});
   });
 });

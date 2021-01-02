@@ -16,7 +16,7 @@ export const getChildren = <T=React.ReactNode>(children: T, predicate: (child: T
   React.Children.toArray(children).filter(predicate) as T[];
 
 /**
- * Gets first child by specified predicate (deep search)
+ * Gets all children by specified predicate (deep search)
  * 
  * @since v1.0.0
  * @template T

@@ -1,3 +1,4 @@
-node_modules
-dist/lib
 .DS_store
+coverage
+dist/lib
+node_modules

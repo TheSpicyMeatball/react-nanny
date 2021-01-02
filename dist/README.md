@@ -14,11 +14,6 @@
 
 <p><b>Version:</b> 2.3.1</p>
 
-<h2>Installation</h2>
-
-```
-$ npm install react-nanny --save
-```
 
 
 <h2>Summary of Utils</h2>
@@ -30,7 +25,7 @@ $ npm install react-nanny --save
       <th>Description</th>
     </tr>
     </thead>
-    <tbody><tr><td>getChild</td><td>Gets first child by specified predicate</td></tr><tr><td>getChildDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildByType</td><td>Gets first child by specified type</td></tr><tr><td>getChildByTypeDeep</td><td>Gets first child by specified type (deep search)</td></tr><tr><td>getChildren</td><td>Gets all children by specified predicate</td></tr><tr><td>getChildrenDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildrenByType</td><td>Gets all children by specified type</td></tr><tr><td>getChildrenByTypeDeep</td><td>Gets all children by specified type (deep search)</td></tr><tr><td>noEmptyChildrenDeep</td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td>overrideProps</td><td>Immutably override props of the children of the original component and (optionally) the original component</td></tr><tr><td>removeChildren</td><td>Removes all children by specified predicate</td></tr><tr><td>removeChildrenDeep</td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td>removeChildrenByType</td><td>Removes all children by specified type</td></tr><tr><td>removeChildrenByTypeDeep</td><td>Removes all children by specified type (deep search)</td></tr><tr><td>typeOfComponent</td><td>Gets the string type of the component's {customTypeKey}, string type of the core html (JSX intrinsic) element, or the function type</td></tr></tbody>
+    <tbody><tr><td>getChild</td><td>Gets first child by specified predicate</td></tr><tr><td>getChildDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildByType</td><td>Gets first child by specified type</td></tr><tr><td>getChildByTypeDeep</td><td>Gets first child by specified type (deep search)</td></tr><tr><td>getChildren</td><td>Gets all children by specified predicate</td></tr><tr><td>getChildrenDeep</td><td>Gets all children by specified predicate (deep search)</td></tr><tr><td>getChildrenByType</td><td>Gets all children by specified type</td></tr><tr><td>getChildrenByTypeDeep</td><td>Gets all children by specified type (deep search)</td></tr><tr><td>noEmptyChildrenDeep</td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td>overrideProps</td><td>Immutably override props of the children of the original component and (optionally) the original component</td></tr><tr><td>removeChildren</td><td>Removes all children by specified predicate</td></tr><tr><td>removeChildrenDeep</td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td>removeChildrenByType</td><td>Removes all children by specified type</td></tr><tr><td>removeChildrenByTypeDeep</td><td>Removes all children by specified type (deep search)</td></tr><tr><td>typeOfComponent</td><td>Gets the string type of the component's {customTypeKey}, string type of the core html (JSX intrinsic) element, or the function type</td></tr></tbody>
   </table><hr />
 
 <h2>What can I use to derive types for a comparison?</h2>
@@ -197,6 +192,7 @@ getChildDeep(children, child => child.props.active);
 // The configuration type for the util:
 //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
 //   prioritized?: boolean = false - Whether or not the order of types is prioritized
+
 export type GetChildByTypeConfig = { customTypeKey?: string, prioritized?: boolean };
 ```
   <h4>Import</h4>
@@ -313,7 +309,7 @@ getChildren(children, child => child.props.active);
   
 
 <h2>getChildrenDeep&lt;T=React.ReactNode&gt;</h2>
-<p>Gets first child by specified predicate (deep search)</p>
+<p>Gets all children by specified predicate (deep search)</p>
 <p>Since v1.0.0</p>
 <table>
       <thead>
@@ -479,6 +475,7 @@ import { noEmptyChildrenDeep } from 'react-nanny';
 //   * There is markup with content
 //   * A 'CustomComponent' is provided
 //   * A different custom component that has children
+
 noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
 ```
 
@@ -488,7 +485,7 @@ noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: fals
 
   
 
-<h2>overrideProps&lt;T = any&gt;</h2>
+<h2>overrideProps&lt;T=any&gt;</h2>
 <p>Immutably override props of the children of the original component and (optionally) the original component</p>
 <blockquote><p>This function is a handy shortcut for when you may need to override the props of your children components and is an alternative for writing your own looped <em>React.cloneElement</em> calls.</p></blockquote><p>Since v2.3.0</p>
 <table>
@@ -497,7 +494,7 @@ noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: fals
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>component</b></p>The component whose children you want to modify</td><td>React.ReactElement</td><td></td></tr><tr><td><p><b>getChildOverrides</b></p>Callback function that returns an object containing the props you wish to override for each child</td><td>&lt;T=any&gt;(child: T, index?: number) =&gt; object</td><td></td></tr><tr><td><p><b>overrides <span>(optional)</span></b></p>Any other props to override on the original component</td><td>object</td><td>overrides</td></tr></tbody>
+      <tbody><tr><td><p><b>component</b></p>The component whose children you want to modify</td><td>React.ReactElement</td><td></td></tr><tr><td><p><b>getChildOverrides</b></p>Callback function that returns an object containing the props you wish to override for each child</td><td>(child: T, index?: number) =&gt; object</td><td></td></tr><tr><td><p><b>overrides <span>(optional)</span></b></p>Any other props to override on the original component</td><td>object</td><td>overrides</td></tr></tbody>
     </table><p><b>Returns:</b> {React.ReactElement} The original component with the children with modified prop values</p>
   <h4>Import</h4>
 
@@ -722,9 +719,9 @@ README.md -- this file
   └───/es5
     └───/getChild
       └───index.d.ts - 1.1 KB
-      └───index.js - 1.78 KB
+      └───index.js - 1.73 KB
     └───/getChildByType
-      └───index.d.ts - 4.07 KB
+      └───index.d.ts - 4.08 KB
       └───index.js - 5.96 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
@@ -738,14 +735,14 @@ README.md -- this file
       └───index.d.ts - 1.69 KB
       └───index.js - 3.35 KB
     └───/overrideProps
-      └───index.d.ts - 1.62 KB
-      └───index.js - 2.9 KB
+      └───index.d.ts - 1.61 KB
+      └───index.js - 2.51 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
-      └───index.js - 3.01 KB
+      └───index.js - 2.71 KB
     └───/removeChildrenByType
       └───index.d.ts - 3.63 KB
-      └───index.js - 6.01 KB
+      └───index.js - 5.72 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.53 KB
@@ -755,9 +752,9 @@ README.md -- this file
   └───/es6
     └───/getChild
       └───index.d.ts - 1.1 KB
-      └───index.js - 1.6 KB
+      └───index.js - 1.55 KB
     └───/getChildByType
-      └───index.d.ts - 4.07 KB
+      └───index.d.ts - 4.08 KB
       └───index.js - 5.67 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
@@ -771,14 +768,14 @@ README.md -- this file
       └───index.d.ts - 1.69 KB
       └───index.js - 3.12 KB
     └───/overrideProps
-      └───index.d.ts - 1.62 KB
-      └───index.js - 2.76 KB
+      └───index.d.ts - 1.61 KB
+      └───index.js - 2.37 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
-      └───index.js - 2.78 KB
+      └───index.js - 2.48 KB
     └───/removeChildrenByType
       └───index.d.ts - 3.63 KB
-      └───index.js - 5.71 KB
+      └───index.js - 5.41 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.39 KB

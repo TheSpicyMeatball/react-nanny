@@ -17,6 +17,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * // The configuration type for the util:
  * //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
  * //   prioritized?: boolean = false - Whether or not the order of types is prioritized
+ * 
  * export type GetChildByTypeConfig = { customTypeKey?: string, prioritized?: boolean };
  * @example
  * // Finds the first occurrence of either a ToDo (custom component w/defined type as prop), a div, or a React Fragment

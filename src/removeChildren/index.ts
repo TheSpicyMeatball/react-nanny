@@ -38,15 +38,13 @@ export const removeChildrenDeep = <T=React.ReactNode>(children: T, predicate: (c
       if ((child as any)?.props?.children) {
         output = [
           ...output, 
-          {
-            ...(child as any),
-            props: {
-              ...(child as any).props,
+          Object.assign((child as any), {
+            props: Object.assign((child as any).props, {
               children: Array.isArray((child as any).props.children) 
                         ? removeChildrenDeep<T>((child as any).props.children, predicate)
                         : removeChildrenDeep<T>((child as any).props.children, predicate)[0] ?? [],
-            }
-          }
+            }),
+          }),
         ];
       } else {
         output = [...output, child as T];

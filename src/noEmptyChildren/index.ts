@@ -19,6 +19,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * //   * There is markup with content
  * //   * A 'CustomComponent' is provided
  * //   * A different custom component that has children
+ * 
  * noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: false, rejectEmptyCustom: true })
  */
 export const noEmptyChildrenDeep = (component: any, { ignore = [], rejectCustom = true, rejectEmptyCustom = false }: NoEmptyConfig = {}) : boolean => {

@@ -5,7 +5,7 @@ import * as React from 'react';
  *
  * @since v2.3.0
  * @param {React.ReactElement} component - The component whose children you want to modify
- * @param {<T=any>(child: T, index?: number) => object} getChildOverrides - Callback function that returns an object containing the props you wish to override for each child
+ * @param {(child: T, index?: number) => object} getChildOverrides - Callback function that returns an object containing the props you wish to override for each child
  * @param {object} [overrides] - Any other props to override on the original component
  * @returns {React.ReactElement} The original component with the children with modified prop values
  * @example * 
@@ -20,21 +20,19 @@ import * as React from 'react';
  * @docgen_description_note
  * This function is a handy shortcut for when you may need to override the props of your children components and is an alternative for writing your own looped <em>React.cloneElement</em> calls.
  */
-export const overrideProps = <T = any>(component: React.ReactElement, getChildOverrides: (child: T, index?: number) => Record<string, unknown>, overrides: Record<string, unknown> = {}) : React.ReactElement => {
+export const overrideProps = <T=any>(component: React.ReactElement, getChildOverrides: (child: T, index?: number) => Record<string, unknown>, overrides: Record<string, unknown> = {}) : React.ReactElement => {
   if (!component) return component;
 
   const _overrides = overrides ?? {};
-  if (!component?.props?.children || !getChildOverrides) return React.cloneElement(component, _overrides);
+  if (!component?.props?.children) return React.cloneElement(component, _overrides);
 
   if (Array.isArray(component.props.children)) {
-    return React.cloneElement(component, {
-      ..._overrides,
+    return React.cloneElement(component, Object.assign(_overrides, {
       children: React.Children.toArray(component.props.children).map((child: any, index?: number) => React.cloneElement(child, getChildOverrides(child, index))),
-    });
+    }));
   }
 
-  return React.cloneElement(component, {
-    ..._overrides,
+  return React.cloneElement(component, Object.assign(_overrides, {
     children: React.cloneElement(component.props.children, getChildOverrides(component.props.children, 0)),
-  });
+  }));
 };
