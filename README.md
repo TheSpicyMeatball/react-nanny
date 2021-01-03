@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.com/TheSpicyMeatball/react-nanny.svg?branch=main)](https://travis-ci.com/TheSpicyMeatball/react-nanny)
 [![Coverage Status](https://coveralls.io/repos/github/TheSpicyMeatball/react-nanny/badge.svg?branch=main)](https://coveralls.io/github/TheSpicyMeatball/react-nanny?branch=main)
+[![dependencies Status](https://status.david-dm.org/gh/TheSpicyMeatball/react-nanny.svg?path=dist)](https://david-dm.org/TheSpicyMeatball/react-nanny?path=dist)
+[![peerDependencies Status](https://status.david-dm.org/gh/TheSpicyMeatball/react-nanny.svg?path=dist&type=peer)](https://david-dm.org/TheSpicyMeatball/react-nanny?path=dist&type=peer)
 
 # react-nanny
 
@@ -16,6 +18,10 @@
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
 <p><b>Version:</b> 2.4.0</p>
+
+<h3>Dependencies</h3>
+
+<code>react-nanny</code> doesn't have any dependencies. However, it does have a peer dependency of <code>"react": ">=16.0.0"</code> which you most likely satisfy if you're the kind of person who's looking for utils for React children.
 
 
 
@@ -736,7 +742,7 @@ README.md -- this file
       └───index.js - 2.98 KB
     └───/noEmptyChildren
       └───index.d.ts - 1.69 KB
-      └───index.js - 3.35 KB
+      └───index.js - 3.42 KB
     └───/overrideProps
       └───index.d.ts - 1.61 KB
       └───index.js - 2.51 KB
@@ -748,7 +754,7 @@ README.md -- this file
       └───index.js - 5.72 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
-      └───index.js - 1.53 KB
+      └───index.js - 1.6 KB
     └───/_private
       └───utils.d.ts - 61 Bytes
       └───utils.js - 575 Bytes
@@ -769,7 +775,7 @@ README.md -- this file
       └───index.js - 594 Bytes
     └───/noEmptyChildren
       └───index.d.ts - 1.69 KB
-      └───index.js - 3.12 KB
+      └───index.js - 3.19 KB
     └───/overrideProps
       └───index.d.ts - 1.61 KB
       └───index.js - 2.37 KB
@@ -781,7 +787,7 @@ README.md -- this file
       └───index.js - 5.41 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
-      └───index.js - 1.39 KB
+      └───index.js - 1.46 KB
     └───/_private
       └───utils.d.ts - 61 Bytes
       └───utils.js - 398 Bytes

@@ -35,7 +35,7 @@ import { typeOfComponent } from '../typeOfComponent';
 export const getChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
   const _types = processTypes(types);
   return React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1) as T[];
-}
+};
 
 
 /**

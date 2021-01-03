@@ -34,7 +34,7 @@ import { typeOfComponent } from '../typeOfComponent';
 export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _types = processTypes(types);
   return React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) === -1) as T[];
-}
+};
 
 /**
  * Removes all children by specified type (deep search)

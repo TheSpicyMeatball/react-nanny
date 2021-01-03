@@ -8,6 +8,13 @@
     "type": "git",
     "url": "git+https://github.com/TheSpicyMeatball/react-nanny.git"
   },
+  "files": [
+    "lib",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
   "keywords": [
     "react",
     "children",

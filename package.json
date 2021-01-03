@@ -2,7 +2,8 @@
   "name": "react-nanny",
   "description": "Utils to manage your React Children; find and filter children by type or custom function, enforce child content, and more!",
   "scripts": {
-    "compile": "rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json && npm run readme",
+    "compile": "npm run lint && rm -rf dist/lib && tsc && tsc --build tsconfig.es5.json && npm run readme",
+    "lint": "eslint . --ext .ts",
     "readme": "node bin/generateReadme.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -25,10 +26,13 @@
   "devDependencies": {
     "@types/jest": "^26.0.19",
     "@types/react": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
     "copyfiles": "^2.4.1",
     "coveralls": "^3.1.0",
     "directory-tree": "^2.2.5",
     "ejs": "^3.1.5",
+    "eslint": "^7.17.0",
     "jest": "^26.6.3",
     "js-htmlencode": "^0.3.0",
     "jsdoc-parse-plus": "1.0.0",
