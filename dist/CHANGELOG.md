@@ -1,3 +1,6 @@
+## [2.5.0] - 2021-01-04
+- Removed unused code and unreachable branches
+
 ## [2.4.0] - 2021-01-02
 - Integrated with Travis CI and Coveralls
 - Display build and coverage on README.md

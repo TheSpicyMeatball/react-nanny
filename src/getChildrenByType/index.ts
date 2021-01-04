@@ -78,7 +78,7 @@ export const getChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any
       output = [...output, child as T];
     } 
     
-    if ((child as any)?.props?.children) {
+    if ((child as any).props?.children) {
       output = [...output, ...getChildrenByTypeDeep<T>((child as any).props.children, _types, { customTypeKey })];
     }
   }

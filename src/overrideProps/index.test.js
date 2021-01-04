@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const React = require('react');
 const { overrideProps } = require('../../dist/lib/es5/index');
 
@@ -61,6 +63,20 @@ describe('overrideProps', () => {
     });
   });
 
+  test('Basic => updating self prop => null self', () => {    
+    expect(overrideProps(component, () => ({ active: true }), null)).toStrictEqual({
+      props: {
+        children: [
+          { props: { active: true, title: 'Supervisor' }},
+          { props: { active: true, title: 'Employee' }},
+          { props: { active: true, title: 'Employee' }},
+          { props: { active: true, title: 'Supervisor' }},
+        ],
+        hello: 'Hello world',
+      },
+    });
+  });
+
   test('conditional on child prop value', () => {    
     expect(overrideProps(component, child => child.props.title === 'Supervisor' ? ({ active: true }) : {})).toStrictEqual({
       props: {
@@ -79,5 +95,6 @@ describe('overrideProps', () => {
     expect(overrideProps(null, () => ({ active: true }))).toBe(null);
     expect(overrideProps(null, () => ({ active: true }), { hello: 'Hola mundo' })).toBe(null);
     expect(overrideProps({ props: {}}, () => ({ active: true }))).toStrictEqual({ props: {}});
+    expect(overrideProps({}, () => ({ active: true }))).toStrictEqual({});
   });
 });

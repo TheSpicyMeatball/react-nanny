@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const React = require('react');
 const { getChildrenDeep } = require('../../dist/lib/es5/index');
 

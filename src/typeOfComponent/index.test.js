@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { typeOfComponent } = require('../../dist/lib/es5/index');
 
 describe('typeOfComponent', () => {
@@ -16,7 +18,12 @@ describe('typeOfComponent', () => {
     expect(typeOfComponent('my string')).toBe('string');
   });
 
+  test('react.fragment', () => {
+    expect(typeOfComponent({ type: Symbol('react.fragment') })).toBe('react.fragment');
+  });
+
   test('undefined', () => {
+    expect(typeOfComponent(null)).toBe(undefined);
     expect(typeOfComponent({})).toBe(undefined);
     expect(typeOfComponent({ props: {}})).toBe(undefined);
     expect(typeOfComponent({ props: { TYPE: 'CustomComponent' }})).toBe(undefined);

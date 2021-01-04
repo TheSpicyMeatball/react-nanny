@@ -10,9 +10,9 @@
  * React Fragments will return type 'react.fragment'. Priority will be given to the <em>{customTypeKey}</em> if one exists
  */
 export const typeOfComponent = (component: any, customTypeKey = '__TYPE') : string =>
-  (component?.props && component?.props[customTypeKey]) ||
+  (component?.props && component.props[customTypeKey]) ||
   (typeof component?.type === 'string' && component.type) ||
-  (component?.type && typeof component.type === 'symbol' && component?.type.toString() === 'Symbol(react.fragment)' && 'react.fragment') ||
+  (component?.type && typeof component.type === 'symbol' && component.type.toString() === 'Symbol(react.fragment)' && 'react.fragment') ||
   (typeof component?.type === 'function' && component.type) ||
   (typeof component === 'string' && 'string') ||
   undefined;

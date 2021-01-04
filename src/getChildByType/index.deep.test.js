@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const React = require('react');
 const { getChildByTypeDeep } = require('../../dist/lib/es5/index');
 
@@ -22,6 +24,7 @@ const children = [
   },
   { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
   { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
+  { props: { CustomKey: 'customTypeKey', children: 'Custom w/customTypeKey' }},
   { type: 'span' },
   { type: 'div' },
 ];
@@ -48,6 +51,7 @@ describe('getChildByTypeDeep', () => {
                   { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},
                   { type: 'span', props: { children: 'Deep span' }},
                   { type: 'div' },
+                  { props: { TYPE: 'CustomKey', children: 'Child w/customTypeKey' }},
                 ],
               },
             },
@@ -71,5 +75,10 @@ describe('getChildByTypeDeep', () => {
     expect(getChildByTypeDeep(children, ['span', 'CustomComponent'])).toStrictEqual({ props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }});
     expect(getChildByTypeDeep(children, ['span', 'CustomComponent'], { prioritized: false })).toStrictEqual({ props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }});
     expect(getChildByTypeDeep(children, ['span', 'CustomComponent'], { prioritized: true })).toStrictEqual({ type: 'span', props: { children: 'Deep span' }});
+    expect(getChildByTypeDeep(children, ['b', 'em'], { prioritized: true })).toBe(undefined);
+  });
+
+  test('customTypeKey', () => {
+    expect(getChildByTypeDeep(children, ['customTypeKey'], { customTypeKey: 'CustomKey' })).toStrictEqual({ props: { CustomKey: 'customTypeKey', children: 'Custom w/customTypeKey' }});
   });
 });

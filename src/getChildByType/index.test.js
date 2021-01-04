@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const React = require('react');
 const { getChildByType } = require('../../dist/lib/es5/index');
 
@@ -74,5 +76,6 @@ describe('getChildByType', () => {
       { type: 'div' },
     ];
     expect(getChildByType(children, ['div', 'span', 'CustomComponent'], { prioritized: true })).toStrictEqual(children[4]);
+    expect(getChildByType(children, ['b', 'em', 'NotFound'], { prioritized: true })).toBe(undefined);
   });
 });

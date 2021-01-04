@@ -24,7 +24,8 @@ export const overrideProps = <T=any>(component: React.ReactElement, getChildOver
   if (!component) return component;
 
   const _overrides = overrides ?? {};
-  if (!component?.props?.children) return React.cloneElement(component, _overrides);
+  if (!component.props && Object.keys(_overrides).length <= 0) return component;
+  if (!component.props.children) return React.cloneElement(component, _overrides);
 
   if (Array.isArray(component.props.children)) {
     return React.cloneElement(component, Object.assign(_overrides, {

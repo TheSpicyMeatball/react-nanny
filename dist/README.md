@@ -17,7 +17,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.4.0</p>
+<p><b>Version:</b> 2.5.0</p>
 
 <h3>Dependencies</h3>
 
@@ -454,9 +454,9 @@ getChildrenByTypeDeep(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
       <thead>
       <tr>
         <th>Param</th>
-        <th>Type</th><th>Default</th></tr>
+        <th>Type</th></tr>
       </thead>
-      <tbody><tr><td><p><b>component</b></p>A component, array of components, or content of a component</td><td>any</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>Configuration options for custom components</td><td>NoEmptyConfig</td><td>config</td></tr></tbody>
+      <tbody><tr><td><p><b>component</b></p>A component, array of components, or content of a component</td><td>any</td></tr><tr><td><p><b>config <span>(optional)</span></b></p>Configuration options for custom components</td><td>NoEmptyConfig</td></tr></tbody>
     </table><p><b>Returns:</b> {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth</p><h4>Supporting Types</h4>
 
 ```
@@ -501,9 +501,9 @@ noEmptyChildrenDeep(component, { ignore: ['CustomComponent'], rejectCustom: fals
       <thead>
       <tr>
         <th>Param</th>
-        <th>Type</th><th>Default</th></tr>
+        <th>Type</th></tr>
       </thead>
-      <tbody><tr><td><p><b>component</b></p>The component whose children you want to modify</td><td>React.ReactElement</td><td></td></tr><tr><td><p><b>getChildOverrides</b></p>Callback function that returns an object containing the props you wish to override for each child</td><td>(child: T, index?: number) =&gt; object</td><td></td></tr><tr><td><p><b>overrides <span>(optional)</span></b></p>Any other props to override on the original component</td><td>object</td><td>overrides</td></tr></tbody>
+      <tbody><tr><td><p><b>component</b></p>The component whose children you want to modify</td><td>React.ReactElement</td></tr><tr><td><p><b>getChildOverrides</b></p>Callback function that returns an object containing the props you wish to override for each child</td><td>(child: T, index?: number) =&gt; object</td></tr><tr><td><p><b>overrides <span>(optional)</span></b></p>Any other props to override on the original component</td><td>object</td></tr></tbody>
     </table><p><b>Returns:</b> {React.ReactElement} The original component with the children with modified prop values</p>
   <h4>Import</h4>
 
@@ -734,27 +734,27 @@ README.md -- this file
       └───index.js - 5.96 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
-      └───index.js - 2.16 KB
+      └───index.js - 2.11 KB
     └───/getChildrenByType
       └───index.d.ts - 3.53 KB
-      └───index.js - 5.09 KB
+      └───index.js - 5.04 KB
       └───index.d.ts - 684 Bytes
       └───index.js - 2.98 KB
     └───/noEmptyChildren
       └───index.d.ts - 1.69 KB
-      └───index.js - 3.42 KB
+      └───index.js - 3.37 KB
     └───/overrideProps
       └───index.d.ts - 1.61 KB
-      └───index.js - 2.51 KB
+      └───index.js - 2.49 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
-      └───index.js - 2.71 KB
+      └───index.js - 2.61 KB
     └───/removeChildrenByType
       └───index.d.ts - 3.63 KB
-      └───index.js - 5.72 KB
+      └───index.js - 5.63 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
-      └───index.js - 1.6 KB
+      └───index.js - 1.5 KB
     └───/_private
       └───utils.d.ts - 61 Bytes
       └───utils.js - 575 Bytes
@@ -767,27 +767,27 @@ README.md -- this file
       └───index.js - 5.67 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
-      └───index.js - 1.96 KB
+      └───index.js - 1.91 KB
     └───/getChildrenByType
       └───index.d.ts - 3.53 KB
-      └───index.js - 4.8 KB
+      └───index.js - 4.75 KB
       └───index.d.ts - 684 Bytes
       └───index.js - 594 Bytes
     └───/noEmptyChildren
       └───index.d.ts - 1.69 KB
-      └───index.js - 3.19 KB
+      └───index.js - 3.14 KB
     └───/overrideProps
       └───index.d.ts - 1.61 KB
-      └───index.js - 2.37 KB
+      └───index.js - 2.35 KB
     └───/removeChildren
       └───index.d.ts - 1.11 KB
-      └───index.js - 2.48 KB
+      └───index.js - 2.38 KB
     └───/removeChildrenByType
       └───index.d.ts - 3.63 KB
-      └───index.js - 5.41 KB
+      └───index.js - 5.32 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
-      └───index.js - 1.46 KB
+      └───index.js - 1.35 KB
     └───/_private
       └───utils.d.ts - 61 Bytes
       └───utils.js - 398 Bytes

@@ -1,4 +1,5 @@
-const React = require('react');
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { noEmptyChildrenDeep } = require('../../dist/lib/es5/index');
 
 describe('noEmptyChildrenDeep', () => {
@@ -66,7 +67,7 @@ describe('noEmptyChildrenDeep', () => {
                   },
                 },
               ],
-            }
+            },
           },
         ],
       },
@@ -115,7 +116,7 @@ describe('noEmptyChildrenDeep', () => {
                   props: {},
                 },
               ],
-            }
+            },
           },
         ],
       },
@@ -170,7 +171,7 @@ describe('noEmptyChildrenDeep', () => {
                   props: {},
                 },
               ],
-            }
+            },
           },
         ],
       },
@@ -191,6 +192,12 @@ describe('noEmptyChildrenDeep', () => {
       props: {
         __TYPE: 'CustomComponent',
       },
+    };
+    expect(noEmptyChildrenDeep(component, { rejectCustom: false, rejectEmptyCustom: true })).toStrictEqual(false);
+  });
+  test('Deep => rejectEmptyCustom => empty => no children', () => {
+    const component = {
+      type: () => true,
     };
     expect(noEmptyChildrenDeep(component, { rejectCustom: false, rejectEmptyCustom: true })).toStrictEqual(false);
   });
@@ -241,7 +248,7 @@ describe('noEmptyChildrenDeep', () => {
               children: {
                 props: {
                   __TYPE: 'CustomComponent',
-                }
+                },
               },
             },
           },
@@ -267,7 +274,7 @@ describe('noEmptyChildrenDeep', () => {
               children: {
                 props: {
                   __TYPE: 'SomeOtherComponent',
-                }
+                },
               },
             },
           },
