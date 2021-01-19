@@ -23,10 +23,10 @@
 
 <code>react-nanny</code> doesn't have any dependencies. However, it does have a peer dependency of <code>"react": ">=16.0.0"</code> which you most likely satisfy if you're the kind of person who's looking for utils for React children.
 
-
-
 <h2>Summary of Utils</h2>
-<p>For detailed information on each util, see below this table.</p>
+
+> Click on each function name for details and examples
+
 <table>
     <thead>
     <tr>
