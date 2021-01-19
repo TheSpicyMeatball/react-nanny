@@ -5,6 +5,10 @@ export { getChildren, getChildrenDeep } from './getChildren';
 export { getChildrenByType, getChildrenByTypeDeep, GetChildrenByTypeConfig } from './getChildrenByType';
 
 export { getChildrenWithDescendant } from './getChildrenWithDescendant';
+export { getChildrenWithDescendantByType, GetChildrenWithDescendantByTypeConfig } from './getChildrenWithDescendantByType';
+
+export { getDescendantDepth } from './getDescendantDepth';
+export { getDescendantDepthByType, GetDescendantDepthByType } from './getDescendantDepthByType';
 
 export { overrideProps } from './overrideProps';
 
@@ -15,4 +19,4 @@ export { removeChildrenByType, removeChildrenByTypeDeep, RemoveChildrenByTypeCon
 
 export { typeOfComponent } from './typeOfComponent';
 
-export { NannyNode } from './types';
+export { IDescendantDepth, NannyNode } from './types';

@@ -1,3 +1,10 @@
+## [2.6.0] - 2021-01-19
+- Added getChildrenWithDescendant
+- Added getChildrenWithDescendantByType
+- Added getDescendantDepth
+- Added getDescendantDepthByType
+- Added type NannyNode
+
 ## [2.5.0] - 2021-01-04
 - Removed unused code and unreachable branches
 

@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 const ejs = require('ejs');
 const { copyFileSync, existsSync, readdirSync, readFileSync, writeFileSync } = require('fs');
 const { join, resolve } = require('path');
@@ -89,7 +92,7 @@ const index = async () => {
     generateSummaryTable,
   };
 
-  const file = await resolve(__dirname, './readme.ejs');
+  const file = resolve(__dirname, './readme.ejs');
 
   ejs.renderFile(file, templateData, (err, output) => {
     if (err) {
@@ -98,6 +101,8 @@ const index = async () => {
     writeFileSync(join(dist, 'README.md'), output);
     writeFileSync(join(root, 'README.md'), output);
   });
+
+  generateIndividualReadMes(utils, packageData.name);
 
   sanitizeDTS(dirs, es5);
   sanitizeDTS(dirs, es6);
@@ -112,6 +117,11 @@ const index = async () => {
 
   console.log('Done');
 };
+
+const generateIndividualReadMes = (utils, packageName) => utils.forEach(util => {
+  const src = join(__dirname, '..', 'src', util.name.replace('Deep', ''), util.name.includes('Deep') ? 'README-deep.md' : 'README.md');
+  writeFileSync(src, generateTable(util, packageName));
+});
 
 const generateTable = (util, packageName) => {
   const getValue = key => {
@@ -158,7 +168,7 @@ ${util.example.map(x => x.value).join('\n')}
   }
 
   if (isNotNullOrEmpty(examples)) {
-    examples = '<h4>Examples</h4>\n\n' + examples
+    examples = '<h4>Examples</h4>\n\n' + examples;
   }
 
   const _import = `
@@ -219,7 +229,7 @@ const generateSummaryTable = utils => (
     </thead>
     <tbody>` +
     utils.map(x => (
-      `<tr><td>${x.name}</td>` +
+      `<tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/${x.name.replace('Deep', '')}/README${x.name.includes('Deep') ? '-deep' : ''}.md">${x.name}</a></td>` +
       `<td>${x.description ? x.description.value : ''}</td></tr>`
     ))
     .join('') +
