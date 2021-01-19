@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NannyNode } from '../types';
 
 /**
  * Gets first child by specified predicate
@@ -34,7 +35,7 @@ export const getChildDeep = <T=React.ReactNode>(children: T, predicate: (child: 
     if (predicate(child as T)) return child as T;
 
     if ((child as any).props?.children) {
-      const result = getChildDeep<T>((child as any).props.children, predicate);
+      const result = getChildDeep<T>((child as NannyNode).props.children, predicate);
 
       if (result) return result;
     }

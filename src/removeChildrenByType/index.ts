@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { processTypes } from './../_private/utils';
 import { typeOfComponent } from '../typeOfComponent';
+import { NannyNode } from '../types';
 
 /**
  * Removes all children by specified type
@@ -72,14 +73,14 @@ export const removeChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: 
   for (const child of _children) {
     if (_types.indexOf(typeOfComponent(child, customTypeKey)) === -1) {
 
-      if ((child as any).props?.children) {
+      if ((child as NannyNode).props?.children) {
         output = [
           ...output, 
-          Object.assign({}, (child as any), {
-            props: Object.assign({}, (child as any).props, {
-              children: Array.isArray((child as any).props.children) 
-                        ? removeChildrenByTypeDeep<T>((child as any).props.children, _types, { customTypeKey })
-                        : removeChildrenByTypeDeep<T>((child as any).props.children, _types, { customTypeKey })[0],
+          Object.assign({}, (child as NannyNode), {
+            props: Object.assign({}, (child as NannyNode).props, {
+              children: Array.isArray((child as NannyNode).props.children) 
+                        ? removeChildrenByTypeDeep<T>((child as NannyNode).props.children, _types, { customTypeKey })
+                        : removeChildrenByTypeDeep<T>((child as NannyNode).props.children, _types, { customTypeKey })[0],
             }),
           }),
         ];

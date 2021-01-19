@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NannyNode } from '../types';
 
 /**
  * Removes all children by specified predicate
@@ -34,14 +35,14 @@ export const removeChildrenDeep = <T=React.ReactNode>(children: T, predicate: (c
 
   for (const child of _children) {
     if (!predicate(child as T)) {
-      if ((child as any).props?.children) {
+      if ((child as NannyNode).props?.children) {
         output = [
           ...output, 
-          Object.assign((child as any), {
-            props: Object.assign((child as any).props, {
-              children: Array.isArray((child as any).props.children) 
-                        ? removeChildrenDeep<T>((child as any).props.children, predicate)
-                        : removeChildrenDeep<T>((child as any).props.children, predicate)[0],
+          Object.assign((child as NannyNode), {
+            props: Object.assign((child as NannyNode).props, {
+              children: Array.isArray((child as NannyNode).props.children) 
+                        ? removeChildrenDeep<T>((child as NannyNode).props.children, predicate)
+                        : removeChildrenDeep<T>((child as NannyNode).props.children, predicate)[0],
             }),
           }),
         ];

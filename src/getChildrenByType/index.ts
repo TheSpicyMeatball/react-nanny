@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { processTypes } from '../_private/utils';
 import { typeOfComponent } from '../typeOfComponent';
+import { NannyNode } from '../types';
 
 /**
  * Gets all children by specified type
@@ -78,8 +79,8 @@ export const getChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any
       output = [...output, child as T];
     } 
     
-    if ((child as any).props?.children) {
-      output = [...output, ...getChildrenByTypeDeep<T>((child as any).props.children, _types, { customTypeKey })];
+    if ((child as NannyNode).props?.children) {
+      output = [...output, ...getChildrenByTypeDeep<T>((child as NannyNode).props.children, _types, { customTypeKey })];
     }
   }
 

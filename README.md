@@ -34,7 +34,7 @@
       <th>Description</th>
     </tr>
     </thead>
-    <tbody><tr><td>getChild</td><td>Gets first child by specified predicate</td></tr><tr><td>getChildDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildByType</td><td>Gets first child by specified type</td></tr><tr><td>getChildByTypeDeep</td><td>Gets first child by specified type (deep search)</td></tr><tr><td>getChildren</td><td>Gets all children by specified predicate</td></tr><tr><td>getChildrenDeep</td><td>Gets all children by specified predicate (deep search)</td></tr><tr><td>getChildrenByType</td><td>Gets all children by specified type</td></tr><tr><td>getChildrenByTypeDeep</td><td>Gets all children by specified type (deep search)</td></tr><tr><td>noEmptyChildrenDeep</td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td>overrideProps</td><td>Immutably override props of the children of the original component and (optionally) the original component</td></tr><tr><td>removeChildren</td><td>Removes all children by specified predicate</td></tr><tr><td>removeChildrenDeep</td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td>removeChildrenByType</td><td>Removes all children by specified type</td></tr><tr><td>removeChildrenByTypeDeep</td><td>Removes all children by specified type (deep search)</td></tr><tr><td>typeOfComponent</td><td>Gets the string type of the component's {customTypeKey}, string type of the core html (JSX intrinsic) element, or the function type</td></tr></tbody>
+    <tbody><tr><td>getChild</td><td>Gets first child by specified predicate</td></tr><tr><td>getChildDeep</td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td>getChildByType</td><td>Gets first child by specified type</td></tr><tr><td>getChildByTypeDeep</td><td>Gets first child by specified type (deep search)</td></tr><tr><td>getChildren</td><td>Gets all children by specified predicate</td></tr><tr><td>getChildrenDeep</td><td>Gets all children by specified predicate (deep search)</td></tr><tr><td>getChildrenByType</td><td>Gets all children by specified type</td></tr><tr><td>getChildrenByTypeDeep</td><td>Gets all children by specified type (deep search)</td></tr><tr><td>getChildrenWithDescendant</td><td>Gets all children by specified predicate or that have a descendant node in their lineage which match the predicate</td></tr><tr><td>noEmptyChildrenDeep</td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td>overrideProps</td><td>Immutably override props of the children of the original component and (optionally) the original component</td></tr><tr><td>removeChildren</td><td>Removes all children by specified predicate</td></tr><tr><td>removeChildrenDeep</td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td>removeChildrenByType</td><td>Removes all children by specified type</td></tr><tr><td>removeChildrenByTypeDeep</td><td>Removes all children by specified type (deep search)</td></tr><tr><td>typeOfComponent</td><td>Gets the string type of the component's {customTypeKey}, string type of the core html (JSX intrinsic) element, or the function type</td></tr></tbody>
   </table><hr />
 
 <h2>What can I use to derive types for a comparison?</h2>
@@ -293,7 +293,7 @@ getChildByTypeDeep(children, ['ToDo', 'div', 'react.fragment'], { prioritized: t
         <th>Type</th></tr>
       </thead>
       <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) =&gt; boolean</td></tr></tbody>
-    </table><p><b>Returns:</b> {T[]} - Array of matching children</p>
+    </table><p><b>Returns:</b> {T[]} - All matching children</p>
   <h4>Import</h4>
 
 ```
@@ -327,7 +327,7 @@ getChildren(children, child => child.props.active);
         <th>Type</th></tr>
       </thead>
       <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) =&gt; boolean</td></tr></tbody>
-    </table><p><b>Returns:</b> {T} - The first matching child</p>
+    </table><p><b>Returns:</b> {T[]} - All matching children</p>
   <h4>Import</h4>
 
 ```
@@ -439,6 +439,40 @@ getChildrenByTypeDeep(children, [MyComponent, 'div', 'react.fragment']);
 
 // Finds all occurrences of ToDo (custom component) with a customized {customTypeKey}
 getChildrenByTypeDeep(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
+```
+
+    
+
+<hr />
+
+  
+
+<h2>getChildrenWithDescendant&lt;T=React.ReactNode&gt;</h2>
+<p>Gets all children by specified predicate or that have a descendant node in their lineage which match the predicate</p>
+<p>Since v2.6.0</p>
+<table>
+      <thead>
+      <tr>
+        <th>Param</th>
+        <th>Type</th></tr>
+      </thead>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) =&gt; boolean</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - The first matching child</p>
+  <h4>Import</h4>
+
+```
+import { getChildrenWithDescendant } from 'react-nanny';
+```
+
+  <h4>Examples</h4>
+
+
+
+
+
+```    
+// Finds all children that have a descendant with a prop of 'active' set to true
+getChildrenWithDescendant(children, child => child.props.active);
 ```
 
     
@@ -738,8 +772,11 @@ README.md -- this file
     └───/getChildrenByType
       └───index.d.ts - 3.53 KB
       └───index.js - 5.04 KB
-      └───index.d.ts - 684 Bytes
-      └───index.js - 2.98 KB
+    └───/getChildrenWithDescendant
+      └───index.d.ts - 683 Bytes
+      └───index.js - 1.5 KB
+      └───index.d.ts - 796 Bytes
+      └───index.js - 3.26 KB
     └───/noEmptyChildren
       └───index.d.ts - 1.69 KB
       └───index.js - 3.37 KB
@@ -755,6 +792,8 @@ README.md -- this file
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.5 KB
+      └───types.d.ts - 143 Bytes
+      └───types.js - 79 Bytes
     └───/_private
       └───utils.d.ts - 61 Bytes
       └───utils.js - 575 Bytes
@@ -771,8 +810,11 @@ README.md -- this file
     └───/getChildrenByType
       └───index.d.ts - 3.53 KB
       └───index.js - 4.75 KB
-      └───index.d.ts - 684 Bytes
-      └───index.js - 594 Bytes
+    └───/getChildrenWithDescendant
+      └───index.d.ts - 683 Bytes
+      └───index.js - 1.32 KB
+      └───index.d.ts - 796 Bytes
+      └───index.js - 668 Bytes
     └───/noEmptyChildren
       └───index.d.ts - 1.69 KB
       └───index.js - 3.14 KB
@@ -788,6 +830,8 @@ README.md -- this file
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.35 KB
+      └───types.d.ts - 143 Bytes
+      └───types.js - 12 Bytes
     └───/_private
       └───utils.d.ts - 61 Bytes
       └───utils.js - 398 Bytes

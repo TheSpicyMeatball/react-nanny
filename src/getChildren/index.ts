@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NannyNode } from '../types';
 
 /**
  * Gets all children by specified predicate
@@ -7,7 +8,7 @@ import * as React from 'react';
  * @template T
  * @param {T} children - JSX children
  * @param {(child: T) => boolean} predicate - The predicate to determine if the given child is a match
- * @returns {T[]} - Array of matching children
+ * @returns {T[]} - All matching children
  * @example
  * // Finds all children that have an 'active' prop set to true
  * getChildren(children, child => child.props.active);
@@ -22,7 +23,7 @@ export const getChildren = <T=React.ReactNode>(children: T, predicate: (child: T
  * @template T
  * @param {T} children - JSX children
  * @param {(child: T) => boolean} predicate - The predicate to determine if the given child is a match
- * @returns {T} - The first matching child
+ * @returns {T[]} - All matching children
  * @example
  * // Finds the first occurrence of a child that has a prop of 'active' set to true
  * getChildrenDeep(children, child => child.props.active);
@@ -37,8 +38,8 @@ export const getChildrenDeep = <T=React.ReactNode>(children: T, predicate: (chil
       output = [...output, child as T];
     } 
     
-    if ((child as any).props?.children) {
-      output = [...output, ...getChildrenDeep<T>((child as any).props.children, predicate)];
+    if ((child as NannyNode).props?.children) {
+      output = [...output, ...getChildrenDeep<T>((child as NannyNode).props.children, predicate)];
     }
   }
 

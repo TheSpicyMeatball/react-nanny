@@ -4,6 +4,7 @@
   "description": "Utils to manage your React Children; find and filter children by type or custom function, enforce child content, and more!",
   "main": "lib/es5/index.js",
   "module": "lib/es6/index.js",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TheSpicyMeatball/react-nanny.git"
