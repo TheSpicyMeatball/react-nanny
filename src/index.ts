@@ -8,7 +8,7 @@ export { getChildrenWithDescendant } from './getChildrenWithDescendant';
 export { getChildrenWithDescendantByType, GetChildrenWithDescendantByTypeConfig } from './getChildrenWithDescendantByType';
 
 export { getDescendantDepth } from './getDescendantDepth';
-export { getDescendantDepthByType, GetDescendantDepthByType } from './getDescendantDepthByType';
+export { getDescendantDepthByType, GetDescendantDepthByTypeConfig } from './getDescendantDepthByType';
 
 export { overrideProps } from './overrideProps';
 

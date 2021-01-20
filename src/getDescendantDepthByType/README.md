@@ -7,16 +7,16 @@
       <thead>
       <tr>
         <th>Param</th>
-        <th>Type</th></tr>
+        <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td></tr><tr><td><p><b>{ customTypeKey: '__TYPE' } <span>(optional)</span></b></p>The configuration params</td><td>GetDescendantDepthByType</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>The configuration params</td><td>GetDescendantDepthByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
     </table><p><b>Returns:</b> {IDescendantDepth&lt;T&gt;[]} - The oldest ancestor with the depth to the matching descendant</p><h4>Supporting Types</h4>
 
 ```
 // The configuration type for the util:
 //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
 
-export type GetDescendantDepthByType = { customTypeKey?: string };
+export type GetDescendantDepthByTypeConfig = { customTypeKey?: string };
 
 // The item type in the returned array:
 //   ancestor: T - The oldest ancestor of a matching descendant
@@ -27,10 +27,10 @@ export interface IDescendantDepth<T=React.ReactNode>{ ancestor: T, depthToMatch:
   <h4>Import</h4>
 
 ```
-import { getDescendantDepthByType, GetDescendantDepthByType } from 'react-nanny';
+import { getDescendantDepthByType, GetDescendantDepthByTypeConfig } from 'react-nanny';
 ```
 
-  <blockquote><p><em>GetDescendantDepthByType</em> is a TypeScript type and is only for (optional) use with TypeScript projects</p></blockquote><h4>Examples</h4>
+  <blockquote><p><em>GetDescendantDepthByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects</p></blockquote><h4>Examples</h4>
 
 
 

@@ -128,7 +128,7 @@ README.md -- this file
       └───index.js - 1.73 KB
     └───/getChildByType
       └───index.d.ts - 4.08 KB
-      └───index.js - 5.96 KB
+      └───index.js - 5.97 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
       └───index.js - 2.11 KB
@@ -139,19 +139,19 @@ README.md -- this file
       └───index.d.ts - 579 Bytes
       └───index.js - 1.4 KB
     └───/getChildrenWithDescendantByType
-      └───index.d.ts - 2.21 KB
-      └───index.js - 3.11 KB
+      └───index.d.ts - 2.22 KB
+      └───index.js - 3.12 KB
     └───/getDescendantDepth
       └───index.d.ts - 1.09 KB
       └───index.js - 2.54 KB
     └───/getDescendantDepthByType
-      └───index.d.ts - 2.31 KB
-      └───index.js - 3.97 KB
-      └───index.d.ts - 1.07 KB
+      └───index.d.ts - 2.35 KB
+      └───index.js - 4 KB
+      └───index.d.ts - 1.08 KB
       └───index.js - 4.06 KB
     └───/noEmptyChildren
-      └───index.d.ts - 1.69 KB
-      └───index.js - 3.37 KB
+      └───index.d.ts - 1.75 KB
+      └───index.js - 3.43 KB
     └───/overrideProps
       └───index.d.ts - 1.61 KB
       └───index.js - 2.49 KB
@@ -175,30 +175,30 @@ README.md -- this file
       └───index.js - 1.55 KB
     └───/getChildByType
       └───index.d.ts - 4.08 KB
-      └───index.js - 5.67 KB
+      └───index.js - 5.68 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
       └───index.js - 1.91 KB
     └───/getChildrenByType
       └───index.d.ts - 3.53 KB
-      └───index.js - 4.75 KB
+      └───index.js - 4.76 KB
     └───/getChildrenWithDescendant
       └───index.d.ts - 579 Bytes
       └───index.js - 1.22 KB
     └───/getChildrenWithDescendantByType
-      └───index.d.ts - 2.21 KB
-      └───index.js - 2.9 KB
+      └───index.d.ts - 2.22 KB
+      └───index.js - 2.91 KB
     └───/getDescendantDepth
       └───index.d.ts - 1.09 KB
       └───index.js - 2.39 KB
     └───/getDescendantDepthByType
-      └───index.d.ts - 2.31 KB
-      └───index.js - 3.78 KB
-      └───index.d.ts - 1.07 KB
+      └───index.d.ts - 2.35 KB
+      └───index.js - 3.81 KB
+      └───index.d.ts - 1.08 KB
       └───index.js - 886 Bytes
     └───/noEmptyChildren
-      └───index.d.ts - 1.69 KB
-      └───index.js - 3.14 KB
+      └───index.d.ts - 1.75 KB
+      └───index.js - 3.2 KB
     └───/overrideProps
       └───index.d.ts - 1.61 KB
       └───index.js - 2.35 KB

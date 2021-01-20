@@ -11,7 +11,7 @@ import { NannyNode } from '../types';
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {RemoveChildrenByTypeConfig} [{ customTypeKey: '__TYPE' }] - The configuration params
+ * @param {RemoveChildrenByTypeConfig} [config={ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - All non-matching children
  * @example
  * // Removes all occurrences of ToDo (custom component), div, and React Fragment

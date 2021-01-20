@@ -6,7 +6,7 @@ import { typeOfComponent } from '../typeOfComponent';
  *
  * @since v1.0.0
  * @param {any} component - A component, array of components, or content of a component
- * @param {NoEmptyConfig} [config] - Configuration options for custom components
+ * @param {NoEmptyConfig} [config={ ignore: [], rejectCustom: true, rejectEmptyCustom: false }] - Configuration options for custom components
  * @returns {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth
  * @docgen_types
  * // The configuration type for the util:

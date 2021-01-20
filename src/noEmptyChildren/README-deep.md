@@ -7,9 +7,9 @@
       <thead>
       <tr>
         <th>Param</th>
-        <th>Type</th></tr>
+        <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>component</b></p>A component, array of components, or content of a component</td><td>any</td></tr><tr><td><p><b>config <span>(optional)</span></b></p>Configuration options for custom components</td><td>NoEmptyConfig</td></tr></tbody>
+      <tbody><tr><td><p><b>component</b></p>A component, array of components, or content of a component</td><td>any</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>Configuration options for custom components</td><td>NoEmptyConfig</td><td>{ ignore: [], rejectCustom: true, rejectEmptyCustom: false }</td></tr></tbody>
     </table><p><b>Returns:</b> {boolean} - Whether or not there is content provided. true = content is provided as children at some depth; false = no content is provided as children at any depth</p><h4>Supporting Types</h4>
 
 ```

@@ -11,7 +11,7 @@ import { NannyNode } from '../types';
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {GetChildrenByTypeConfig} [{ customTypeKey: '__TYPE' }] - The configuration params
+ * @param {GetChildrenByTypeConfig} [config={ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - Array of matching children
  * @docgen_types
  * // The configuration type for the util:

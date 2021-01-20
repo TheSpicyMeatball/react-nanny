@@ -10,7 +10,7 @@ import { processTypes } from '../_private/utils';
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {GetDescendantDepthByType} [{ customTypeKey: '__TYPE' }] - The configuration params
+ * @param {GetDescendantDepthByTypeConfig} [config={ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {IDescendantDepth<T>[]} - The oldest ancestor with the depth to the matching descendant
  * @example
  * // Gets depth for all descendants that are of type ToDo (custom component), div, or React Fragment
@@ -26,7 +26,7 @@ import { processTypes } from '../_private/utils';
  * // The configuration type for the util:
  * //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
  * 
- * export type GetDescendantDepthByType = { customTypeKey?: string };
+ * export type GetDescendantDepthByTypeConfig = { customTypeKey?: string };
  * 
  * // The item type in the returned array:
  * //   ancestor: T - The oldest ancestor of a matching descendant
@@ -35,10 +35,10 @@ import { processTypes } from '../_private/utils';
  * export interface IDescendantDepth<T=React.ReactNode>{ ancestor: T, depthToMatch: number }
  * @docgen_description_note
  * If the child does not match any of the specified types or have a descendant that matches, the child is not returned with the result.
- * @docgen_import { getDescendantDepthByType, GetDescendantDepthByType }
- * @docgen_imp_note <em>GetDescendantDepthByType</em> is a TypeScript type and is only for (optional) use with TypeScript projects
+ * @docgen_import { getDescendantDepthByType, GetDescendantDepthByTypeConfig }
+ * @docgen_imp_note <em>GetDescendantDepthByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const getDescendantDepthByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetDescendantDepthByType = {}) : IDescendantDepth<T>[] => {
+export const getDescendantDepthByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetDescendantDepthByTypeConfig = {}) : IDescendantDepth<T>[] => {
   const _children = React.Children.toArray(children);
   const _types = processTypes(types);
 
@@ -74,4 +74,4 @@ export const getDescendantDepthByType = <T=React.ReactNode>(children: T, types: 
   return output;
 };
 
-export type GetDescendantDepthByType = { customTypeKey?: string };
+export type GetDescendantDepthByTypeConfig = { customTypeKey?: string };

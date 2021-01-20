@@ -11,7 +11,7 @@ import { typeOfComponent } from '../typeOfComponent';
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {GetChildByTypeConfig} [{ customTypeKey: '__TYPE', prioritized: false }] - The configuration params
+ * @param {GetChildByTypeConfig} [config={ customTypeKey: '__TYPE', prioritized: false }] - The configuration params
  * @returns {T} - The first matching child
  * @docgen_types
  * // The configuration type for the util:

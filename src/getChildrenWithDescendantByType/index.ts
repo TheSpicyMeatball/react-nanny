@@ -8,7 +8,7 @@ import { getChildByTypeDeep } from '../getChildByType';
  * @template T
  * @param {T} children - JSX children
  * @param {any[]} types - Types of children to match
- * @param {GetChildrenWithDescendantByTypeConfig} [{ customTypeKey: '__TYPE' }] - The configuration params
+ * @param {GetChildrenWithDescendantByTypeConfig} [config={ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - All children that match the specified type or have a descendant which matches the specified type
  * @docgen_types
  * // The configuration type for the util:

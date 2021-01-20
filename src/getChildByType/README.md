@@ -7,9 +7,9 @@
       <thead>
       <tr>
         <th>Param</th>
-        <th>Type</th></tr>
+        <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td></tr><tr><td><p><b>{ customTypeKey: '__TYPE', prioritized: false } <span>(optional)</span></b></p>The configuration params</td><td>GetChildByTypeConfig</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>The configuration params</td><td>GetChildByTypeConfig</td><td>{ customTypeKey: '__TYPE', prioritized: false }</td></tr></tbody>
     </table><p><b>Returns:</b> {T} - The first matching child</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote><h4>Supporting Types</h4>
 
 ```
