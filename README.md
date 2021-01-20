@@ -142,8 +142,8 @@ README.md -- this file
       └───index.d.ts - 2.21 KB
       └───index.js - 3.11 KB
     └───/getDescendantDepth
-      └───index.d.ts - 1.24 KB
-      └───index.js - 2.7 KB
+      └───index.d.ts - 1.09 KB
+      └───index.js - 2.54 KB
     └───/getDescendantDepthByType
       └───index.d.ts - 2.31 KB
       └───index.js - 3.97 KB
@@ -189,8 +189,8 @@ README.md -- this file
       └───index.d.ts - 2.21 KB
       └───index.js - 2.9 KB
     └───/getDescendantDepth
-      └───index.d.ts - 1.24 KB
-      └───index.js - 2.54 KB
+      └───index.d.ts - 1.09 KB
+      └───index.js - 2.39 KB
     └───/getDescendantDepthByType
       └───index.d.ts - 2.31 KB
       └───index.js - 3.78 KB

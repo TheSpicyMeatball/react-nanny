@@ -7,6 +7,7 @@ const { join, resolve } = require('path');
 const dirTree = require('directory-tree');
 const { parseTags, removeTags } = require('jsdoc-parse-plus');
 const htmlEncode = require('js-htmlencode').htmlEncode;
+const { logStatus, logStyle, logSuccess } = require('console-log-it');
 
 const first = (array, defaultValue) => array && array[0] || defaultValue;
 const isNotNullOrEmpty = value => {
@@ -40,14 +41,27 @@ const customTags = [
 ];
 
 const index = async () => {
-  console.log('Generating README.md...');
-  
+  logStyle('bgWhite')(' Generating README.md ');
+  console.log();
+
   const root = join(__dirname, '..');
   const src = join(__dirname, '..', 'src');
   const dist = join(__dirname, '..', 'dist');
   const lib = join(__dirname, '..', 'dist', 'lib');
   const es5 = join(__dirname, '..', 'dist', 'lib', 'es5');
   const es6 = join(__dirname, '..', 'dist', 'lib', 'es6');
+
+  const reading = logStatus({
+    indent: 2,
+    tagColor: 'blue',
+    tagMessage: 'Reading',
+  });
+
+  const writing = logStatus({
+    indent: 2,
+    tagColor: 'magenta',
+    tagMessage: 'Writing',
+  });
 
   const dirs = readdirSync(src).filter(x => !x.includes('.') && !x.startsWith('_'));
   let utils = [];
@@ -63,7 +77,9 @@ const index = async () => {
     ...customTags,
   ];
 
+  reading('Source directories...\n');
   for (const dir of dirs) {
+    logStyle('cyan')('    ' + dir);
     const functions = Array.from(readFileSync(join(src, dir, 'index.ts'), 'utf8').toString().matchAll(/\/\*\*(\n|\r\n)( \*(.*)(\n|\r\n))* \*\/(\n|\r\n)(.*)/gm)).reduce((accumulator, item) => [...accumulator, item[0]] , []);
     
     for (const func of functions) {
@@ -71,6 +87,8 @@ const index = async () => {
     }
   }
 
+  console.log();
+  reading('package.json: ' + join(dist, 'package.json...'));
   const packageData = require(join(dist, 'package.json'));
   const tree = dirTree(lib);
   
@@ -94,6 +112,7 @@ const index = async () => {
 
   const file = resolve(__dirname, './readme.ejs');
 
+  writing('README.md files...');
   ejs.renderFile(file, templateData, (err, output) => {
     if (err) {
       console.log(err);
@@ -115,7 +134,8 @@ const index = async () => {
     copyFileSync(join(__dirname, '..', 'CHANGELOG.md'), join(__dirname, '..', 'dist', 'CHANGELOG.md'));
   }
 
-  console.log('Done');
+  console.log();
+  logSuccess()('Compiled & README.md generated');
 };
 
 const generateIndividualReadMes = (utils, packageName) => utils.forEach(util => {
@@ -239,7 +259,11 @@ const generateSummaryTable = utils => (
  * @param {string} path The path to the directories
  */
 const sanitizeDTS = (dirs, path) => {
-  console.log('Sanitizing *.d.ts: ' + path + '...');
+  logStatus({
+    indent: 2,
+    tagColor: 'magenta',
+    tagMessage: 'Sanitizing',
+  })('*.d.ts: ' + path + '...');
 
   for (const dir of dirs) {
     let file = readFileSync(join(path, dir, 'index.d.ts'), 'utf8');

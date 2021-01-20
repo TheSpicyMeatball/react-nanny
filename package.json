@@ -28,6 +28,7 @@
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
+    "console-log-it": "^1.0.0",
     "copyfiles": "^2.4.1",
     "coveralls": "^3.1.0",
     "directory-tree": "^2.2.5",

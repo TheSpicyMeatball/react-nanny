@@ -9,9 +9,6 @@ import { IDescendantDepth, NannyNode } from '../types';
  * @param {T} children - JSX children
  * @param {(child: T) => boolean} predicate - The predicate to determine if the given child is a match
  * @returns {IDescendantDepth<T>[]} - The oldest ancestor with the depth to the matching descendant
- * @example
- * // Gets the depth for all descendants with a prop of 'active' set to true
- * getDescendantDepth(children, child => child.props.active);
  * @docgen_types
  * // The item type in the returned array:
  * //   ancestor: T - The oldest ancestor of a matching descendant
