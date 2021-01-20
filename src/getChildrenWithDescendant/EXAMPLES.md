@@ -27,5 +27,3 @@ getChildrenWithDescendant(children, child => child?.props?.active)
   <World active={true}/>
 ]
 ```
-
-<h4>Other Examples</h4>

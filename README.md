@@ -136,8 +136,8 @@ README.md -- this file
       └───index.d.ts - 3.53 KB
       └───index.js - 5.04 KB
     └───/getChildrenWithDescendant
-      └───index.d.ts - 747 Bytes
-      └───index.js - 1.56 KB
+      └───index.d.ts - 579 Bytes
+      └───index.js - 1.4 KB
     └───/getChildrenWithDescendantByType
       └───index.d.ts - 2.21 KB
       └───index.js - 3.11 KB
@@ -183,8 +183,8 @@ README.md -- this file
       └───index.d.ts - 3.53 KB
       └───index.js - 4.75 KB
     └───/getChildrenWithDescendant
-      └───index.d.ts - 747 Bytes
-      └───index.js - 1.38 KB
+      └───index.d.ts - 579 Bytes
+      └───index.js - 1.22 KB
     └───/getChildrenWithDescendantByType
       └───index.d.ts - 2.21 KB
       └───index.js - 2.9 KB

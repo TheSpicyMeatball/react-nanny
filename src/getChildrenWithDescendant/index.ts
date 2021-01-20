@@ -9,9 +9,6 @@ import { getChildDeep } from '../getChild';
  * @param {T} children - JSX children
  * @param {(child: T) => boolean} predicate - The predicate to determine if the given child is a match
  * @returns {T[]} - All children that match the predicate or have a descendant which matches the predicate
- * @example
- * // Finds all children that have a descendant with a prop of 'active' set to true
- * getChildrenWithDescendant(children, child => child.props.active);
  */
 export const getChildrenWithDescendant = <T=React.ReactNode>(children: T, predicate: (child: T) => boolean) : T[] => {
   const _children = React.Children.toArray(children);

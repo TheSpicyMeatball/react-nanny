@@ -51,16 +51,4 @@ getChildrenWithDescendant(children, child => child?.props?.active)
 ]
 ```
 
-<h4>Other Examples</h4>
 
-
-
-
-
-
-```    
-// Finds all children that have a descendant with a prop of 'active' set to true
-getChildrenWithDescendant(children, child => child.props.active);
-```
-
-    
