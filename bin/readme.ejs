@@ -119,45 +119,4 @@ README.md -- this file
       └───<%= greatGrand.name -%> - <%= formatBytes(greatGrand.size) -%><% }) } else { %>
       └───<%= grandChild.name -%> - <%= formatBytes(grandChild.size) -%><% } })} else { %>
   └───<%= child.name -%> - <%= formatBytes(child.size) -%><% }}) %>
-```
-
-<a href="#license"></a>
-<h2>License</h2>
-
-<%= package.license %>
-
-<% if (package.author) { %>
-<a href="#author"></a>
-<h2>Author</h2>
-<% if (package.author.name) { %><%= package.author.name %> [<%= package.author.email %>](<%= package.author.email %>)<% } else { %><%= package.author %><% } %>
-<% } %>
-
-<% if (package.contributors) { %>
-<a href="#contributors"></a>
-<h2>Contributors</h2>
-
-<% package.contributors.forEach(function(contributor) { %>
-  <%= contributor %>
-<% }) %>
-<% } %>
-
-<a href="#dependencies"></a>
-<h2>Dependencies</h2>
-
-<% const dependencies = package.dependencies ? Object.getOwnPropertyNames(package.dependencies) : []; %>
-<% if (dependencies && dependencies.length > 0) { %>
-<table>
-<% dependencies.forEach(function(dependency) { %>
-  <tr>
-    <td>
-      <%= dependency %>
-    </td>
-    <td>
-      <%= package.dependencies[dependency] %>
-    </td>
-  </tr>
-<% }) %>
-</table>
-<% } else { %>
-None
-<% } %>
+````

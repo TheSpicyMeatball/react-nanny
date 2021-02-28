@@ -17,7 +17,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.6.0</p>
+<p><b>Version:</b> 2.7.0</p>
 
 <h3>Dependencies</h3>
 
@@ -216,24 +216,4 @@ README.md -- this file
     └───/_private
       └───utils.d.ts - 61 Bytes
       └───utils.js - 398 Bytes
-```
-
-<a href="#license"></a>
-<h2>License</h2>
-
-MIT
-
-
-<a href="#author"></a>
-<h2>Author</h2>
-Michael Paravano
-
-
-
-
-<a href="#dependencies"></a>
-<h2>Dependencies</h2>
-
-
-
-None
+````
