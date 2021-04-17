@@ -9,8 +9,9 @@ import { typeOfComponent } from '../typeOfComponent';
  * 
  * @since v1.0.0 (modified v2.0.0)
  * @template T
+ * @template TC
  * @param {T} children - JSX children
- * @param {any[]} types - Types of children to match
+ * @param {TC | TC[]} types - Types of children to match
  * @param {GetChildByTypeConfig} [config={ customTypeKey: '__TYPE', prioritized: false }] - The configuration params
  * @returns {T} - The first matching child
  * @docgen_types
@@ -34,8 +35,8 @@ import { typeOfComponent } from '../typeOfComponent';
  * @docgen_import { getChildByType, GetChildByTypeConfig }
  * @docgen_imp_note <em>GetChildByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
-  const _types = processTypes(types);
+export const getChildByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
+  const _types = processTypes(Array.isArray(types) ? types : [types]);
   const matches = React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1);
 
   if (prioritized) {
@@ -54,8 +55,9 @@ export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { c
  * 
  * @since v1.0.0 (modified v2.0.0)
  * @template T
+ * @template TC
  * @param {T} children - JSX children
- * @param {any[]} types - Types of children to match
+ * @param {TC | TC[]} types - Types of children to match
  * @param {GetChildByTypeConfig} [{ customTypeKey: '__TYPE', prioritized: false }] - The configuration params
  * @returns {T} - The first matching child
  * @docgen_types
@@ -79,8 +81,8 @@ export const getChildByType = <T=React.ReactNode>(children: T, types: any[], { c
  * @docgen_import { getChildByTypeDeep, GetChildByTypeConfig }
  * @docgen_imp_note <em>GetChildByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const getChildByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
-  const _types = processTypes(types);
+export const getChildByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
+  const _types = processTypes(Array.isArray(types) ? types : [types]);
 
   const matches = getChildrenByTypeDeep<T>(children, _types, { customTypeKey });
 

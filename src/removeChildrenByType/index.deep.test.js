@@ -30,6 +30,30 @@ const children = [
 React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
 
 describe('removeChildrenByTypeDeep', () => {
+  test('Single', () => {
+    expect(removeChildrenByTypeDeep(children, 'CustomComponent')).toStrictEqual([
+      { 
+        props: { 
+          __TYPE: 'div',
+          children: [
+            { 
+              props: { 
+                __TYPE: 'div',
+                children: [
+                  { type: 'span', props: { children: 'Deep span' }},
+                  { type: 'div' },
+                ],
+              },
+            },
+            { type: 'span', props: { children: 'Outer span', hello: 'world' }},
+          ],
+        },
+      },
+      { type: 'span' },
+      { type: 'div' },
+    ]);
+  });
+
   test('Deep remove', () => {
     expect(removeChildrenByTypeDeep(children, ['CustomComponent'])).toStrictEqual([
       { 

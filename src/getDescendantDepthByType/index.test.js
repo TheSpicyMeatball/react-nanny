@@ -31,6 +31,14 @@ const children = [
 React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
 
 describe('getDescendantDepthByType', () => {
+  test('Single', () => {
+    expect(getDescendantDepthByType(children, 'CustomComponent')).toStrictEqual([
+      { ancestor: children[0], depthToMatch: 2 },
+      { ancestor: children[1], depthToMatch: 0 },
+      { ancestor: children[2], depthToMatch: 0 },
+    ]);
+  });
+
   test('Basic', () => {
     expect(getDescendantDepthByType(children, ['CustomComponent'])).toStrictEqual([
       { ancestor: children[0], depthToMatch: 2 },

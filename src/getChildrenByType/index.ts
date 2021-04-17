@@ -9,8 +9,9 @@ import { NannyNode } from '../types';
  *
  * @since v1.0.0 (modified v2.0.0)
  * @template T
+ * @template TC
  * @param {T} children - JSX children
- * @param {any[]} types - Types of children to match
+ * @param {TC | TC[]} types - Types of children to match
  * @param {GetChildrenByTypeConfig} [config={ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - Array of matching children
  * @docgen_types
@@ -33,8 +34,8 @@ import { NannyNode } from '../types';
  * @docgen_import { getChildrenByType, GetChildrenByTypeConfig }
  * @docgen_imp_note <em>GetChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const getChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
-  const _types = processTypes(types);
+export const getChildrenByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
+  const _types = processTypes(Array.isArray(types) ? types : [types]);
   return React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1) as T[];
 };
 
@@ -43,9 +44,9 @@ export const getChildrenByType = <T=React.ReactNode>(children: T, types: any[], 
  * Gets all children by specified type (deep search)
  * 
  * @since v1.0.0 (modified v2.0.0)
- * @template T
+ * @template TC
  * @param {T} children - JSX children
- * @param {any[]} types - Types of children to match
+ * @param {TC | TC[]} types - Types of children to match
  * @param {GetChildrenByTypeConfig} [{ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - Array of matching children
  * @docgen_types
@@ -68,9 +69,9 @@ export const getChildrenByType = <T=React.ReactNode>(children: T, types: any[], 
  * @docgen_import { getChildrenByTypeDeep, GetChildrenByTypeConfig }
  * @docgen_imp_note <em>GetChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const getChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
+export const getChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
   const _children = React.Children.toArray(children);
-  const _types = processTypes(types);
+  const _types = processTypes(Array.isArray(types) ? types : [types]);
 
   let output = [];
 

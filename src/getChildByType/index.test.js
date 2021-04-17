@@ -6,6 +6,22 @@ const { getChildByType } = require('../../dist/lib/es5/index');
 describe('getChildByType', () => {
   React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
   
+  test('Single', () => {
+    let children = { props: { __TYPE: 'CustomComponent' }};
+    expect(getChildByType(children, ['CustomComponent'])).toStrictEqual(children);
+
+    children = [
+      { props: { __TYPE: 'CustomComponent' }},
+      { props: { __TYPE: 'CustomComponent' }},
+      { props: { __TYPE: 'Something Else' }},
+      { props: { TYPE: 'Some TYPE' }},
+      { type: 'div' },
+    ];
+
+    expect(getChildByType(children, 'CustomComponent')).toStrictEqual(children[0]);
+    expect(getChildByType(children, 'Some TYPE', { customTypeKey: 'TYPE' })).toStrictEqual(children[3]);
+  });
+
   test('Custom Components', () => {
     let children = { props: { __TYPE: 'CustomComponent' }};
     expect(getChildByType(children, ['CustomComponent'])).toStrictEqual(children);

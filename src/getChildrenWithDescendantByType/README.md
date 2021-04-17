@@ -1,6 +1,6 @@
 
 
-<h2>getChildrenWithDescendantByType&lt;T=React.ReactNode&gt;</h2>
+<h2>getChildrenWithDescendantByType&lt;T=React.ReactNode, TC=unknown&gt;</h2>
 <p>Gets all children by specified type or that have a descendant node in their lineage which match the specified type</p>
 <p>Since v2.6.0</p>
 <table>
@@ -9,7 +9,7 @@
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>The configuration params</td><td>GetChildrenWithDescendantByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>TC | TC[]</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>The configuration params</td><td>GetChildrenWithDescendantByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
     </table><p><b>Returns:</b> {T[]} - All children that match the specified type or have a descendant which matches the specified type</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote><h4>Supporting Types</h4>
 
 ```

@@ -30,6 +30,14 @@ const children = [
 React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
 
 describe('getChildrenByTypeDeep', () => {
+  test('Deep Single', () => {
+    expect(getChildrenByTypeDeep(children, 'CustomComponent')).toStrictEqual([
+      { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},
+      { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
+      { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
+    ]);
+  });
+
   test('Deep Custom Component', () => {
     expect(getChildrenByTypeDeep(children, ['CustomComponent'])).toStrictEqual([
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},

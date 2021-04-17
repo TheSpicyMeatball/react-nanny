@@ -8,8 +8,9 @@ import { processTypes } from '../_private/utils';
  * 
  * @since v2.6.0
  * @template T
+ * @template TC
  * @param {T} children - JSX children
- * @param {any[]} types - Types of children to match
+ * @param {TC | TC[]} types - Types of children to match
  * @param {GetDescendantDepthByTypeConfig} [config={ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {IDescendantDepth<T>[]} - The oldest ancestor with the depth to the matching descendant
  * @example
@@ -38,9 +39,9 @@ import { processTypes } from '../_private/utils';
  * @docgen_import { getDescendantDepthByType, GetDescendantDepthByTypeConfig }
  * @docgen_imp_note <em>GetDescendantDepthByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const getDescendantDepthByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetDescendantDepthByTypeConfig = {}) : IDescendantDepth<T>[] => {
+export const getDescendantDepthByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetDescendantDepthByTypeConfig = {}) : IDescendantDepth<T>[] => {
   const _children = React.Children.toArray(children);
-  const _types = processTypes(types);
+  const _types = processTypes(Array.isArray(types) ? types : [types]);
 
   // recursively get the depth of the first matching child
   const getDepth = <T=React.ReactNode>(children: T, level: number) : number => {

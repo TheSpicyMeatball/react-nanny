@@ -1,6 +1,6 @@
 
 
-<h2>getDescendantDepthByType&lt;T=React.ReactNode&gt;</h2>
+<h2>getDescendantDepthByType&lt;T=React.ReactNode, TC=unknown&gt;</h2>
 <p>Gets the depth to the first descendant (or self) of each root child that match the specified types</p>
 <blockquote><p>If the child does not match any of the specified types or have a descendant that matches, the child is not returned with the result.</p></blockquote><p>Since v2.6.0</p>
 <table>
@@ -9,7 +9,7 @@
         <th>Param</th>
         <th>Type</th><th>Default</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>any[]</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>The configuration params</td><td>GetDescendantDepthByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td><td></td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>TC | TC[]</td><td></td></tr><tr><td><p><b>config <span>(optional)</span></b></p>The configuration params</td><td>GetDescendantDepthByTypeConfig</td><td>{ customTypeKey: '__TYPE' }</td></tr></tbody>
     </table><p><b>Returns:</b> {IDescendantDepth&lt;T&gt;[]} - The oldest ancestor with the depth to the matching descendant</p><h4>Supporting Types</h4>
 
 ```

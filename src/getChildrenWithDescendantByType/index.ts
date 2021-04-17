@@ -6,8 +6,9 @@ import { getChildByTypeDeep } from '../getChildByType';
  * 
  * @since v2.6.0
  * @template T
+ * @template TC
  * @param {T} children - JSX children
- * @param {any[]} types - Types of children to match
+ * @param {TC | TC[]} types - Types of children to match
  * @param {GetChildrenWithDescendantByTypeConfig} [config={ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - All children that match the specified type or have a descendant which matches the specified type
  * @docgen_types
@@ -30,7 +31,7 @@ import { getChildByTypeDeep } from '../getChildByType';
  * @docgen_import { getChildrenWithDescendantByType, GetChildrenWithDescendantByTypeConfig }
  * @docgen_imp_note <em>GetChildrenWithDescendantByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const getChildrenWithDescendantByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: GetChildrenWithDescendantByTypeConfig = {}) : T[] => {
+export const getChildrenWithDescendantByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetChildrenWithDescendantByTypeConfig = {}) : T[] => {
   const _children = React.Children.toArray(children);
 
   let output = [];

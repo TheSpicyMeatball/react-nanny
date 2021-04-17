@@ -9,8 +9,9 @@ import { NannyNode } from '../types';
  *
  * @since v1.0.0 (modified v2.0.0)
  * @template T
+ * @template TC
  * @param {T} children - JSX children
- * @param {any[]} types - Types of children to match
+ * @param {TC | TC[]} types - Types of children to match
  * @param {RemoveChildrenByTypeConfig} [config={ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - All non-matching children
  * @example
@@ -32,8 +33,8 @@ import { NannyNode } from '../types';
  * @docgen_import { removeChildrenByType, RemoveChildrenByTypeConfig }
  * @docgen_imp_note <em>RemoveChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
-  const _types = processTypes(types);
+export const removeChildrenByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
+  const _types = processTypes(Array.isArray(types) ? types : [types]);
   return React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) === -1) as T[];
 };
 
@@ -42,8 +43,9 @@ export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[
  *
  * @since v1.0.0 (modified v2.0.0)
  * @template T
+ * @template TC
  * @param {T} children - JSX children
- * @param {any[]} types - Types of children to match
+ * @param {TC | TC[]} types - Types of children to match
  * @param {RemoveChildrenByTypeConfig} [{ customTypeKey: '__TYPE' }] - The configuration params
  * @returns {T[]} - All non-matching children
  * @example
@@ -65,9 +67,9 @@ export const removeChildrenByType = <T=React.ReactNode>(children: T, types: any[
  * @docgen_import { removeChildrenByTypeDeep, RemoveChildrenByTypeConfig }
  * @docgen_imp_note <em>RemoveChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const removeChildrenByTypeDeep = <T=React.ReactNode>(children: T, types: any[], { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
+export const removeChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _children = React.Children.toArray(children);
-  const _types = processTypes(types);
+  const _types = processTypes(Array.isArray(types) ? types : [types]);
   let output = [];
 
   for (const child of _children) {

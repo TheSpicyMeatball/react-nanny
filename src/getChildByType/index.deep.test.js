@@ -31,6 +31,11 @@ const children = [
 React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
 
 describe('getChildByTypeDeep', () => {
+  test('Deep find => single', () => {
+    expect(getChildByTypeDeep(children, 'CustomComponent')).toStrictEqual({ props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }});
+    expect(getChildByTypeDeep(children, 'span')).toStrictEqual({ type: 'span', props: { children: 'Deep span' }});
+  });
+
   test('Deep find', () => {
     expect(getChildByTypeDeep(children, ['CustomComponent'])).toStrictEqual({ props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }});
     expect(getChildByTypeDeep(children, ['span'])).toStrictEqual({ type: 'span', props: { children: 'Deep span' }});

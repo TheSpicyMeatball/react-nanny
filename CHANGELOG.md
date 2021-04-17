@@ -1,3 +1,6 @@
+## [2.8.0] - 2021-04-16
+- Added overload for 'ByType' functions to accept single type arg as well as an array of types
+
 ## [2.6.0] - 2021-01-19
 - Added getChildrenWithDescendant
 - Added getChildrenWithDescendantByType

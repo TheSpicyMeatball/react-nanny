@@ -31,6 +31,14 @@ const children = [
 React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
 
 describe('getChildrenWithDescendantByType', () => {
+  test('Single', () => {
+    expect(getChildrenWithDescendantByType(children, 'CustomComponent')).toStrictEqual([
+      children[0],
+      children[1],
+      children[2],
+    ]);
+  });
+
   test('Basic', () => {
     expect(getChildrenWithDescendantByType(children, ['CustomComponent'])).toStrictEqual([
       children[0],

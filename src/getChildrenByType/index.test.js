@@ -4,6 +4,25 @@ const React = require('react');
 const { getChildrenByType } = require('../../dist/lib/es5/index');
 
 describe('getChildrenByType', () => {
+  test('Single', () => {
+    let children = { props: { __TYPE: 'CustomComponent' }};
+    let reactChildrenToArrayOutput = [children];
+    React.Children.toArray = jest.fn().mockReturnValue(reactChildrenToArrayOutput);
+    expect(getChildrenByType(children, ['CustomComponent'])).toStrictEqual(reactChildrenToArrayOutput);
+
+    children = [
+      { props: { __TYPE: 'CustomComponent' }},
+      { props: { __TYPE: 'CustomComponent' }},
+      { props: { __TYPE: 'Something Else' }},
+      { props: { TYPE: 'Some TYPE' }},
+      { type: 'div' },
+    ];
+    React.Children.toArray = jest.fn().mockReturnValue(children);
+
+    expect(getChildrenByType(children, 'CustomComponent')).toStrictEqual(children.slice(0, 2));
+    expect(getChildrenByType(children, 'Some TYPE', { customTypeKey: 'TYPE' })).toStrictEqual([children[3]]);
+  });
+
   test('Custom Components', () => {
     let children = { props: { __TYPE: 'CustomComponent' }};
     let reactChildrenToArrayOutput = [children];

@@ -127,26 +127,26 @@ README.md -- this file
       └───index.d.ts - 1.1 KB
       └───index.js - 1.73 KB
     └───/getChildByType
-      └───index.d.ts - 4.08 KB
-      └───index.js - 5.97 KB
+      └───index.d.ts - 4.16 KB
+      └───index.js - 6.08 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
       └───index.js - 2.11 KB
     └───/getChildrenByType
-      └───index.d.ts - 3.53 KB
-      └───index.js - 5.04 KB
+      └───index.d.ts - 3.59 KB
+      └───index.js - 5.13 KB
     └───/getChildrenWithDescendant
       └───index.d.ts - 579 Bytes
       └───index.js - 1.4 KB
     └───/getChildrenWithDescendantByType
-      └───index.d.ts - 2.22 KB
-      └───index.js - 3.12 KB
+      └───index.d.ts - 2.26 KB
+      └───index.js - 3.14 KB
     └───/getDescendantDepth
       └───index.d.ts - 1.09 KB
       └───index.js - 2.54 KB
     └───/getDescendantDepthByType
-      └───index.d.ts - 2.35 KB
-      └───index.js - 4 KB
+      └───index.d.ts - 2.39 KB
+      └───index.js - 4.06 KB
       └───index.d.ts - 1.08 KB
       └───index.js - 4.06 KB
     └───/noEmptyChildren
@@ -159,8 +159,8 @@ README.md -- this file
       └───index.d.ts - 1.11 KB
       └───index.js - 2.61 KB
     └───/removeChildrenByType
-      └───index.d.ts - 3.63 KB
-      └───index.js - 5.63 KB
+      └───index.d.ts - 3.71 KB
+      └───index.js - 5.74 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.5 KB
@@ -174,26 +174,26 @@ README.md -- this file
       └───index.d.ts - 1.1 KB
       └───index.js - 1.55 KB
     └───/getChildByType
-      └───index.d.ts - 4.08 KB
-      └───index.js - 5.68 KB
+      └───index.d.ts - 4.16 KB
+      └───index.js - 5.78 KB
     └───/getChildren
       └───index.d.ts - 1.1 KB
       └───index.js - 1.91 KB
     └───/getChildrenByType
-      └───index.d.ts - 3.53 KB
-      └───index.js - 4.76 KB
+      └───index.d.ts - 3.59 KB
+      └───index.js - 4.85 KB
     └───/getChildrenWithDescendant
       └───index.d.ts - 579 Bytes
       └───index.js - 1.22 KB
     └───/getChildrenWithDescendantByType
-      └───index.d.ts - 2.22 KB
-      └───index.js - 2.91 KB
+      └───index.d.ts - 2.26 KB
+      └───index.js - 2.93 KB
     └───/getDescendantDepth
       └───index.d.ts - 1.09 KB
       └───index.js - 2.39 KB
     └───/getDescendantDepthByType
-      └───index.d.ts - 2.35 KB
-      └───index.js - 3.81 KB
+      └───index.d.ts - 2.39 KB
+      └───index.js - 3.86 KB
       └───index.d.ts - 1.08 KB
       └───index.js - 886 Bytes
     └───/noEmptyChildren
@@ -206,8 +206,8 @@ README.md -- this file
       └───index.d.ts - 1.11 KB
       └───index.js - 2.38 KB
     └───/removeChildrenByType
-      └───index.d.ts - 3.63 KB
-      └───index.js - 5.32 KB
+      └───index.d.ts - 3.71 KB
+      └───index.js - 5.43 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.35 KB
