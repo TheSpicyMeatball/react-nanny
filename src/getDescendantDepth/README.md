@@ -1,6 +1,6 @@
 
 
-<h2>getDescendantDepth&lt;T=React.ReactNode&gt;</h2>
+<h2>getDescendantDepth&lt;T=React.ReactNode, TC=React.ReactNode&gt;</h2>
 <p>Gets the depth to the first descendant (or self) of each root child that match the specified predicate</p>
 <blockquote><p>If the child does not match the predicate or have a descendant that matches, the child is not returned with the result.</p></blockquote><p>Since v2.6.0</p>
 <table>

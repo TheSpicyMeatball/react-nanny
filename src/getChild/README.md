@@ -1,6 +1,6 @@
 
 
-<h2>getChild&lt;T=React.ReactNode&gt;</h2>
+<h2>getChild&lt;T=React.ReactNode, TC=React.ReactNode&gt;</h2>
 <p>Gets first child by specified predicate</p>
 <p>Since v1.0.0</p>
 <table>
@@ -9,8 +9,8 @@
         <th>Param</th>
         <th>Type</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: T) =&gt; boolean</td></tr></tbody>
-    </table><p><b>Returns:</b> {T} - The first matching child</p>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>predicate</b></p>The predicate to determine if the given child is a match</td><td>(child: TChild) =&gt; boolean</td></tr></tbody>
+    </table><p><b>Returns:</b> {TChild} - The first matching child</p>
   <h4>Import</h4>
 
 ```

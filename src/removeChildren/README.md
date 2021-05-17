@@ -1,6 +1,6 @@
 
 
-<h2>removeChildren&lt;T=React.ReactNode&gt;</h2>
+<h2>removeChildren&lt;T=React.ReactNode, TC=React.ReactNode&gt;</h2>
 <p>Removes all children by specified predicate</p>
 <p>Since v1.0.0</p>
 <table>

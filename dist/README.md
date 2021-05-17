@@ -17,7 +17,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.7.0</p>
+<p><b>Version:</b> 2.9.0</p>
 
 <h3>Dependencies</h3>
 
@@ -124,29 +124,29 @@ README.md -- this file
 /lib
   └───/es5
     └───/getChild
-      └───index.d.ts - 1.1 KB
-      └───index.js - 1.73 KB
+      └───index.d.ts - 1.23 KB
+      └───index.js - 1.81 KB
     └───/getChildByType
       └───index.d.ts - 4.16 KB
       └───index.js - 6.08 KB
     └───/getChildren
-      └───index.d.ts - 1.1 KB
-      └───index.js - 2.11 KB
+      └───index.d.ts - 1.21 KB
+      └───index.js - 2.07 KB
     └───/getChildrenByType
       └───index.d.ts - 3.59 KB
-      └───index.js - 5.13 KB
+      └───index.js - 5.03 KB
     └───/getChildrenWithDescendant
-      └───index.d.ts - 579 Bytes
-      └───index.js - 1.4 KB
+      └───index.d.ts - 638 Bytes
+      └───index.js - 1.31 KB
     └───/getChildrenWithDescendantByType
       └───index.d.ts - 2.26 KB
-      └───index.js - 3.14 KB
+      └───index.js - 3.02 KB
     └───/getDescendantDepth
-      └───index.d.ts - 1.09 KB
-      └───index.js - 2.54 KB
+      └───index.d.ts - 1.14 KB
+      └───index.js - 2.46 KB
     └───/getDescendantDepthByType
       └───index.d.ts - 2.39 KB
-      └───index.js - 4.06 KB
+      └───index.js - 3.93 KB
       └───index.d.ts - 1.08 KB
       └───index.js - 4.06 KB
     └───/noEmptyChildren
@@ -156,11 +156,11 @@ README.md -- this file
       └───index.d.ts - 1.61 KB
       └───index.js - 2.49 KB
     └───/removeChildren
-      └───index.d.ts - 1.11 KB
-      └───index.js - 2.61 KB
+      └───index.d.ts - 1.22 KB
+      └───index.js - 2.57 KB
     └───/removeChildrenByType
       └───index.d.ts - 3.71 KB
-      └───index.js - 5.74 KB
+      └───index.js - 5.63 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.5 KB
@@ -171,29 +171,29 @@ README.md -- this file
       └───utils.js - 575 Bytes
   └───/es6
     └───/getChild
-      └───index.d.ts - 1.1 KB
-      └───index.js - 1.55 KB
+      └───index.d.ts - 1.23 KB
+      └───index.js - 1.63 KB
     └───/getChildByType
       └───index.d.ts - 4.16 KB
       └───index.js - 5.78 KB
     └───/getChildren
-      └───index.d.ts - 1.1 KB
-      └───index.js - 1.91 KB
+      └───index.d.ts - 1.21 KB
+      └───index.js - 1.87 KB
     └───/getChildrenByType
       └───index.d.ts - 3.59 KB
-      └───index.js - 4.85 KB
+      └───index.js - 4.75 KB
     └───/getChildrenWithDescendant
-      └───index.d.ts - 579 Bytes
-      └───index.js - 1.22 KB
+      └───index.d.ts - 638 Bytes
+      └───index.js - 1.13 KB
     └───/getChildrenWithDescendantByType
       └───index.d.ts - 2.26 KB
-      └───index.js - 2.93 KB
+      └───index.js - 2.81 KB
     └───/getDescendantDepth
-      └───index.d.ts - 1.09 KB
-      └───index.js - 2.39 KB
+      └───index.d.ts - 1.14 KB
+      └───index.js - 2.3 KB
     └───/getDescendantDepthByType
       └───index.d.ts - 2.39 KB
-      └───index.js - 3.86 KB
+      └───index.js - 3.74 KB
       └───index.d.ts - 1.08 KB
       └───index.js - 886 Bytes
     └───/noEmptyChildren
@@ -203,11 +203,11 @@ README.md -- this file
       └───index.d.ts - 1.61 KB
       └───index.js - 2.35 KB
     └───/removeChildren
-      └───index.d.ts - 1.11 KB
-      └───index.js - 2.38 KB
+      └───index.d.ts - 1.22 KB
+      └───index.js - 2.34 KB
     └───/removeChildrenByType
       └───index.d.ts - 3.71 KB
-      └───index.js - 5.43 KB
+      └───index.js - 5.32 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
       └───index.js - 1.35 KB
