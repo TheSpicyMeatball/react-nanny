@@ -10,7 +10,7 @@ export { getChildrenWithDescendantByType, GetChildrenWithDescendantByTypeConfig 
 export { getDescendantDepth } from './getDescendantDepth';
 export { getDescendantDepthByType, GetDescendantDepthByTypeConfig } from './getDescendantDepthByType';
 
-export { overrideProps } from './overrideProps';
+export { overrideProps, overridePropsDeep } from './overrideProps';
 
 export { noEmptyChildrenDeep, NoEmptyConfig } from './noEmptyChildren';
 

@@ -2,7 +2,7 @@
 
 <h2>overrideProps&lt;T=any&gt;</h2>
 <p>Immutably override props of the children of the original component and (optionally) the original component</p>
-<blockquote><p>This function is a handy shortcut for when you may need to override the props of your children components and is an alternative for writing your own looped <em>React.cloneElement</em> calls.</p></blockquote><p>Since v2.3.0</p>
+<blockquote><p>This function is a handy shortcut for when you may need to override the props of your child components and is an alternative for writing your own looped <em>React.cloneElement</em> calls.</p></blockquote><p>Since v2.3.0</p>
 <table>
       <thead>
       <tr>

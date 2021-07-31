@@ -17,7 +17,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.9.0</p>
+<p><b>Version:</b> 2.10.0</p>
 
 <h3>Dependencies</h3>
 
@@ -34,7 +34,7 @@
       <th>Description</th>
     </tr>
     </thead>
-    <tbody><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChild/README.md">getChild</a></td><td>Gets first child by specified predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChild/README-deep.md">getChildDeep</a></td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildByType/README.md">getChildByType</a></td><td>Gets first child by specified type</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildByType/README-deep.md">getChildByTypeDeep</a></td><td>Gets first child by specified type (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildren/README.md">getChildren</a></td><td>Gets all children by specified predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildren/README-deep.md">getChildrenDeep</a></td><td>Gets all children by specified predicate (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildrenByType/README.md">getChildrenByType</a></td><td>Gets all children by specified type</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildrenByType/README-deep.md">getChildrenByTypeDeep</a></td><td>Gets all children by specified type (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildrenWithDescendant/README.md">getChildrenWithDescendant</a></td><td>Gets all children by specified predicate or that have a descendant node in their lineage which matches the predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildrenWithDescendantByType/README.md">getChildrenWithDescendantByType</a></td><td>Gets all children by specified type or that have a descendant node in their lineage which match the specified type</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getDescendantDepth/README.md">getDescendantDepth</a></td><td>Gets the depth to the first descendant (or self) of each root child that match the specified predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getDescendantDepthByType/README.md">getDescendantDepthByType</a></td><td>Gets the depth to the first descendant (or self) of each root child that match the specified types</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/noEmptyChildren/README-deep.md">noEmptyChildrenDeep</a></td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/overrideProps/README.md">overrideProps</a></td><td>Immutably override props of the children of the original component and (optionally) the original component</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/removeChildren/README.md">removeChildren</a></td><td>Removes all children by specified predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/removeChildren/README-deep.md">removeChildrenDeep</a></td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/removeChildrenByType/README.md">removeChildrenByType</a></td><td>Removes all children by specified type</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/removeChildrenByType/README-deep.md">removeChildrenByTypeDeep</a></td><td>Removes all children by specified type (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/typeOfComponent/README.md">typeOfComponent</a></td><td>Gets the string type of the component's {customTypeKey}, string type of the core html (JSX intrinsic) element, or the function type</td></tr></tbody>
+    <tbody><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChild/README.md">getChild</a></td><td>Gets first child by specified predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChild/README-deep.md">getChildDeep</a></td><td>Gets first child by specified predicate (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildByType/README.md">getChildByType</a></td><td>Gets first child by specified type</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildByType/README-deep.md">getChildByTypeDeep</a></td><td>Gets first child by specified type (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildren/README.md">getChildren</a></td><td>Gets all children by specified predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildren/README-deep.md">getChildrenDeep</a></td><td>Gets all children by specified predicate (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildrenByType/README.md">getChildrenByType</a></td><td>Gets all children by specified type</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildrenByType/README-deep.md">getChildrenByTypeDeep</a></td><td>Gets all children by specified type (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildrenWithDescendant/README.md">getChildrenWithDescendant</a></td><td>Gets all children by specified predicate or that have a descendant node in their lineage which matches the predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getChildrenWithDescendantByType/README.md">getChildrenWithDescendantByType</a></td><td>Gets all children by specified type or that have a descendant node in their lineage which match the specified type</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getDescendantDepth/README.md">getDescendantDepth</a></td><td>Gets the depth to the first descendant (or self) of each root child that match the specified predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/getDescendantDepthByType/README.md">getDescendantDepthByType</a></td><td>Gets the depth to the first descendant (or self) of each root child that match the specified types</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/noEmptyChildren/README-deep.md">noEmptyChildrenDeep</a></td><td>Ensure that there is some level of content and not just a bunch of empty divs, spans, etc (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/overrideProps/README.md">overrideProps</a></td><td>Immutably override props of the children of the original component and (optionally) the original component</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/overrideProps/README-deep.md">overridePropsDeep</a></td><td>Immutably override props of the children and all descendants (deep)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/removeChildren/README.md">removeChildren</a></td><td>Removes all children by specified predicate</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/removeChildren/README-deep.md">removeChildrenDeep</a></td><td>Removes all children by specified predicate (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/removeChildrenByType/README.md">removeChildrenByType</a></td><td>Removes all children by specified type</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/removeChildrenByType/README-deep.md">removeChildrenByTypeDeep</a></td><td>Removes all children by specified type (deep search)</td></tr><tr><td><a href="https://github.com/TheSpicyMeatball/react-nanny/tree/main/src/typeOfComponent/README.md">typeOfComponent</a></td><td>Gets the string type of the component's {customTypeKey}, string type of the core html (JSX intrinsic) element, or the function type</td></tr></tbody>
   </table><hr />
 
 <h2>What can I use to derive types for a comparison?</h2>
@@ -147,14 +147,14 @@ README.md -- this file
     └───/getDescendantDepthByType
       └───index.d.ts - 2.39 KB
       └───index.js - 3.93 KB
-      └───index.d.ts - 1.08 KB
-      └───index.js - 4.06 KB
+      └───index.d.ts - 1.1 KB
+      └───index.js - 4.23 KB
     └───/noEmptyChildren
       └───index.d.ts - 1.75 KB
       └───index.js - 3.43 KB
     └───/overrideProps
-      └───index.d.ts - 1.61 KB
-      └───index.js - 2.49 KB
+      └───index.d.ts - 2.72 KB
+      └───index.js - 4.66 KB
     └───/removeChildren
       └───index.d.ts - 1.22 KB
       └───index.js - 2.57 KB
@@ -194,14 +194,14 @@ README.md -- this file
     └───/getDescendantDepthByType
       └───index.d.ts - 2.39 KB
       └───index.js - 3.74 KB
-      └───index.d.ts - 1.08 KB
-      └───index.js - 886 Bytes
+      └───index.d.ts - 1.1 KB
+      └───index.js - 905 Bytes
     └───/noEmptyChildren
       └───index.d.ts - 1.75 KB
       └───index.js - 3.2 KB
     └───/overrideProps
-      └───index.d.ts - 1.61 KB
-      └───index.js - 2.35 KB
+      └───index.d.ts - 2.72 KB
+      └───index.js - 4.44 KB
     └───/removeChildren
       └───index.d.ts - 1.22 KB
       └───index.js - 2.34 KB

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const React = require('react');
-const { overrideProps } = require('../../dist/lib/es5/index');
+const { overrideProps, overridePropsDeep } = require('../../dist/lib/es5/index');
 
 describe('overrideProps', () => {
   React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
@@ -96,5 +96,98 @@ describe('overrideProps', () => {
     expect(overrideProps(null, () => ({ active: true }), { hello: 'Hola mundo' })).toBe(null);
     expect(overrideProps({ props: {}}, () => ({ active: true }))).toStrictEqual({ props: {}});
     expect(overrideProps({}, () => ({ active: true }))).toStrictEqual({});
+  });
+});
+
+describe('overridePropsDeep', () => {
+  React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
+  React.cloneElement = (x, props) => ({ ...x, props: { ...x.props, ...props }});
+  
+  const children = {
+    props: {
+      children: [
+        { props: { active: false, title: 'Supervisor' }},
+        { props: { 
+          active: false, title: 'Employee',
+          children: [
+            { props: { active: false, title: 'Supervisor' }},
+            { props: { active: false, title: 'Employee' }},
+            { props: { active: false, title: 'Employee' }},
+            { props: { active: false, title: 'Supervisor' }},
+          ],
+        }},
+        { props: { active: false, title: 'Employee' }},
+        { props: { active: false, title: 'Supervisor' }},
+      ],
+      hello: 'Hello world',
+    },
+  };
+
+  test('Basic', () => {
+    expect(overridePropsDeep(children, () => ({ active: true }))).toStrictEqual([{
+      props: {
+        active: true,
+        children: [
+          { props: { active: true, title: 'Supervisor' }},
+          { props: { 
+            active: true, title: 'Employee',
+            children: [
+              { props: { active: true, title: 'Supervisor' }},
+              { props: { active: true, title: 'Employee' }},
+              { props: { active: true, title: 'Employee' }},
+              { props: { active: true, title: 'Supervisor' }},
+            ],
+          }},
+          { props: { active: true, title: 'Employee' }},
+          { props: { active: true, title: 'Supervisor' }},
+        ],
+        hello: 'Hello world',
+      },
+    }]);
+  });
+
+  test('Basic => single', () => {
+    const children = {
+      props: {
+        children: { props: { active: false, title: 'Supervisor' }},
+        hello: 'Hello world',
+      },
+    };
+
+    expect(overridePropsDeep(children, () => ({ active: true }))).toStrictEqual([{
+      props: {
+        active: true,
+        children: [{ props: { active: true, title: 'Supervisor' }}],
+        hello: 'Hello world',
+      },
+    }]);
+  });
+
+  test('conditional on child prop value', () => {    
+    expect(overridePropsDeep(children, child => child.props.title === 'Supervisor' ? ({ active: true }) : {})).toStrictEqual([{
+      props: {
+        children: [
+          { props: { active: true, title: 'Supervisor' }},
+          { props: { 
+            active: false, title: 'Employee',
+            children: [
+              { props: { active: true, title: 'Supervisor' }},
+              { props: { active: false, title: 'Employee' }},
+              { props: { active: false, title: 'Employee' }},
+              { props: { active: true, title: 'Supervisor' }},
+            ],
+          }},
+          { props: { active: false, title: 'Employee' }},
+          { props: { active: true, title: 'Supervisor' }},
+        ],
+        hello: 'Hello world',
+      },
+    }]);
+  });
+
+  test('nothing', () => {
+    expect(overridePropsDeep(null, () => ({ active: true }))).toStrictEqual([]);
+    expect(overridePropsDeep({ props: {}}, () => ({ active: true }))).toStrictEqual([{ props: { active: true } }]);
+    expect(overridePropsDeep({}, () => ({ active: true }))).toStrictEqual([{}]);
   });
 });

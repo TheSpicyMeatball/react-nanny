@@ -1,3 +1,6 @@
+## [2.9.0] - 2021-07-21
+- Added overridePropsDeep
+
 ## [2.9.0] - 2021-05-17
 - Added typing generics for child items
 
