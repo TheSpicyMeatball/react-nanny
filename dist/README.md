@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.com/TheSpicyMeatball/react-nanny.svg?branch=main)](https://travis-ci.com/TheSpicyMeatball/react-nanny)
 [![Coverage Status](https://coveralls.io/repos/github/TheSpicyMeatball/react-nanny/badge.svg?branch=main)](https://coveralls.io/github/TheSpicyMeatball/react-nanny?branch=main)
-[![dependencies Status](https://status.david-dm.org/gh/TheSpicyMeatball/react-nanny.svg?path=dist)](https://david-dm.org/TheSpicyMeatball/react-nanny?path=dist)
-[![peerDependencies Status](https://status.david-dm.org/gh/TheSpicyMeatball/react-nanny.svg?path=dist&type=peer)](https://david-dm.org/TheSpicyMeatball/react-nanny?path=dist&type=peer)
 
 # react-nanny
 
@@ -17,11 +15,48 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.10.0</p>
+<p><b>Version:</b> 2.11.0</p>
 
 <h3>Dependencies</h3>
 
 <code>react-nanny</code> doesn't have any dependencies. However, it does have a peer dependency of <code>"react": ">=16.0.0"</code> which you most likely satisfy if you're the kind of person who's looking for utils for React children.
+
+<h2>Example</h2>
+<p>This is simple example of how you can program defensively (your consumer can't just throw anything unexpected in children and have it render) and it shows how you can manipulate your children to place them anywhere in the rendered output.</p>
+
+<p>Below, we have a <code>ToDo</code> list of <code>Items</code>. We first get all child <code>Items</code>—all other children will be ignored. We then find two lists of children that are completed and incomplete.</p>
+
+```
+import React from 'react';
+import { getChildrenByType, getChildren } from 'react-nanny';
+import Item from './Item';
+
+export const ToDoList ({ children }) => {
+  // Get all children of type Item
+  const items = getChildrenByType(children, [Item]);
+
+  // Find all incomplete and complete Items
+  const incomplete = getChildren(items, child => !child.props.completed);
+  const completed = getChildren(items, child => child.props.completed);
+
+  return (
+    <>
+      <div>
+        <h3>To Do</h3>
+        <ul>
+          {incomplete}
+        </ul>
+      </div>
+      <div>
+        <h3>Completed</h3>
+        <ul>
+          {completed}
+        </ul>
+      </div>
+    </>
+  );
+};
+```
 
 <h2>Summary of Utils</h2>
 

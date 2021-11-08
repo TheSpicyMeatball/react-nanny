@@ -1,3 +1,6 @@
+## [2.11.0] - 2021-11-08
+- Added example to main README.md
+
 ## [2.9.0] - 2021-07-21
 - Added overridePropsDeep
 
