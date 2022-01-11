@@ -1,3 +1,6 @@
+## [2.12.0] - 2022-01-11
+- Added support for React.forwardRef
+
 ## [2.11.0] - 2021-11-08
 - Added example to main README.md
 

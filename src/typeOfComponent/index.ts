@@ -14,5 +14,6 @@ export const typeOfComponent = (component: any, customTypeKey = '__TYPE') : stri
   (typeof component?.type === 'string' && component.type) ||
   (component?.type && typeof component.type === 'symbol' && component.type.toString() === 'Symbol(react.fragment)' && 'react.fragment') ||
   (typeof component?.type === 'function' && component.type) ||
+  (typeof component?.type === 'object' && component.type.$$typeof.toString() === 'Symbol(react.forward_ref)' && 'react.forward_ref') ||
   (typeof component === 'string' && 'string') ||
   undefined;

@@ -139,6 +139,11 @@ getChildByType(children, ['Hello'], { customTypeKey: 'CUSTOM' });
 
 For more information on how to enforce the integrity of the <code>customTypeKey</code>, check out my Medium article: <a href="https://mparavano.medium.com/find-filter-react-children-by-type-d9799fb78292" target="_blank">Find & Filter React Children By Type</a>
 
+<a href="#forwardRef"></a>
+<h2>forwardRef</h2>
+
+<p>Because React.forwardRef components are higher order components, determining their type becomes tricky. The only way to reliably determine their type is to use the <code>customTypeKey</code> method outlined above.</p>
+
 <a href="#package-contents"></a>
 <h2>Package Contents</h2>
 

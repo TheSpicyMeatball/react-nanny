@@ -14,5 +14,13 @@ describe('processTypes', () => {
 
   test('object', () => {
     expect(processTypes([{}])).toStrictEqual([undefined]);
+
+    const fwdRef = {
+      type: {
+        $$typeof: Symbol('react.forward_ref'),
+        render: (props, ref) => (({ props: { __TYPE: 'CustomComponent' }})),
+      },
+    };
+    expect(processTypes([fwdRef])).toStrictEqual(['CustomComponent']);
   });
 });

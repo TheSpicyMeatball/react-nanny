@@ -22,6 +22,17 @@ describe('typeOfComponent', () => {
     expect(typeOfComponent({ type: Symbol('react.fragment') })).toBe('react.fragment');
   });
 
+  test('react.forward_ref', () => {
+    expect(typeOfComponent({ type: { 
+      $$typeof: Symbol('react.forward_ref'),
+      render: () => ({}),
+    }})).toBe('react.forward_ref');
+    expect(typeOfComponent({ type: { 
+      $$typeof: Symbol('react.forward_ref'),
+      render: () => ({ props: { __TYPE: 'CustomComponent' }}),
+    }})).toBe('react.forward_ref');
+  });
+
   test('undefined', () => {
     expect(typeOfComponent(null)).toBe(undefined);
     expect(typeOfComponent({})).toBe(undefined);

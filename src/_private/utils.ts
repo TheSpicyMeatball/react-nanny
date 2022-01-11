@@ -8,8 +8,17 @@ export const processTypes = (types: any[]) : any[] => types.map(x => {
      
     case 'function':
       return typeOfComponent(React.createElement(x));
-      
-    default:
+
+    case 'object': 
+    default: {
+      const component = React.createElement(x);
+      const type = typeOfComponent(component);
+
+      if (type === 'react.forward_ref') {
+        return typeOfComponent((component.type as any).render(component.props, component.ref));
+      }
+
       return typeOfComponent(x);
+    }
   }
 });

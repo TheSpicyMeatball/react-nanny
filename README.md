@@ -15,7 +15,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.11.0</p>
+<p><b>Version:</b> 2.12.0</p>
 
 <h3>Dependencies</h3>
 
@@ -147,6 +147,11 @@ getChildByType(children, ['Hello'], { customTypeKey: 'CUSTOM' });
 
 For more information on how to enforce the integrity of the <code>customTypeKey</code>, check out my Medium article: <a href="https://mparavano.medium.com/find-filter-react-children-by-type-d9799fb78292" target="_blank">Find & Filter React Children By Type</a>
 
+<a href="#forwardRef"></a>
+<h2>forwardRef</h2>
+
+<p>Because React.forwardRef components are higher order components, determining their type becomes tricky. The only way to reliably determine their type is to use the <code>customTypeKey</code> method outlined above.</p>
+
 <a href="#package-contents"></a>
 <h2>Package Contents</h2>
 
@@ -198,12 +203,12 @@ README.md -- this file
       └───index.js - 5.63 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
-      └───index.js - 1.5 KB
+      └───index.js - 1.69 KB
       └───types.d.ts - 249 Bytes
       └───types.js - 79 Bytes
     └───/_private
       └───utils.d.ts - 61 Bytes
-      └───utils.js - 575 Bytes
+      └───utils.js - 913 Bytes
   └───/es6
     └───/getChild
       └───index.d.ts - 1.23 KB
@@ -245,10 +250,10 @@ README.md -- this file
       └───index.js - 5.32 KB
     └───/typeOfComponent
       └───index.d.ts - 614 Bytes
-      └───index.js - 1.35 KB
+      └───index.js - 1.54 KB
       └───types.d.ts - 249 Bytes
       └───types.js - 12 Bytes
     └───/_private
       └───utils.d.ts - 61 Bytes
-      └───utils.js - 398 Bytes
+      └───utils.js - 700 Bytes
 ````
