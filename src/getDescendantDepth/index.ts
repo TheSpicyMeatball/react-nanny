@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IDescendantDepth, NannyNode } from '../types';
+import { toChildrenArray } from '../_private/utils';
 
 /**
  * Gets the depth to the first descendant (or self) of each root child that match the specified predicate 
@@ -20,11 +21,11 @@ import { IDescendantDepth, NannyNode } from '../types';
  * If the child does not match the predicate or have a descendant that matches, the child is not returned with the result.
  */
 export const getDescendantDepth = <T=React.ReactNode, TC=React.ReactNode>(children: T, predicate: (child: TC) => boolean) : IDescendantDepth<TC>[] => {
-  const _children = React.Children.toArray(children);
+  const _children = toChildrenArray(children);
 
   // recursively get the depth of the first matching child
   const getDepth = <T=React.ReactNode, TC=React.ReactNode>(children: T, predicate: (child: TC) => boolean, level: number) : number => {
-    const _children = React.Children.toArray(children);
+    const _children = toChildrenArray(children);
   
     for (const child of _children) {
       if (predicate(child as TC)) return level + 1;

@@ -3,6 +3,7 @@ import * as React from 'react';
 import { processTypes } from './../_private/utils';
 import { typeOfComponent } from '../typeOfComponent';
 import { NannyNode } from '../types';
+import { toChildrenArray } from './../_private/utils';
 
 /**
  * Removes all children by specified type
@@ -35,7 +36,7 @@ import { NannyNode } from '../types';
  */
 export const removeChildrenByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
   const _types = processTypes(Array.isArray(types) ? types : [types]);
-  return React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) === -1) as T[];
+  return toChildrenArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) === -1) as T[];
 };
 
 /**
@@ -68,7 +69,7 @@ export const removeChildrenByType = <T=React.ReactNode, TC=unknown>(children: T,
  * @docgen_imp_note <em>RemoveChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const removeChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: RemoveChildrenByTypeConfig = {}) : T[] => {
-  const _children = React.Children.toArray(children);
+  const _children = toChildrenArray(children);
   const _types = processTypes(Array.isArray(types) ? types : [types]);
   let output = [];
 

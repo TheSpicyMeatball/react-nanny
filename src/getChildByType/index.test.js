@@ -10,16 +10,20 @@ describe('getChildByType', () => {
     let children = { props: { __TYPE: 'CustomComponent' }};
     expect(getChildByType(children, ['CustomComponent'])).toStrictEqual(children);
 
+    const someFunction = () => 'some function';
+
     children = [
       { props: { __TYPE: 'CustomComponent' }},
       { props: { __TYPE: 'CustomComponent' }},
       { props: { __TYPE: 'Something Else' }},
       { props: { TYPE: 'Some TYPE' }},
       { type: 'div' },
+      someFunction,
     ];
 
     expect(getChildByType(children, 'CustomComponent')).toStrictEqual(children[0]);
     expect(getChildByType(children, 'Some TYPE', { customTypeKey: 'TYPE' })).toStrictEqual(children[3]);
+    expect(getChildByType(children, 'function')).toStrictEqual(someFunction);
   });
 
   test('Custom Components', () => {

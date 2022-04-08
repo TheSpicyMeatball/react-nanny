@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { getChildDeep } from '../getChild';
+import { toChildrenArray } from '../_private/utils';
 
 /**
  * Gets all children by specified predicate or that have a descendant node in their lineage which matches the predicate
@@ -12,7 +13,7 @@ import { getChildDeep } from '../getChild';
  * @returns {TC[]} - All children that match the predicate or have a descendant which matches the predicate
  */
 export const getChildrenWithDescendant = <T=React.ReactNode, TC=React.ReactNode>(children: T, predicate: (child: TC) => boolean) : TC[] => {
-  const _children = React.Children.toArray(children);
+  const _children = toChildrenArray(children);
 
   let output: TC[] = [];
 

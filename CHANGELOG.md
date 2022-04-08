@@ -1,3 +1,9 @@
+## [2.14.0] - 2022-04-08
+- Created private toChildrenArray util to simplify code
+
+## [2.13.0] - 2022-04-08
+- Added support for functions as children
+
 ## [2.12.0] - 2022-01-11
 - Added support for React.forwardRef
 

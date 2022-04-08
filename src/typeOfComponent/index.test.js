@@ -18,6 +18,10 @@ describe('typeOfComponent', () => {
     expect(typeOfComponent('my string')).toBe('string');
   });
 
+  test('function', () => {
+    expect(typeOfComponent(() => undefined)).toBe('function');
+  });
+
   test('react.fragment', () => {
     expect(typeOfComponent({ type: Symbol('react.fragment') })).toBe('react.fragment');
   });

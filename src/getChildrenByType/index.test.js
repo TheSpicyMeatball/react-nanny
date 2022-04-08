@@ -10,17 +10,21 @@ describe('getChildrenByType', () => {
     React.Children.toArray = jest.fn().mockReturnValue(reactChildrenToArrayOutput);
     expect(getChildrenByType(children, ['CustomComponent'])).toStrictEqual(reactChildrenToArrayOutput);
 
+    const someFunction = () => 'some function';
+    
     children = [
       { props: { __TYPE: 'CustomComponent' }},
       { props: { __TYPE: 'CustomComponent' }},
       { props: { __TYPE: 'Something Else' }},
       { props: { TYPE: 'Some TYPE' }},
       { type: 'div' },
+      someFunction,
     ];
     React.Children.toArray = jest.fn().mockReturnValue(children);
 
     expect(getChildrenByType(children, 'CustomComponent')).toStrictEqual(children.slice(0, 2));
     expect(getChildrenByType(children, 'Some TYPE', { customTypeKey: 'TYPE' })).toStrictEqual([children[3]]);
+    expect(getChildrenByType(children, 'function')).toStrictEqual([someFunction]);
   });
 
   test('Custom Components', () => {
