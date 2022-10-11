@@ -4,12 +4,12 @@ const React = require('react');
 const { getChildrenByTypeDeep } = require('../../dist/lib/es5/index');
 
 const children = [
-  { 
-    props: { 
+  {
+    props: {
       __TYPE: 'div',
       children: [
-        { 
-          props: { 
+        {
+          props: {
             __TYPE: 'div',
             children: [
               { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},
@@ -24,6 +24,13 @@ const children = [
   },
   { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
   { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
+  {
+    props: {
+      __TYPE: 'CustomComponentGroup', active: true, children: [
+        {props: {__TYPE: 'CustomComponent', active: true, children: 'Outer child active in group'}},
+      ],
+    },
+  },
   { type: 'span' },
   { type: 'div' },
 ];
@@ -35,6 +42,7 @@ describe('getChildrenByTypeDeep', () => {
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},
       { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
+      { props: {__TYPE: 'CustomComponent', active: true, children: 'Outer child active in group'}},
     ]);
   });
 
@@ -43,8 +51,41 @@ describe('getChildrenByTypeDeep', () => {
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},
       { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
+      { props: {__TYPE: 'CustomComponent', active: true, children: 'Outer child active in group' }},
     ]);
   });
+
+  test('Deep Custom Component Mixed', () => {
+    expect(getChildrenByTypeDeep(children, ['CustomComponent', 'CustomComponentGroup'])).toStrictEqual([
+      { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},
+      { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
+      { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
+      {
+        props: {
+          __TYPE: 'CustomComponentGroup', active: true, children: [
+            {props: {__TYPE: 'CustomComponent', active: true, children: 'Outer child active in group'}},
+          ],
+        },
+      },
+      { props: {__TYPE: 'CustomComponent', active: true, children: 'Outer child active in group'}},
+    ]);
+  });
+
+    test('Deep Custom Component Mixed Skip', () => {
+        expect(getChildrenByTypeDeep(children, ['CustomComponent', 'CustomComponentGroup'], {skipWhenFound: true})).toStrictEqual([
+            { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},
+            { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
+            { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
+            {
+                props: {
+                    __TYPE: 'CustomComponentGroup', active: true, children: [
+                        {props: {__TYPE: 'CustomComponent', active: true, children: 'Outer child active in group'}},
+                    ],
+                },
+            },
+        ]);
+    });
+
 
   test('Standard Html (JSX) Components', () => {
     expect(getChildrenByTypeDeep(children, ['span'])).toStrictEqual([
@@ -55,12 +96,13 @@ describe('getChildrenByTypeDeep', () => {
   });
 
   test('Mixed', () => {
-    expect(getChildrenByTypeDeep(children, ['span', 'CustomComponent'])).toStrictEqual([      
+    expect(getChildrenByTypeDeep(children, ['span', 'CustomComponent'])).toStrictEqual([
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Deep child active' }},
       { type: 'span', props: { children: 'Deep span' }},
       { type: 'span', props: { children: 'Outer span', hello: 'world' }},
       { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
+      {props: {__TYPE: 'CustomComponent', active: true, children: 'Outer child active in group'}},
       { type: 'span' },
     ]);
   });

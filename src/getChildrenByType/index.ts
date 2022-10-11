@@ -47,13 +47,14 @@ export const getChildrenByType = <T=React.ReactNode, TC=unknown>(children: T, ty
  * @template TC
  * @param {T} children - JSX children
  * @param {TC | TC[]} types - Types of children to match
- * @param {GetChildrenByTypeConfig} [{ customTypeKey: '__TYPE' }] - The configuration params
+ * @param {GetChildrenByTypeConfig} [{ customTypeKey: '__TYPE', skipWhenFound: false }] - The configuration params
  * @returns {T[]} - Array of matching children
  * @docgen_types
  * // The configuration type for the util:
  * //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
+ * //   skipWhenFound?: boolean = false - Will stop the depth search when something was found
  * 
- * export type GetChildrenByTypeConfig = { customTypeKey?: string };
+ * export type GetChildrenByTypeConfig = { customTypeKey?: string, skipWhenFound?: boolean };
  * @example
  * // Finds all occurrences of ToDo (custom component), div, and React Fragment
  * getChildrenByTypeDeep(children, ['ToDo', 'div', 'react.fragment']);
@@ -66,26 +67,28 @@ export const getChildrenByType = <T=React.ReactNode, TC=unknown>(children: T, ty
  * getChildrenByTypeDeep(children, ['ToDo'], { customTypeKey: 'myTypeKey' });
  * @docgen_note
  * This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
+ * To stop the depth search when something was found, set <em>skipWhenFound</em> true.
  * @docgen_import { getChildrenByTypeDeep, GetChildrenByTypeConfig }
  * @docgen_imp_note <em>GetChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
-export const getChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
-  const _children = React.Children.toArray(children);
+export const getChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE', skipWhenFound = false }: GetChildrenByTypeConfig = {}) : T[] => {
+  const _children = toChildrenArray(children);
   const _types = processTypes(Array.isArray(types) ? types : [types]);
 
   let output = [];
 
   for (const child of _children) {
-    if (_types.indexOf(typeOfComponent(child, customTypeKey)) !== -1) {
+    const found = _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1;
+    if (found) {
       output = [...output, child as T];
-    } 
-    
-    if ((child as NannyNode).props?.children) {
-      output = [...output, ...getChildrenByTypeDeep<T>((child as NannyNode).props.children, _types, { customTypeKey })];
+    }
+
+    if ((child as NannyNode).props?.children && !(skipWhenFound && found)) {
+      output = [...output, ...getChildrenByTypeDeep<T>((child as NannyNode).props.children, _types, { customTypeKey, skipWhenFound })];
     }
   }
 
   return output;
 };
 
-export type GetChildrenByTypeConfig = { customTypeKey?: string };
+export type GetChildrenByTypeConfig = { customTypeKey?: string, skipWhenFound?: boolean };
