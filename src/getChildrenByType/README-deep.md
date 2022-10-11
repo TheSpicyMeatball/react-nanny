@@ -9,14 +9,16 @@
         <th>Param</th>
         <th>Type</th></tr>
       </thead>
-      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>TC | TC[]</td></tr><tr><td><p><b>{ customTypeKey: '__TYPE' } <span>(optional)</span></b></p>The configuration params</td><td>GetChildrenByTypeConfig</td></tr></tbody>
-    </table><p><b>Returns:</b> {T[]} - Array of matching children</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.</p></blockquote><h4>Supporting Types</h4>
+      <tbody><tr><td><p><b>children</b></p>JSX children</td><td>T</td></tr><tr><td><p><b>types</b></p>Types of children to match</td><td>TC | TC[]</td></tr><tr><td><p><b>{ customTypeKey: '__TYPE', skipWhenFound: false } <span>(optional)</span></b></p>The configuration params</td><td>GetChildrenByTypeConfig</td></tr></tbody>
+    </table><p><b>Returns:</b> {T[]} - Array of matching children</p><blockquote><p>This function will check the prop <em>{customTypeKey}</em> first and then <em>component.type</em> to match core html (JSX intrinsic) elements or component functions. To find a React Fragment, search for <em>'react.fragment'</em>.
+To stop the depth search when something was found, set <em>skipWhenFound</em> true.</p></blockquote><h4>Supporting Types</h4>
 
 ```
 // The configuration type for the util:
 //   customTypeKey?: string = '__TYPE' - The custom component prop key to check the type
+//   skipWhenFound?: boolean = false - Will stop the depth search when something was found
 
-export type GetChildrenByTypeConfig = { customTypeKey?: string };
+export type GetChildrenByTypeConfig = { customTypeKey?: string, skipWhenFound?: boolean };
 ```
   <h4>Import</h4>
 

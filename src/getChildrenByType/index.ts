@@ -72,7 +72,7 @@ export const getChildrenByType = <T=React.ReactNode, TC=unknown>(children: T, ty
  * @docgen_imp_note <em>GetChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const getChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE', skipWhenFound = false }: GetChildrenByTypeConfig = {}) : T[] => {
-  const _children = toChildrenArray(children);
+  const _children = React.Children.toArray(children);
   const _types = processTypes(Array.isArray(types) ? types : [types]);
 
   let output = [];

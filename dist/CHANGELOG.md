@@ -1,3 +1,6 @@
+## [2.15.0] - 2022-10-11
+- Added {skipWhenFound} to {getChildrenByType} to stop searching lower in the tree when a match is found.
+
 ## [2.14.1] - 2022-10-11
 - Removed toChildrenArray because it caused issues in getting nested children in an array.
 

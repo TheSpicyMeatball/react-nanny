@@ -15,7 +15,7 @@
 
 <p>If you answered yes to any of those questions, then it sounds like your children could use a nanny to help bring order to the chaos...</p>
 
-<p><b>Version:</b> 2.14.1</p>
+<p><b>Version:</b> 2.15.0</p>
 
 <h3>Dependencies</h3>
 
@@ -173,8 +173,8 @@ README.md -- this file
       └───index.d.ts - 1.21 KB
       └───index.js - 2.07 KB
     └───/getChildrenByType
-      └───index.d.ts - 3.59 KB
-      └───index.js - 5.03 KB
+      └───index.d.ts - 3.86 KB
+      └───index.js - 5.41 KB
     └───/getChildrenWithDescendant
       └───index.d.ts - 638 Bytes
       └───index.js - 1.31 KB
@@ -220,8 +220,8 @@ README.md -- this file
       └───index.d.ts - 1.21 KB
       └───index.js - 1.87 KB
     └───/getChildrenByType
-      └───index.d.ts - 3.59 KB
-      └───index.js - 4.75 KB
+      └───index.d.ts - 3.86 KB
+      └───index.js - 5.12 KB
     └───/getChildrenWithDescendant
       └───index.d.ts - 638 Bytes
       └───index.js - 1.13 KB
