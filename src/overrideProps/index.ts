@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { NannyNode } from '../types';
-import { toChildrenArray } from '../_private/utils';
 
 /**
  * Immutably override props of the children of the original component and (optionally) the original component
@@ -31,7 +30,7 @@ export const overrideProps = <T=any>(component: React.ReactElement, getChildOver
 
   if (Array.isArray(component.props.children)) {
     return React.cloneElement(component, Object.assign(_overrides, {
-      children: toChildrenArray(component.props.children).map((child: any, index?: number) => React.cloneElement(child, getChildOverrides(child, index))),
+      children: React.Children.toArray(component.props.children).map((child: any, index?: number) => React.cloneElement(child, getChildOverrides(child, index))),
     }));
   }
 
@@ -59,7 +58,7 @@ export const overrideProps = <T=any>(component: React.ReactElement, getChildOver
  export const overridePropsDeep = <T=React.ReactNode, TC=React.ReactNode>(children: T, getChildOverrides: (child: TC) => Record<string, unknown>) : TC[] => {
   if (!children) return [];
 
-  const _children = toChildrenArray(children);
+  const _children = React.Children.toArray(children);
 
   let output: TC[] = [];
 
