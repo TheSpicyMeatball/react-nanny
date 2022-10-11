@@ -2,7 +2,6 @@ import * as React from 'react';
 import { IDescendantDepth, NannyNode } from '../types';
 import { typeOfComponent } from '../typeOfComponent';
 import { processTypes } from '../_private/utils';
-import { toChildrenArray } from '../_private/utils';
 
 /**
  * Gets the depth to the first descendant (or self) of each root child that match the specified types 
@@ -41,12 +40,12 @@ import { toChildrenArray } from '../_private/utils';
  * @docgen_imp_note <em>GetDescendantDepthByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const getDescendantDepthByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetDescendantDepthByTypeConfig = {}) : IDescendantDepth<T>[] => {
-  const _children = toChildrenArray(children);
+  const _children = React.Children.toArray(children);
   const _types = processTypes(Array.isArray(types) ? types : [types]);
 
   // recursively get the depth of the first matching child
   const getDepth = <T=React.ReactNode>(children: T, level: number) : number => {
-    const _children = toChildrenArray(children);
+    const _children = React.Children.toArray(children);
 
     for (const child of _children) {
       if (_types.indexOf(typeOfComponent(child, customTypeKey)) !== -1) {

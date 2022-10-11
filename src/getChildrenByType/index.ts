@@ -3,7 +3,6 @@ import * as React from 'react';
 import { processTypes } from '../_private/utils';
 import { typeOfComponent } from '../typeOfComponent';
 import { NannyNode } from '../types';
-import { toChildrenArray } from '../_private/utils';
 
 /**
  * Gets all children by specified type
@@ -37,7 +36,7 @@ import { toChildrenArray } from '../_private/utils';
  */
 export const getChildrenByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
   const _types = processTypes(Array.isArray(types) ? types : [types]);
-  return toChildrenArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1) as T[];
+  return React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1) as T[];
 };
 
 
@@ -71,7 +70,7 @@ export const getChildrenByType = <T=React.ReactNode, TC=unknown>(children: T, ty
  * @docgen_imp_note <em>GetChildrenByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const getChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetChildrenByTypeConfig = {}) : T[] => {
-  const _children = toChildrenArray(children);
+  const _children = React.Children.toArray(children);
   const _types = processTypes(Array.isArray(types) ? types : [types]);
 
   let output = [];

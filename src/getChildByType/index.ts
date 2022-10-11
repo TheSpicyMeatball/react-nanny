@@ -3,7 +3,6 @@ import * as React from 'react';
 import { processTypes } from './../_private/utils';
 import { getChildrenByTypeDeep } from '../getChildrenByType';
 import { typeOfComponent } from '../typeOfComponent';
-import { toChildrenArray } from './../_private/utils';
 
 /**
  * Gets first child by specified type
@@ -38,7 +37,7 @@ import { toChildrenArray } from './../_private/utils';
  */
 export const getChildByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE', prioritized = false }: GetChildByTypeConfig = {}) : T => {
   const _types = processTypes(Array.isArray(types) ? types : [types]);
-  const matches = toChildrenArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1);
+  const matches = React.Children.toArray(children).filter(child => _types.indexOf(typeOfComponent(child, customTypeKey)) !== -1);
 
   if (prioritized) {
     for (const type of _types) {

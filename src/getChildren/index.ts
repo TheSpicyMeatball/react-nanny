@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { NannyNode } from '../types';
-import { toChildrenArray } from '../_private/utils';
 
 /**
  * Gets all children by specified predicate
@@ -16,7 +15,7 @@ import { toChildrenArray } from '../_private/utils';
  * getChildren(children, child => child.props.active);
  */
 export const getChildren = <T=React.ReactNode, TC=React.ReactNode>(children: T, predicate: (child: TC) => boolean) : TC[] =>
-  toChildrenArray(children).filter(predicate) as TC[];
+  React.Children.toArray(children).filter(predicate) as TC[];
 
 /**
  * Gets all children by specified predicate (deep search)
@@ -32,7 +31,7 @@ export const getChildren = <T=React.ReactNode, TC=React.ReactNode>(children: T, 
  * getChildrenDeep(children, child => child.props.active);
  */
 export const getChildrenDeep = <T=React.ReactNode, TC=React.ReactNode>(children: T, predicate: (child: TC) => boolean) : TC[] => {
-  const _children = toChildrenArray(children);
+  const _children = React.Children.toArray(children);
 
   let output: TC[] = [];
 

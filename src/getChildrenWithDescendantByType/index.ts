@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { getChildByTypeDeep } from '../getChildByType';
-import { toChildrenArray } from '../_private/utils';
 
 /**
  * Gets all children by specified type or that have a descendant node in their lineage which match the specified type
@@ -33,7 +32,7 @@ import { toChildrenArray } from '../_private/utils';
  * @docgen_imp_note <em>GetChildrenWithDescendantByTypeConfig</em> is a TypeScript type and is only for (optional) use with TypeScript projects
  */
 export const getChildrenWithDescendantByType = <T=React.ReactNode, TC=unknown>(children: T, types: TC | Array<TC>, { customTypeKey = '__TYPE' }: GetChildrenWithDescendantByTypeConfig = {}) : T[] => {
-  const _children = toChildrenArray(children);
+  const _children = React.Children.toArray(children);
 
   let output = [];
 

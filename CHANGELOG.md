@@ -1,3 +1,6 @@
+## [2.14.1] - 2022-10-11
+- Removed toChildrenArray because it caused issues in getting nested children in an array.
+
 ## [2.14.0] - 2022-04-08
 - Created private toChildrenArray util to simplify code
 

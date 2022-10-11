@@ -22,6 +22,3 @@ export const processTypes = (types: any[]) : any[] => types.map(x => {
     }
   }
 });
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const toChildrenArray = children => Array.isArray(children) ? children : React.Children.toArray(children);
