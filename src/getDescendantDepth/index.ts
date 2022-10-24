@@ -29,7 +29,7 @@ export const getDescendantDepth = <T=React.ReactNode, TC=React.ReactNode>(childr
     for (const child of _children) {
       if (predicate(child as TC)) return level + 1;
   
-      if ((child as any).props?.children) {
+      if ((child as any)?.props?.children) {
         const result = getDepth<T, TC>((child as NannyNode).props.children, predicate, level + 1);
   
         if (result > 0) return result;

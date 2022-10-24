@@ -83,7 +83,7 @@ export const getChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children: T
       output = [...output, child as T];
     }
 
-    if ((child as NannyNode).props?.children && !(skipWhenFound && found)) {
+    if ((child as NannyNode)?.props?.children && !(skipWhenFound && found)) {
       output = [...output, ...getChildrenByTypeDeep<T>((child as NannyNode).props.children, _types, { customTypeKey, skipWhenFound })];
     }
   }

@@ -163,97 +163,97 @@ CHANGELOG.md -- history of changes to the module
 README.md -- this file
 /lib
   └───/es5
+    └───/_private
+      └───utils.d.ts - 60 Bytes
+      └───utils.js - 890 Bytes
     └───/getChild
-      └───index.d.ts - 1.23 KB
-      └───index.js - 1.81 KB
+      └───index.d.ts - 1.2 KB
+      └───index.js - 1.82 KB
     └───/getChildByType
-      └───index.d.ts - 4.16 KB
-      └───index.js - 6.08 KB
+      └───index.d.ts - 4.09 KB
+      └───index.js - 5.97 KB
     └───/getChildren
-      └───index.d.ts - 1.21 KB
+      └───index.d.ts - 1.19 KB
       └───index.js - 2.07 KB
     └───/getChildrenByType
-      └───index.d.ts - 3.86 KB
-      └───index.js - 5.41 KB
+      └───index.d.ts - 3.8 KB
+      └───index.js - 5.36 KB
     └───/getChildrenWithDescendant
-      └───index.d.ts - 638 Bytes
-      └───index.js - 1.31 KB
+      └───index.d.ts - 626 Bytes
+      └───index.js - 1.28 KB
     └───/getChildrenWithDescendantByType
-      └───index.d.ts - 2.26 KB
-      └───index.js - 3.02 KB
+      └───index.d.ts - 2.22 KB
+      └───index.js - 2.96 KB
     └───/getDescendantDepth
-      └───index.d.ts - 1.14 KB
-      └───index.js - 2.46 KB
+      └───index.d.ts - 1.12 KB
+      └───index.js - 2.45 KB
     └───/getDescendantDepthByType
-      └───index.d.ts - 2.39 KB
-      └───index.js - 3.93 KB
-      └───index.d.ts - 1.1 KB
-      └───index.js - 4.23 KB
+      └───index.d.ts - 2.35 KB
+      └───index.js - 3.91 KB
+      └───index.d.ts - 1.08 KB
+      └───index.js - 4.19 KB
     └───/noEmptyChildren
-      └───index.d.ts - 1.75 KB
-      └───index.js - 3.43 KB
+      └───index.d.ts - 1.72 KB
+      └───index.js - 3.37 KB
     └───/overrideProps
-      └───index.d.ts - 2.72 KB
-      └───index.js - 4.66 KB
+      └───index.d.ts - 2.68 KB
+      └───index.js - 4.57 KB
     └───/removeChildren
-      └───index.d.ts - 1.22 KB
-      └───index.js - 2.57 KB
+      └───index.d.ts - 1.2 KB
+      └───index.js - 2.56 KB
     └───/removeChildrenByType
-      └───index.d.ts - 3.71 KB
-      └───index.js - 5.63 KB
+      └───index.d.ts - 3.65 KB
+      └───index.js - 5.58 KB
     └───/typeOfComponent
-      └───index.d.ts - 614 Bytes
-      └───index.js - 1.75 KB
-      └───types.d.ts - 249 Bytes
-      └───types.js - 79 Bytes
-    └───/_private
-      └───utils.d.ts - 61 Bytes
-      └───utils.js - 913 Bytes
+      └───index.d.ts - 603 Bytes
+      └───index.js - 1.72 KB
+      └───types.d.ts - 240 Bytes
+      └───types.js - 77 Bytes
   └───/es6
+    └───/_private
+      └───utils.d.ts - 60 Bytes
+      └───utils.js - 681 Bytes
     └───/getChild
-      └───index.d.ts - 1.23 KB
+      └───index.d.ts - 1.2 KB
       └───index.js - 1.63 KB
     └───/getChildByType
-      └───index.d.ts - 4.16 KB
-      └───index.js - 5.78 KB
+      └───index.d.ts - 4.09 KB
+      └───index.js - 5.68 KB
     └───/getChildren
-      └───index.d.ts - 1.21 KB
+      └───index.d.ts - 1.19 KB
       └───index.js - 1.87 KB
     └───/getChildrenByType
-      └───index.d.ts - 3.86 KB
-      └───index.js - 5.12 KB
+      └───index.d.ts - 3.8 KB
+      └───index.js - 5.08 KB
     └───/getChildrenWithDescendant
-      └───index.d.ts - 638 Bytes
-      └───index.js - 1.13 KB
+      └───index.d.ts - 626 Bytes
+      └───index.js - 1.1 KB
     └───/getChildrenWithDescendantByType
-      └───index.d.ts - 2.26 KB
-      └───index.js - 2.81 KB
+      └───index.d.ts - 2.22 KB
+      └───index.js - 2.76 KB
     └───/getDescendantDepth
-      └───index.d.ts - 1.14 KB
+      └───index.d.ts - 1.12 KB
       └───index.js - 2.3 KB
     └───/getDescendantDepthByType
-      └───index.d.ts - 2.39 KB
-      └───index.js - 3.74 KB
-      └───index.d.ts - 1.1 KB
-      └───index.js - 905 Bytes
+      └───index.d.ts - 2.35 KB
+      └───index.js - 3.72 KB
+      └───index.d.ts - 1.08 KB
+      └───index.js - 892 Bytes
     └───/noEmptyChildren
-      └───index.d.ts - 1.75 KB
-      └───index.js - 3.2 KB
+      └───index.d.ts - 1.72 KB
+      └───index.js - 3.15 KB
     └───/overrideProps
-      └───index.d.ts - 2.72 KB
-      └───index.js - 4.44 KB
+      └───index.d.ts - 2.68 KB
+      └───index.js - 4.36 KB
     └───/removeChildren
-      └───index.d.ts - 1.22 KB
-      └───index.js - 2.34 KB
+      └───index.d.ts - 1.2 KB
+      └───index.js - 2.33 KB
     └───/removeChildrenByType
-      └───index.d.ts - 3.71 KB
-      └───index.js - 5.32 KB
+      └───index.d.ts - 3.65 KB
+      └───index.js - 5.28 KB
     └───/typeOfComponent
-      └───index.d.ts - 614 Bytes
-      └───index.js - 1.6 KB
-      └───types.d.ts - 249 Bytes
-      └───types.js - 12 Bytes
-    └───/_private
-      └───utils.d.ts - 61 Bytes
-      └───utils.js - 700 Bytes
+      └───index.d.ts - 603 Bytes
+      └───index.js - 1.58 KB
+      └───types.d.ts - 240 Bytes
+      └───types.js - 11 Bytes
 ````

@@ -33,8 +33,10 @@ const children = [
   },
   { type: 'span' },
   { type: 'div' },
+  undefined,
+  { type: 'div', props: { children: [null, {type: 'div'}] } },
 ];
-React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
+React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]);
 
 describe('getChildrenByTypeDeep', () => {
   test('Deep Single', () => {

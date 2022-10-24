@@ -4,7 +4,7 @@ const React = require('react');
 const { overrideProps, overridePropsDeep } = require('../../dist/lib/es5/index');
 
 describe('overrideProps', () => {
-  React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
+  React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]);
   React.cloneElement = (x, props) => ({ ...x, props: { ...x.props, ...props }});
   
   const component = {
@@ -100,7 +100,7 @@ describe('overrideProps', () => {
 });
 
 describe('overridePropsDeep', () => {
-  React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
+  React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]);
   React.cloneElement = (x, props) => ({ ...x, props: { ...x.props, ...props }});
   
   const children = {

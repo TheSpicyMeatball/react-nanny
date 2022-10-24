@@ -75,7 +75,7 @@ export const removeChildrenByTypeDeep = <T=React.ReactNode, TC=unknown>(children
   for (const child of _children) {
     if (_types.indexOf(typeOfComponent(child, customTypeKey)) === -1) {
 
-      if ((child as NannyNode).props?.children) {
+      if ((child as NannyNode)?.props?.children) {
         output = [
           ...output, 
           Object.assign({}, (child as NannyNode), {

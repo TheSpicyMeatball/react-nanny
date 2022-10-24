@@ -40,7 +40,7 @@ export const getChildrenDeep = <T=React.ReactNode, TC=React.ReactNode>(children:
       output = [...output, child as TC];
     } 
     
-    if ((child as NannyNode).props?.children) {
+    if ((child as NannyNode)?.props?.children) {
       output = [...output, ...getChildrenDeep<T, TC>((child as NannyNode).props.children, predicate)];
     }
   }
