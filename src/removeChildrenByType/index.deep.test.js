@@ -26,8 +26,10 @@ const children = [
   { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
   { type: 'span' },
   { type: 'div' },
+  undefined,
+  { type: 'div', props: { children: [null, {type: 'div'}] } },
 ];
-React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
+React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]);
 
 describe('removeChildrenByTypeDeep', () => {
   test('Single', () => {
@@ -51,6 +53,8 @@ describe('removeChildrenByTypeDeep', () => {
       },
       { type: 'span' },
       { type: 'div' },
+      undefined,
+      { type: 'div', props: { children: [null, {type: 'div'}] } },
     ]);
   });
 
@@ -75,6 +79,8 @@ describe('removeChildrenByTypeDeep', () => {
       },
       { type: 'span' },
       { type: 'div' },
+      undefined,
+      { type: 'div', props: { children: [null, {type: 'div'}] } },
     ]);
   });
 
@@ -99,6 +105,8 @@ describe('removeChildrenByTypeDeep', () => {
       { props: { __TYPE: 'CustomComponent', active: false, children: 'Outer child' }},
       { props: { __TYPE: 'CustomComponent', active: true, children: 'Outer child active' }},
       { type: 'div' },
+      undefined,
+      { type: 'div', props: { children: [null, {type: 'div'}] } },
     ]);
   });
 
@@ -120,6 +128,8 @@ describe('removeChildrenByTypeDeep', () => {
         },
       },
       { type: 'div' },
+      undefined,
+      { type: 'div', props: { children: [null, {type: 'div'}] } },
     ]);
   });
 });

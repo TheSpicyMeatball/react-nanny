@@ -27,7 +27,7 @@ let children = [
   { type: 'span' },
   { type: 'div' },
 ];
-React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
+React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]);
 
 describe('getChildDeep', () => {
   test('Deep find', () => {

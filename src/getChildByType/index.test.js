@@ -4,7 +4,7 @@ const React = require('react');
 const { getChildByType } = require('../../dist/lib/es5/index');
 
 describe('getChildByType', () => {
-  React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]).filter(z => z != undefined);
+  React.Children.toArray = x => (x && Array.isArray(x) ? x : [x]);
   
   test('Single', () => {
     let children = { props: { __TYPE: 'CustomComponent' }};

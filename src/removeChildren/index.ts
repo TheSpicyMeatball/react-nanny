@@ -37,7 +37,7 @@ export const removeChildrenDeep = <T=React.ReactNode, TC=React.ReactNode>(childr
 
   for (const child of _children) {
     if (!predicate(child as TC)) {
-      if ((child as NannyNode).props?.children) {
+      if ((child as NannyNode)?.props?.children) {
         output = [
           ...output, 
           Object.assign((child as NannyNode), {
