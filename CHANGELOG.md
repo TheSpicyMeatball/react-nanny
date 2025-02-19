@@ -1,3 +1,6 @@
+## [2.16.0] - 2025-02-19
+- Updated typeOfComponent() to optionally use type for React19.
+
 ## [2.15.0] - 2022-10-11
 - Added {skipWhenFound} to {getChildrenByType} to stop searching lower in the tree when a match is found.
 
